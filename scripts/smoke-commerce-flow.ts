@@ -82,28 +82,14 @@ async function main() {
   });
   assert(cartItem.quantity === 2, 'cart item quantity is 2');
 
-  const order = await request('POST', '/orders', {
-    storeId: store.id,
+  const order = await request('POST', '/checkout', {
     customerId: customer.id,
-    email: customer.email,
-    firstName: customer.firstName,
-    lastName: customer.lastName,
-    phone: customer.phone,
     addressLine1: 'Test Street 1',
     city: 'Vidin',
     postalCode: '3700',
     country: 'BG',
-    subtotal: '99.98',
     shipping: '5.00',
     tax: '0.00',
-    total: '104.98',
-    items: [{
-      variantId: variant.id,
-      sku: variant.sku,
-      name: variant.name,
-      price: variant.price,
-      quantity: 2,
-    }],
   });
   assert(order.items?.length === 1, 'order has one item');
 

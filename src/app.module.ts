@@ -14,6 +14,7 @@ import { ReturnModule } from './modules/returns/return.module';
 import { CouponModule } from './modules/coupons/coupon.module';
 import { AttributionModule } from './modules/attribution/attribution.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { CheckoutModule } from './modules/checkout/checkout.module';
 import { StoreModule } from './modules/stores/store.module';
 
 @Module({
@@ -30,6 +31,7 @@ import { StoreModule } from './modules/stores/store.module';
     CouponModule,
     AttributionModule,
     AuthModule,
+    CheckoutModule,
     StoreModule,
   ],
   controllers: [AppController],
