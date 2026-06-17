@@ -1,0 +1,54 @@
+{
+  "store": {
+    "name": "Demo Store",
+    "slug": "demo-store"
+  },
+  "product": {
+    "name": "Vitamin C Serum",
+    "slug": "vitamin-c-serum",
+    "description": "Test product",
+    "status": "active",
+    "variants": [
+      {
+        "sku": "VITC-30ML",
+        "name": "30ml",
+        "price": "49.99",
+        "currency": "BGN",
+        "attributes": {
+          "size": "30ml"
+        }
+      }
+    ]
+  },
+  "inventory": {
+    "quantity": 25
+  },
+  "customer": {
+    "email": "test@example.com",
+    "firstName": "Test",
+    "lastName": "Customer",
+    "phone": "+359888000000"
+  },
+  "cartItem": {
+    "quantity": 2
+  },
+  "order": {
+    "addressLine1": "Test Street 1",
+    "city": "Vidin",
+    "postalCode": "3700",
+    "country": "BG",
+    "shipping": "5.00",
+    "tax": "0.00"
+  },
+  "payment": {
+    "provider": "manual"
+  },
+  "shipment": {
+    "provider": "manual",
+    "trackingNumber": "TEST123"
+  },
+  "return": {
+    "reason": "test return",
+    "quantity": 1
+  }
+}
