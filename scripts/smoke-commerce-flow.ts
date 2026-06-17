@@ -48,13 +48,15 @@ async function main() {
     name: 'Vitamin C Serum',
     slug: `vitamin-c-serum-${unique}`,
     status: 'active',
-    variants: [{
-      sku: `VITC-30ML-${unique}`,
-      name: '30ml',
-      price: '49.99',
-      currency: 'BGN',
-      attributes: { size: '30ml' },
-    }],
+    variants: [
+      {
+        sku: `VITC-30ML-${unique}`,
+        name: '30ml',
+        price: '49.99',
+        currency: 'BGN',
+        attributes: { size: '30ml' },
+      },
+    ],
   });
   assert(product.variants?.length === 1, 'product has one variant');
 
@@ -111,12 +113,14 @@ async function main() {
   const returnObject = await request('POST', '/returns', {
     orderId: order.id,
     reason: 'Smoke test return',
-    items: [{
-      orderItemId: order.items[0].id,
-      sku: variant.sku,
-      quantity: 1,
-      reason: 'Smoke test',
-    }],
+    items: [
+      {
+        orderItemId: order.items[0].id,
+        sku: variant.sku,
+        quantity: 1,
+        reason: 'Smoke test',
+      },
+    ],
   });
   assert(returnObject.items?.length === 1, 'return has one item');
 
@@ -135,6 +139,44 @@ async function main() {
     utmCampaign: 'smoke-flow',
   });
   assert(visitor.id, 'visitor.id exists');
+
+  const legacyHash = `legacy-${unique}`;
+
+  const legacyVisitor = await request(
+    'POST',
+    `/visitors/getOrCreateVisitor/${legacyHash}`,
+    {
+      visit: {
+        ipAddress: '127.0.0.1',
+        page: '/legacy-test',
+        referrer: 'smoke',
+        userAgent: 'smoke-script',
+        sessionId: `legacy-session-${unique}`,
+      },
+      influencerId: 'legacy-influencer',
+    },
+  );
+  assert(legacyVisitor.hash === legacyHash, 'legacy visitor hash saved');
+
+  const legacyVisitorAgain = await request(
+    'POST',
+    `/visitors/getOrCreateVisitor/${legacyHash}`,
+    {
+      visit: {
+        page: '/legacy-test-again',
+      },
+    },
+  );
+  assert(
+    legacyVisitorAgain.id === legacyVisitor.id,
+    'legacy visitor getOrCreate is idempotent',
+  );
+
+  await request('PUT', `/visitors/addEvent/${legacyVisitor.id}`, {
+    page: '/legacy-event',
+    referrer: 'smoke',
+    userAgent: 'smoke-script',
+  });
 
   console.log('🎉 Smoke commerce flow passed with assertions');
 }

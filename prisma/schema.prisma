@@ -384,6 +384,8 @@ model Visitor {
   storeId String
   store   Store  @relation(fields: [storeId], references: [id])
 
+  hash String?
+
   sessionId String?
 
   referralCode String?
@@ -395,6 +397,8 @@ model Visitor {
   createdAt DateTime @default(now())
 
   visits Visit[]
+
+  @@unique([storeId, hash])
 }
 
 model Visit {
