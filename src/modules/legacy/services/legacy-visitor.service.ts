@@ -65,6 +65,28 @@ export class LegacyVisitorService {
     });
   }
 
+
+  async saveUserInfo(id: string, body: any) {
+    const visitor = await this.prisma.visitor.findUnique({
+      where: { id },
+    });
+
+    if (!visitor) {
+      return null;
+    }
+
+    return this.prisma.visitor.update({
+      where: { id },
+      data: {
+        // temporary compatibility storage
+        utmCampaign: body?.email ?? body?.name ?? visitor.utmCampaign,
+      },
+      include: {
+        visits: true,
+      },
+    });
+  }
+
   async addEvent(userId: string, body: any) {
     const visitor = await this.prisma.visitor.findUnique({
       where: {

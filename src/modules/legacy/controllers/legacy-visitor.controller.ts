@@ -23,6 +23,12 @@ export class LegacyVisitorController {
     return this.legacyVisitorService.getById(id);
   }
 
+
+  @Put('saveUserInfo/:id')
+  saveUserInfo(@Param('id') id: string, @Body() body: any) {
+    return this.legacyVisitorService.saveUserInfo(id, body);
+  }
+
   @Put('addEvent/:userId')
   addEvent(@Param('userId') userId: string, @Body() body: any) {
     return this.legacyVisitorService.addEvent(userId, body);

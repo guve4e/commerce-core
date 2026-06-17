@@ -114,6 +114,39 @@ async function main() {
   });
 
   console.log('🎉 Legacy smoke flow passed');
+
+
+  const customer = await request('POST', '/customers', {
+    storeId: store.id,
+    email: `legacy-${unique}@example.com`,
+    firstName: 'Legacy',
+    lastName: 'Customer',
+  });
+
+  const variant = product.variants[0];
+
+  await request('POST', `/shoppingCart/${customer.id}`);
+
+  const legacyCart = await request(
+    'PUT',
+    `/shoppingCart/addToShoppingCart/${customer.id}?sku=${variant.sku}&qty=2`,
+  );
+  assert(legacyCart.items?.length === 1, 'legacy cart has one item');
+
+  const updatedLegacyCart = await request(
+    'PUT',
+    `/shoppingCart/updateShoppingCart/${customer.id}?sku=${variant.sku}&qty=3`,
+  );
+  assert(
+    updatedLegacyCart.items?.[0]?.quantity === 3,
+    'legacy cart quantity updated',
+  );
+
+  const emptiedLegacyCart = await request(
+    'DELETE',
+    `/shoppingCart/deleteShoppingCart/${customer.id}`,
+  );
+  assert(emptiedLegacyCart.items?.length === 0, 'legacy cart emptied');
 }
 
 main().catch((error) => {
