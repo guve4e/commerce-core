@@ -16,6 +16,7 @@ import { AttributionModule } from './modules/attribution/attribution.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { CheckoutModule } from './modules/checkout/checkout.module';
 import { LegacyModule } from './modules/legacy/legacy.module';
+import { AssistantCommerceModule } from './modules/assistant-commerce/assistant-commerce.module';
 import { StoreModule } from './modules/stores/store.module';
 
 @Module({
@@ -34,6 +35,7 @@ import { StoreModule } from './modules/stores/store.module';
     AuthModule,
     CheckoutModule,
     LegacyModule,
+    AssistantCommerceModule,
     StoreModule,
   ],
   controllers: [AppController],

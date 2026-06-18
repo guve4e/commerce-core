@@ -13,6 +13,8 @@ import { LegacyCouponController } from './controllers/legacy-coupon.controller';
 import { LegacyCouponService } from './services/legacy-coupon.service';
 import { LegacyOrderController } from './controllers/legacy-order.controller';
 import { LegacyOrderService } from './services/legacy-order.service';
+import { LegacyReturnController } from './controllers/legacy-return.controller';
+import { LegacyReturnService } from './services/legacy-return.service';
 
 @Module({
   controllers: [
@@ -21,6 +23,7 @@ import { LegacyOrderService } from './services/legacy-order.service';
     LegacyCartController,
     LegacyCouponController,
     LegacyOrderController,
+    LegacyReturnController,
   ],
   providers: [
     LegacyVisitorService,
@@ -28,6 +31,7 @@ import { LegacyOrderService } from './services/legacy-order.service';
     LegacyCartService,
     LegacyCouponService,
     LegacyOrderService,
+    LegacyReturnService,
   ],
 })
 export class LegacyModule {}
