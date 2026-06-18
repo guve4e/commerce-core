@@ -156,6 +156,8 @@ model CartItem {
 model Order {
   id String @id @default(uuid())
 
+  orderNumber Int? @unique
+
   storeId String
   store   Store  @relation(fields: [storeId], references: [id])
 

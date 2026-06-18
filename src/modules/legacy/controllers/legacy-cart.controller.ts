@@ -1,9 +1,13 @@
 import { Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { LegacyCartService } from '../services/legacy-cart.service';
+import { LegacyCouponService } from '../services/legacy-coupon.service';
 
 @Controller('shoppingCart')
 export class LegacyCartController {
-  constructor(private readonly legacyCartService: LegacyCartService) {}
+  constructor(
+    private readonly legacyCartService: LegacyCartService,
+    private readonly legacyCouponService: LegacyCouponService,
+  ) {}
 
 
   @Get('getAvailableQuantities/:userId')
@@ -37,6 +41,15 @@ export class LegacyCartController {
     @Query('qty') qty: string,
   ) {
     return this.legacyCartService.updateCart(userId, sku, Number(qty));
+  }
+
+
+  @Post('applyCoupon/:userId')
+  applyCoupon(
+    @Param('userId') userId: string,
+    @Query('couponToken') couponToken: string,
+  ) {
+    return this.legacyCouponService.applyCoupon(userId, couponToken);
   }
 
   @Delete('deleteShoppingCart/:userId')

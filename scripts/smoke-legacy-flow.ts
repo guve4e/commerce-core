@@ -57,7 +57,10 @@ async function main() {
     ],
   });
 
-  const products = await request('GET', `/product/getAllByCompany/${store.slug}`);
+  const products = await request(
+    'GET',
+    `/product/getAllByCompany/${store.slug}`,
+  );
   assert(Array.isArray(products), 'legacy products returns array');
   assert(products.length > 0, 'legacy products not empty');
 
@@ -68,7 +71,10 @@ async function main() {
     'GET',
     `/product/getByCompanyAndGroup/${store.slug}?group=${product.slug}`,
   );
-  assert(byCompanyAndGroup?.id === product.id, 'legacy getByCompanyAndGroup works');
+  assert(
+    byCompanyAndGroup?.id === product.id,
+    'legacy getByCompanyAndGroup works',
+  );
 
   const names = await request('GET', `/product/getProductNames/${store.slug}`);
   assert(Array.isArray(names), 'legacy product names returns array');
@@ -115,7 +121,6 @@ async function main() {
 
   console.log('🎉 Legacy smoke flow passed');
 
-
   const customer = await request('POST', '/customers', {
     storeId: store.id,
     email: `legacy-${unique}@example.com`,
@@ -142,11 +147,74 @@ async function main() {
     'legacy cart quantity updated',
   );
 
-  const emptiedLegacyCart = await request(
-    'DELETE',
-    `/shoppingCart/deleteShoppingCart/${customer.id}`,
+  const campaign = await request('POST', '/coupons/campaigns', {
+    storeId: store.id,
+    name: `Legacy Campaign ${unique}`,
+  });
+
+  const couponCode = await request('POST', '/coupons/codes', {
+    campaignId: campaign.id,
+    code: `LEGACY${unique}`,
+    percentageOff: '10',
+    maxUses: 100,
+  });
+
+  const couponByToken = await request(
+    'GET',
+    `/coupon/getByToken/${couponCode.code}`,
   );
-  assert(emptiedLegacyCart.items?.length === 0, 'legacy cart emptied');
+  assert(
+    couponByToken.code === couponCode.code,
+    'legacy coupon getByToken works',
+  );
+
+  const publicCoupons = await request(
+    'GET',
+    `/coupon/getPublicCoupons/${store.slug}`,
+  );
+  assert(Array.isArray(publicCoupons), 'legacy public coupons returns array');
+
+  const cartWithCoupon = await request(
+    'POST',
+    `/shoppingCart/applyCoupon/${customer.id}?couponToken=${couponCode.code}`,
+  );
+  assert(
+    cartWithCoupon.legacyAppliedCoupon?.code === couponCode.code,
+    'legacy apply coupon works',
+  );
+
+  const order = await request(
+    'POST',
+    `/order/user/${customer.id}?company=${store.slug}`,
+    {
+      shippingInfo: {
+        firstName: 'Legacy',
+        lastName: 'Customer',
+        email: customer.email,
+        phoneNumber: '+359888000000',
+
+        address: {
+          streetName: 'Test Street',
+          city: 'Vidin',
+          zip: '3700',
+          country: 'BG',
+        },
+
+        cost: 5,
+      },
+    },
+  );
+
+  assert(order.id, 'legacy order created');
+  assert(order.orderNumber, 'legacy order number exists');
+
+  await request('DELETE', `/shoppingCart/deleteShoppingCart/${customer.id}`);
+
+  const cartAfterDelete = await request('GET', `/shoppingCart/${customer.id}`);
+
+  assert(cartAfterDelete.items?.length === 0, 'legacy cart emptied');
+
+  console.log('🎉 Legacy order flow passed');
 }
 
 main().catch((error) => {

@@ -9,16 +9,25 @@ import { LegacyProductService } from './services/legacy-product.service';
 import { LegacyCartController } from './controllers/legacy-cart.controller';
 import { LegacyCartService } from './services/legacy-cart.service';
 
+import { LegacyCouponController } from './controllers/legacy-coupon.controller';
+import { LegacyCouponService } from './services/legacy-coupon.service';
+import { LegacyOrderController } from './controllers/legacy-order.controller';
+import { LegacyOrderService } from './services/legacy-order.service';
+
 @Module({
   controllers: [
     LegacyVisitorController,
     LegacyProductController,
     LegacyCartController,
+    LegacyCouponController,
+    LegacyOrderController,
   ],
   providers: [
     LegacyVisitorService,
     LegacyProductService,
     LegacyCartService,
+    LegacyCouponService,
+    LegacyOrderService,
   ],
 })
 export class LegacyModule {}
