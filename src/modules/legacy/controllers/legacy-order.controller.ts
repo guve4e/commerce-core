@@ -34,12 +34,12 @@ export class LegacyOrderController {
 
   @Put('changeOrderStatusShipped/:orderId')
   shipped(@Param('orderId') orderId: string, @Body() body: any) {
-    return this.legacyOrderService.changeStatus(orderId, 'shipped', body?.note ?? '');
+    return this.legacyOrderService.ship(orderId, body?.note ?? '');
   }
 
   @Put('changeOrderStatusDelivered/:orderId')
   delivered(@Param('orderId') orderId: string, @Body() body: any) {
-    return this.legacyOrderService.changeStatus(orderId, 'delivered', body?.note ?? '');
+    return this.legacyOrderService.deliver(orderId, body?.note ?? '');
   }
 
   @Put('changeOrderStatus/:orderId')

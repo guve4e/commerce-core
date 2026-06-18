@@ -73,7 +73,7 @@ export class CheckoutService {
           postalCode: dto.postalCode,
           country: dto.country,
 
-          status: 'new',
+          status: 'created',
 
           subtotal: subtotal.toFixed(2),
           shipping: shipping.toFixed(2),
@@ -92,7 +92,7 @@ export class CheckoutService {
 
           statusHistory: {
             create: {
-              status: 'new',
+              status: 'created',
               note: 'Checkout created order',
             },
           },

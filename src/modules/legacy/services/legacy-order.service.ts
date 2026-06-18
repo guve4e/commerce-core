@@ -1,9 +1,13 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
+import { OrderService } from '../../orders/services/order.service';
 
 @Injectable()
 export class LegacyOrderService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly orderService: OrderService,
+  ) {}
 
   async createFromCart(userId: string, company: string, body: any) {
     const customer = await this.getLegacyCustomer(userId);
@@ -45,7 +49,7 @@ export class LegacyOrderService {
           postalCode: address.zip,
           country: address.country?.alpha2 ?? address.country ?? 'BG',
 
-          status: 'new',
+          status: 'created',
 
           subtotal: subtotal.toFixed(2),
           shipping: String(shippingInfo.cost ?? '0'),
@@ -64,7 +68,7 @@ export class LegacyOrderService {
 
           statusHistory: {
             create: {
-              status: 'new',
+              status: 'created',
               note: `Legacy order created for company ${company}`,
             },
           },
@@ -106,6 +110,35 @@ export class LegacyOrderService {
     }
 
     return order;
+  }
+
+
+  async ship(orderId: string, note = '') {
+    const order = await this.orderService.ship(orderId);
+
+    await this.prisma.orderStatusHistory.create({
+      data: {
+        orderId,
+        status: order.status,
+        note,
+      },
+    });
+
+    return this.getById(orderId);
+  }
+
+  async deliver(orderId: string, note = '') {
+    const order = await this.orderService.deliver(orderId);
+
+    await this.prisma.orderStatusHistory.create({
+      data: {
+        orderId,
+        status: order.status,
+        note,
+      },
+    });
+
+    return this.getById(orderId);
   }
 
   async changeStatus(orderId: string, status: string, note = '') {

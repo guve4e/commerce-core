@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { OrderModule } from '../orders/order.module';
 
 import { LegacyVisitorController } from './controllers/legacy-visitor.controller';
 import { LegacyVisitorService } from './services/legacy-visitor.service';
@@ -17,6 +18,7 @@ import { LegacyReturnController } from './controllers/legacy-return.controller';
 import { LegacyReturnService } from './services/legacy-return.service';
 
 @Module({
+  imports: [OrderModule],
   controllers: [
     LegacyVisitorController,
     LegacyProductController,

@@ -54,4 +54,49 @@ export class InventoryService {
       },
     });
   }
+  async reserve(variantId: string, qty: number) {
+    const item = await this.prisma.inventoryItem.findUniqueOrThrow({
+      where: { variantId },
+    });
+
+    if (item.quantity - item.reservedQuantity < qty) {
+      throw new Error('Insufficient inventory');
+    }
+
+    return this.prisma.inventoryItem.update({
+      where: { variantId },
+      data: {
+        reservedQuantity: {
+          increment: qty,
+        },
+      },
+    });
+  }
+
+  async release(variantId: string, qty: number) {
+    return this.prisma.inventoryItem.update({
+      where: { variantId },
+      data: {
+        reservedQuantity: {
+          decrement: qty,
+        },
+      },
+    });
+  }
+
+  async consume(variantId: string, qty: number) {
+    return this.prisma.inventoryItem.update({
+      where: { variantId },
+      data: {
+        quantity: {
+          decrement: qty,
+        },
+        reservedQuantity: {
+          decrement: qty,
+        },
+      },
+    });
+  }
+
+
 }
