@@ -1,90 +1,33 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { OrderService } from '../../orders/services/order.service';
+import { OrderApplicationService } from '../../orders/application/order-application.service';
 
 @Injectable()
 export class LegacyOrderService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly orderService: OrderService,
+    private readonly orderApplicationService: OrderApplicationService,
   ) {}
 
   async createFromCart(userId: string, company: string, body: any) {
     const customer = await this.getLegacyCustomer(userId);
-    const cart = await this.prisma.cart.findFirst({
-      where: { customerId: customer.id, status: 'active' },
-      include: { items: { include: { variant: true } }, customer: true },
-    });
-
-    if (!cart || cart.items.length === 0) {
-      throw new BadRequestException(`No shopping cart found for user: ${userId}`);
-    }
-
-    const subtotal = cart.items.reduce(
-      (sum, item) => sum + Number(item.variant.price) * item.quantity,
-      0,
-    );
-
-    const shippingInfo = body?.shippingInfo ?? {};
-    const address = shippingInfo?.address ?? {};
-
     const orderNumber = await this.nextOrderNumber();
 
-    return this.prisma.$transaction(async (tx) => {
-      const order = await tx.order.create({
-        data: {
-          orderNumber,
-          storeId: customer.storeId,
-          customerId: customer.id,
+    return this.orderApplicationService.createOrder({
+      customerId: customer.id,
 
-          email: shippingInfo.email ?? customer.email,
-          firstName: shippingInfo.firstName ?? shippingInfo.name ?? customer.firstName ?? '',
-          lastName: shippingInfo.lastName ?? customer.lastName,
-          phone: shippingInfo.phoneNumber ?? customer.phone,
+      orderNumber,
 
-          addressLine1: address.streetName ?? 'Legacy Address',
-          addressLine2: address.apartment,
-          city: address.city ?? 'Unknown',
-          state: address.state,
-          postalCode: address.zip,
-          country: address.country?.alpha2 ?? address.country ?? 'BG',
+      addressLine1: body.shippingInfo.address.streetName,
+      city: body.shippingInfo.address.city,
+      postalCode: body.shippingInfo.address.zip,
+      country: body.shippingInfo.address.country,
 
-          status: 'created',
+      shipping: body.shippingInfo.cost,
 
-          subtotal: subtotal.toFixed(2),
-          shipping: String(shippingInfo.cost ?? '0'),
-          tax: '0',
-          total: (subtotal + Number(shippingInfo.cost ?? 0)).toFixed(2),
-
-          items: {
-            create: cart.items.map((item) => ({
-              variantId: item.variantId,
-              sku: item.variant.sku,
-              name: item.variant.name,
-              price: item.variant.price,
-              quantity: item.quantity,
-            })),
-          },
-
-          statusHistory: {
-            create: {
-              status: 'created',
-              note: `Legacy order created for company ${company}`,
-            },
-          },
-        },
-        include: {
-          items: true,
-          statusHistory: true,
-        },
-      });
-
-      await tx.cart.update({
-        where: { id: cart.id },
-        data: { status: 'checked_out' },
-      });
-
-      return order;
+      statusNote: `Legacy order created for company ${company}`,
     });
   }
 
@@ -111,7 +54,6 @@ export class LegacyOrderService {
 
     return order;
   }
-
 
   async ship(orderId: string, note = '') {
     const order = await this.orderService.ship(orderId);

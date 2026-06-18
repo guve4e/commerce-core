@@ -54,7 +54,14 @@ async function createStoreAndProduct(unique: number) {
     ],
   });
 
-  return { store, product, variant: product.variants[0] };
+  const variant = product.variants[0];
+
+  await request('POST', '/inventory/receive', {
+    variantId: variant.id,
+    quantity: 25,
+  });
+
+  return { store, product, variant };
 }
 
 async function verifyLegacyProductRoutes(store: any, product: any) {
@@ -283,6 +290,11 @@ async function cleanupCart(customer: any) {
   assert(cartAfterDelete.items?.length === 0, 'legacy cart emptied');
 }
 
+
+async function getInventory(variantId: string) {
+  return request('GET', `/inventory/${variantId}`);
+}
+
 async function main() {
   const unique = Date.now();
 
@@ -298,9 +310,37 @@ async function main() {
   await verifyLegacyCartRoutes(customer, variant);
   await verifyLegacyCouponRoutes(store, customer, unique);
 
+  const inventoryBeforeOrder = await getInventory(variant.id);
+  console.log('variant.id', variant.id);
+  console.log('variant.sku', variant.sku);
+  console.log('inventoryBeforeOrder', inventoryBeforeOrder);
+
   const shippedOrder = await createLegacyOrder(store, customer);
 
+  const inventoryAfterOrder = await getInventory(variant.id);
+
+  console.log('inventoryAfterOrder', inventoryAfterOrder);
+
+  assert(
+    Number(inventoryAfterOrder.quantity) <= Number(inventoryBeforeOrder.quantity),
+    'inventory did not increase after order',
+  );
+
   await verifyLegacyOrderLookupAndStatus(shippedOrder);
+
+  const inventoryAfterShip = await getInventory(variant.id);
+
+  console.log('inventoryAfterShip', inventoryAfterShip);
+
+  assert(
+    inventoryAfterShip.quantity === inventoryBeforeOrder.quantity - 3,
+    'shipping consumed inventory',
+  );
+
+  assert(
+    inventoryAfterShip.reservedQuantity === 0,
+    'shipping released reservation',
+  );
 
   // recreate cart because the previous order consumed it
   await verifyLegacyCartRoutes(customer, variant);

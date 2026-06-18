@@ -15,7 +15,11 @@ export class OrderService {
         ...orderData,
         items: {
           create: items.map((item) => ({
-            variantId: item.variantId,
+            variant: {
+              connect: {
+                id: item.variantId,
+              },
+            },
             sku: item.sku,
             name: item.name,
             price: item.price,
@@ -61,11 +65,39 @@ export class OrderService {
 
     aggregate.ship();
 
-    return this.prisma.order.update({
-      where: { id: orderId },
-      data: {
-        status: order.status,
-      },
+    return this.prisma.$transaction(async (tx) => {
+      const updatedOrder = await tx.order.update({
+        where: { id: orderId },
+        data: {
+          status: aggregate.status,
+        },
+        include: {
+          items: true,
+          statusHistory: true,
+        },
+      });
+
+      for (const item of updatedOrder.items) {
+        if (!item.variantId) {
+          throw new Error(`Order item ${item.id} has no variantId`);
+        }
+
+        await tx.inventoryItem.update({
+          where: {
+            variantId: item.variantId,
+          },
+          data: {
+            quantity: {
+              decrement: item.quantity,
+            },
+            reservedQuantity: {
+              decrement: item.quantity,
+            },
+          },
+        });
+      }
+
+      return updatedOrder;
     });
   }
 
@@ -81,7 +113,7 @@ export class OrderService {
     return this.prisma.order.update({
       where: { id: orderId },
       data: {
-        status: order.status,
+        status: aggregate.status,
       },
     });
   }
