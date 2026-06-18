@@ -1,9 +1,13 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
+import { InventoryService } from '../../inventory/services/inventory.service';
 
 @Injectable()
 export class OrderApplicationService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly inventoryService: InventoryService,
+  ) {}
 
   async createOrder(dto: any) {
     const cart = await this.prisma.cart.findFirst({
@@ -104,16 +108,7 @@ export class OrderApplicationService {
       });
 
       for (const item of cart.items) {
-        await tx.inventoryItem.update({
-          where: {
-            variantId: item.variantId,
-          },
-          data: {
-            reservedQuantity: {
-              increment: item.quantity,
-            },
-          },
-        });
+        await this.inventoryService.reserve(item.variantId, item.quantity);
       }
 
       await tx.cart.update({

@@ -2,10 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { OrderAggregate } from '../domain/order.aggregate';
 import { CreateOrderDto } from '../dto/create-order.dto';
+import { InventoryService } from 'src/modules/inventory/services/inventory.service';
 
 @Injectable()
 export class OrderService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly inventoryService: InventoryService,
+  ) {}
 
   async create(dto: CreateOrderDto) {
     const { items, ...orderData } = dto;
@@ -82,19 +86,7 @@ export class OrderService {
           throw new Error(`Order item ${item.id} has no variantId`);
         }
 
-        await tx.inventoryItem.update({
-          where: {
-            variantId: item.variantId,
-          },
-          data: {
-            quantity: {
-              decrement: item.quantity,
-            },
-            reservedQuantity: {
-              decrement: item.quantity,
-            },
-          },
-        });
+        await this.inventoryService.consume(item.variantId, item.quantity);
       }
 
       return updatedOrder;
@@ -123,16 +115,7 @@ export class OrderService {
       });
 
       for (const item of updatedOrder.items) {
-        await tx.inventoryItem.update({
-          where: {
-            variantId: item.variantId,
-          },
-          data: {
-            reservedQuantity: {
-              decrement: item.quantity,
-            },
-          },
-        });
+        await this.inventoryService.release(item.variantId!, item.quantity);
       }
 
       return updatedOrder;

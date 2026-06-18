@@ -7,12 +7,24 @@ export class OrderAggregate {
     },
   ) {}
 
+  pay() {
+    if (this.order.status !== OrderStatus.CREATED) {
+      throw new Error(
+        `Cannot pay order from status ${this.order.status}`,
+      );
+    }
+
+    this.order.status = OrderStatus.PROCESSING;
+  }
+
   ship() {
     if (
       this.order.status !== OrderStatus.CREATED &&
       this.order.status !== OrderStatus.PROCESSING
     ) {
-      throw new Error(`Cannot ship order from status ${this.order.status}`);
+      throw new Error(
+        `Cannot ship order from status ${this.order.status}`,
+      );
     }
 
     this.order.status = OrderStatus.SHIPPED;
@@ -20,7 +32,9 @@ export class OrderAggregate {
 
   deliver() {
     if (this.order.status !== OrderStatus.SHIPPED) {
-      throw new Error(`Cannot deliver order from status ${this.order.status}`);
+      throw new Error(
+        `Cannot deliver order from status ${this.order.status}`,
+      );
     }
 
     this.order.status = OrderStatus.DELIVERED;
@@ -28,7 +42,9 @@ export class OrderAggregate {
 
   cancel() {
     if (this.order.status === OrderStatus.DELIVERED) {
-      throw new Error(`Cannot cancel order from status ${this.order.status}`);
+      throw new Error(
+        `Cannot cancel order from status ${this.order.status}`,
+      );
     }
 
     this.order.status = OrderStatus.CANCELLED;

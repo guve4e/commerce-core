@@ -5,38 +5,19 @@ export class PaymentAggregate {
     },
   ) {}
 
-  authorize() {
-    if (this.payment.status !== 'pending') {
-      throw new Error(`Cannot authorize payment from ${this.payment.status}`);
-    }
-
-    this.payment.status = 'authorized';
+  get status(): string {
+    return this.payment.status;
   }
 
   capture() {
-    if (
-      this.payment.status !== 'authorized' &&
-      this.payment.status !== 'pending'
-    ) {
-      throw new Error(`Cannot capture payment from ${this.payment.status}`);
+    if (this.payment.status === 'captured') {
+      throw new Error('Payment already captured');
     }
 
-    this.payment.status = 'paid';
-  }
-
-  refund() {
-    if (this.payment.status !== 'paid') {
-      throw new Error(`Cannot refund payment from ${this.payment.status}`);
-    }
-
-    this.payment.status = 'refunded';
+    this.payment.status = 'captured';
   }
 
   fail() {
     this.payment.status = 'failed';
-  }
-
-  get status() {
-    return this.payment.status;
   }
 }

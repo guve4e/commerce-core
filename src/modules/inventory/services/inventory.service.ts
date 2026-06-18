@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { ReceiveStockDto } from '../dto/receive-stock.dto';
+import { InventoryAggregate } from '../domain/inventory.aggregate';
 
 @Injectable()
 export class InventoryService {
@@ -9,13 +10,9 @@ export class InventoryService {
   async receiveStock(dto: ReceiveStockDto) {
     return this.prisma.$transaction(async (tx) => {
       const item = await tx.inventoryItem.upsert({
-        where: {
-          variantId: dto.variantId,
-        },
+        where: { variantId: dto.variantId },
         update: {
-          quantity: {
-            increment: dto.quantity,
-          },
+          quantity: { increment: dto.quantity },
         },
         create: {
           variantId: dto.variantId,
@@ -32,9 +29,7 @@ export class InventoryService {
       });
 
       return tx.inventoryItem.findUnique({
-        where: {
-          id: item.id,
-        },
+        where: { id: item.id },
         include: {
           batches: true,
           variant: true,
@@ -45,58 +40,79 @@ export class InventoryService {
 
   findByVariantId(variantId: string) {
     return this.prisma.inventoryItem.findUnique({
-      where: {
-        variantId,
-      },
+      where: { variantId },
       include: {
         batches: true,
         variant: true,
       },
     });
   }
+
   async reserve(variantId: string, qty: number) {
     const item = await this.prisma.inventoryItem.findUniqueOrThrow({
       where: { variantId },
     });
 
-    if (item.quantity - item.reservedQuantity < qty) {
-      throw new Error('Insufficient inventory');
-    }
+    const aggregate = new InventoryAggregate(item);
+    aggregate.reserve(qty);
 
     return this.prisma.inventoryItem.update({
       where: { variantId },
       data: {
-        reservedQuantity: {
-          increment: qty,
-        },
+        quantity: aggregate.quantity,
+        reservedQuantity: aggregate.reservedQuantity,
       },
     });
   }
 
   async release(variantId: string, qty: number) {
+    const item = await this.prisma.inventoryItem.findUniqueOrThrow({
+      where: { variantId },
+    });
+
+    const aggregate = new InventoryAggregate(item);
+    aggregate.release(qty);
+
     return this.prisma.inventoryItem.update({
       where: { variantId },
       data: {
-        reservedQuantity: {
-          decrement: qty,
-        },
+        quantity: aggregate.quantity,
+        reservedQuantity: aggregate.reservedQuantity,
       },
     });
   }
 
   async consume(variantId: string, qty: number) {
+    const item = await this.prisma.inventoryItem.findUniqueOrThrow({
+      where: { variantId },
+    });
+
+    const aggregate = new InventoryAggregate(item);
+    aggregate.consume(qty);
+
     return this.prisma.inventoryItem.update({
       where: { variantId },
       data: {
-        quantity: {
-          decrement: qty,
-        },
-        reservedQuantity: {
-          decrement: qty,
-        },
+        quantity: aggregate.quantity,
+        reservedQuantity: aggregate.reservedQuantity,
       },
     });
   }
 
+  async restock(variantId: string, qty: number) {
+    const item = await this.prisma.inventoryItem.findUniqueOrThrow({
+      where: { variantId },
+    });
 
+    const aggregate = new InventoryAggregate(item);
+    aggregate.restock(qty);
+
+    return this.prisma.inventoryItem.update({
+      where: { variantId },
+      data: {
+        quantity: aggregate.quantity,
+        reservedQuantity: aggregate.reservedQuantity,
+      },
+    });
+  }
 }

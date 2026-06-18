@@ -1,5 +1,8 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
+import { ReturnAggregate } from '../../returns/domain/return.aggregate';
+import { ReturnStatus } from '../../returns/domain/return-status.enum';
+
 
 @Injectable()
 export class LegacyReturnService {
@@ -63,7 +66,7 @@ export class LegacyReturnService {
         data: {
           id: returnId || undefined,
           orderId: order.id,
-          status: 'CREATED',
+          status: 'OPEN',
           reason: body?.note,
           items: {
             create: returnProducts.map((item) => ({
@@ -104,7 +107,7 @@ export class LegacyReturnService {
   async changeState(returnId: string, state: string, note?: string) {
     const statusMap: Record<string, string> = {
       APPROVED: 'return_approved',
-      DISAPPROVED: 'return_declined',
+      REJECTED: 'return_declined',
       REFUNDED: 'return_refunded',
     };
 
@@ -122,11 +125,34 @@ export class LegacyReturnService {
       throw new BadRequestException(`Return not found: ${returnId}`);
     }
 
+    const aggregate = new ReturnAggregate(existing);
+
+    switch (state) {
+      case ReturnStatus.APPROVED:
+        aggregate.approve();
+        break;
+
+      case ReturnStatus.REJECTED:
+        aggregate.reject();
+        break;
+
+      case ReturnStatus.REFUNDED:
+        aggregate.refund();
+        break;
+
+      default:
+        throw new BadRequestException(`Unsupported return state: ${state}`);
+    }
+
+    if (!existing) {
+      throw new BadRequestException(`Return not found: ${returnId}`);
+    }
+
     return this.prisma.$transaction(async (tx) => {
       const updatedReturn = await tx.return.update({
         where: { id: returnId },
         data: {
-          status: state,
+          status: aggregate.status,
         },
         include: {
           items: true,

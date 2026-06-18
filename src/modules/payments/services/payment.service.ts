@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { CreatePaymentDto } from '../dto/create-payment.dto';
 import { PaymentAggregate } from '../domain/payment.aggregate';
+import { OrderAggregate } from '../../orders/domain/order.aggregate';
 
 @Injectable()
 export class PaymentService {
@@ -36,13 +37,26 @@ export class PaymentService {
         },
       });
 
+      const order = await tx.order.findUniqueOrThrow({
+        where: {
+          id: dto.orderId,
+        },
+      });
+
+      const orderAggregate = new OrderAggregate(order);
+
+      orderAggregate.pay();
+
+
       await tx.order.update({
-        where: { id: dto.orderId },
+        where: {
+          id: dto.orderId,
+        },
         data: {
-          status: 'paid',
+          status: orderAggregate.status,
           statusHistory: {
             create: {
-              status: 'paid',
+              status: orderAggregate.status,
               note: 'Payment captured',
             },
           },

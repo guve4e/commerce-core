@@ -1,5 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
+import { CouponAggregate } from '../../coupons/domain/coupon.aggregate';
+import { CouponStatus } from '../../coupons/domain/coupon-status.enum';
 
 @Injectable()
 export class LegacyCouponService {
@@ -45,6 +47,18 @@ export class LegacyCouponService {
       throw new BadRequestException(`Coupon not found: ${couponToken}`);
     }
 
+    const aggregate = new CouponAggregate({
+      active: coupon.active,
+      maxUses: coupon.maxUses,
+      usedCount: coupon.usedCount,
+      expiresAt: coupon.expiresAt,
+      status: coupon.active ? CouponStatus.ACTIVE : CouponStatus.DISABLED,
+    });
+
+    if (!aggregate.canApply()) {
+      throw new BadRequestException(`Coupon cannot be applied: ${couponToken}`);
+    }
+
     const customer = await this.getOrCreateShadowCustomer(userId);
 
     const cart = await this.prisma.cart.findFirst({
@@ -65,9 +79,30 @@ export class LegacyCouponService {
       throw new BadRequestException(`Cart not found for user: ${userId}`);
     }
 
+    const updatedCart = await this.prisma.cart.update({
+      where: {
+        id: cart.id,
+      },
+      data: {
+        couponCodeId: coupon.id,
+      },
+      include: {
+        couponCode: {
+          include: {
+            campaign: true,
+          },
+        },
+        items: {
+          include: {
+            variant: true,
+          },
+        },
+      },
+    });
+
     return {
-      ...cart,
-      legacyAppliedCoupon: coupon,
+      ...updatedCart,
+      legacyAppliedCoupon: updatedCart.couponCode,
     };
   }
 

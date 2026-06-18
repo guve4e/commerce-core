@@ -131,6 +131,9 @@ model Cart {
 
   status String @default("active")
 
+  couponCodeId String?
+  couponCode   CouponCode? @relation(fields: [couponCodeId], references: [id])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -364,6 +367,7 @@ model CouponCode {
   updatedAt DateTime @updatedAt
 
   redemptions CouponRedemption[]
+  carts       Cart[]
 }
 
 model CouponRedemption {
