@@ -33,6 +33,10 @@ async function request<T = any>(
   return data;
 }
 
+async function getInventory(variantId: string) {
+  return request('GET', `/inventory/${variantId}`);
+}
+
 async function createStoreAndProduct(unique: number) {
   const store = await request('POST', '/stores', {
     name: 'CP',
@@ -99,9 +103,7 @@ async function verifyLegacyVisitorRoutes(unique: number) {
   assert(visitor.hash === legacyHash, 'legacy visitor hash saved');
 
   const visitorAgain = await request('POST', `/visitors/getOrCreateVisitor/${legacyHash}`, {
-    visit: {
-      page: '/legacy-test-again',
-    },
+    visit: { page: '/legacy-test-again' },
   });
 
   assert(visitorAgain.id === visitor.id, 'legacy visitor getOrCreate is idempotent');
@@ -168,8 +170,6 @@ async function verifyLegacyCouponRoutes(store: any, customer: any, unique: numbe
     cartWithCoupon.legacyAppliedCoupon?.code === couponCode.code,
     'legacy apply coupon works',
   );
-
-  return couponCode;
 }
 
 async function createLegacyOrder(store: any, customer: any) {
@@ -195,55 +195,6 @@ async function createLegacyOrder(store: any, customer: any) {
   return order;
 }
 
-async function verifyLegacyReturnFlow(order: any, variant: any, unique: number) {
-  const returnId = `RET-${unique}`;
-
-  const returnTicket = await request(
-    'POST',
-    `/return/openReturnTicket/${order.orderNumber}?returnId=${returnId}`,
-    {
-      note: 'Smoke return',
-      returnProducts: [
-        {
-          sku: variant.sku,
-          quantity: 1,
-        },
-      ],
-    },
-  );
-
-  assert(returnTicket.id, 'return created');
-
-  const returnsByOrder = await request(
-    'GET',
-    `/return/getByOrderNumber/${order.orderNumber}`,
-  );
-
-  assert(Array.isArray(returnsByOrder), 'returnsByOrder returns array');
-  assert(returnsByOrder.length === 1, 'one return exists');
-
-  const approvedReturn = await request(
-    'PUT',
-    `/return/changeState/${returnTicket.id}?state=APPROVED&note=approved`,
-  );
-
-  assert(approvedReturn.status === 'APPROVED', 'return approved');
-
-  const refundedReturn = await request(
-    'PUT',
-    `/return/changeState/${returnTicket.id}?state=REFUNDED&note=refund`,
-  );
-
-  assert(refundedReturn.status === 'REFUNDED', 'return refunded');
-
-  const orderAfterRefund = await request('GET', `/order/${order.id}`);
-
-  assert(
-    orderAfterRefund.status === 'return_refunded',
-    'order status updated after refund',
-  );
-}
-
 async function verifyLegacyOrderLookupAndStatus(order: any) {
   const orderById = await request('GET', `/order/${order.id}`);
   assert(orderById.id === order.id, 'legacy get order by id works');
@@ -266,33 +217,133 @@ async function verifyLegacyOrderLookupAndStatus(order: any) {
   const shippedOrder = await request(
     'PUT',
     `/order/changeOrderStatusShipped/${order.id}`,
-    {
-      note: 'Legacy smoke shipped',
-    },
+    { note: 'Legacy smoke shipped' },
   );
   assert(shippedOrder.status === 'shipped', 'legacy shipped status works');
 
   const deliveredOrder = await request(
     'PUT',
     `/order/changeOrderStatusDelivered/${order.id}`,
-    {
-      note: 'Legacy smoke delivered',
-    },
+    { note: 'Legacy smoke delivered' },
   );
   assert(deliveredOrder.status === 'delivered', 'legacy delivered status works');
+}
+
+async function verifyLegacyCancelFlow(store: any, customer: any, variant: any) {
+  await verifyLegacyCartRoutes(customer, variant);
+
+  const inventoryBeforeCancelOrder = await getInventory(variant.id);
+  const cancelOrder = await createLegacyOrder(store, customer);
+  const inventoryAfterCancelOrder = await getInventory(variant.id);
+
+  assert(
+    inventoryAfterCancelOrder.quantity === inventoryBeforeCancelOrder.quantity,
+    'cancel order did not consume inventory',
+  );
+  assert(
+    inventoryAfterCancelOrder.reservedQuantity === 3,
+    'cancel order reserved inventory',
+  );
+
+  const cancelledOrder = await request(
+    'PUT',
+    `/order/changeOrderStatus/${cancelOrder.id}?status=cancelled`,
+    { note: 'cancel smoke' },
+  );
+
+  assert(cancelledOrder.status === 'cancelled', 'legacy cancel status works');
+
+  const inventoryAfterCancel = await getInventory(variant.id);
+
+  assert(
+    inventoryAfterCancel.quantity === inventoryBeforeCancelOrder.quantity,
+    'cancel preserved quantity',
+  );
+  assert(
+    inventoryAfterCancel.reservedQuantity === 0,
+    'cancel released reservation',
+  );
+}
+
+async function verifyLegacyReturnFlow(order: any, variant: any, unique: number) {
+  const returnId = `RET-${unique}`;
+
+  const returnTicket = await request(
+    'POST',
+    `/return/openReturnTicket/${order.orderNumber}?returnId=${returnId}`,
+    {
+      note: 'Smoke return',
+      returnProducts: [{ sku: variant.sku, quantity: 1 }],
+    },
+  );
+
+  assert(returnTicket.id, 'return created');
+
+  const returnsByOrder = await request(
+    'GET',
+    `/return/getByOrderNumber/${order.orderNumber}`,
+  );
+
+  assert(Array.isArray(returnsByOrder), 'returnsByOrder returns array');
+  assert(returnsByOrder.length === 1, 'one return exists');
+
+  const approvedReturn = await request(
+    'PUT',
+    `/return/changeState/${returnTicket.id}?state=APPROVED&note=approved`,
+  );
+  assert(approvedReturn.status === 'APPROVED', 'return approved');
+
+  const refundedReturn = await request(
+    'PUT',
+    `/return/changeState/${returnTicket.id}?state=REFUNDED&note=refund`,
+  );
+  assert(refundedReturn.status === 'REFUNDED', 'return refunded');
+
+  const orderAfterRefund = await request('GET', `/order/${order.id}`);
+  assert(
+    orderAfterRefund.status === 'return_refunded',
+    'order status updated after refund',
+  );
 }
 
 async function cleanupCart(customer: any) {
   await request('DELETE', `/shoppingCart/deleteShoppingCart/${customer.id}`);
 
   const cartAfterDelete = await request('GET', `/shoppingCart/${customer.id}`);
-
   assert(cartAfterDelete.items?.length === 0, 'legacy cart emptied');
 }
 
+async function verifyShippingInventoryFlow(store: any, customer: any, variant: any) {
+  const inventoryBeforeOrder = await getInventory(variant.id);
+  console.log('inventoryBeforeOrder', inventoryBeforeOrder);
 
-async function getInventory(variantId: string) {
-  return request('GET', `/inventory/${variantId}`);
+  const shippedOrder = await createLegacyOrder(store, customer);
+
+  const inventoryAfterOrder = await getInventory(variant.id);
+  console.log('inventoryAfterOrder', inventoryAfterOrder);
+
+  assert(
+    inventoryAfterOrder.quantity === inventoryBeforeOrder.quantity,
+    'order did not consume inventory quantity',
+  );
+  assert(
+    inventoryAfterOrder.reservedQuantity === 3,
+    'order reserved inventory',
+  );
+
+  await verifyLegacyOrderLookupAndStatus(shippedOrder);
+
+  const inventoryAfterShip = await getInventory(variant.id);
+  console.log('inventoryAfterShip', inventoryAfterShip);
+
+  assert(
+    inventoryAfterShip.quantity === inventoryBeforeOrder.quantity - 3,
+    'shipping consumed inventory',
+  );
+  assert(
+    inventoryAfterShip.reservedQuantity === 0,
+    'shipping released reservation',
+  );
 }
 
 async function main() {
@@ -310,39 +361,10 @@ async function main() {
   await verifyLegacyCartRoutes(customer, variant);
   await verifyLegacyCouponRoutes(store, customer, unique);
 
-  const inventoryBeforeOrder = await getInventory(variant.id);
-  console.log('variant.id', variant.id);
-  console.log('variant.sku', variant.sku);
-  console.log('inventoryBeforeOrder', inventoryBeforeOrder);
+  await verifyShippingInventoryFlow(store, customer, variant);
 
-  const shippedOrder = await createLegacyOrder(store, customer);
+  await verifyLegacyCancelFlow(store, customer, variant);
 
-  const inventoryAfterOrder = await getInventory(variant.id);
-
-  console.log('inventoryAfterOrder', inventoryAfterOrder);
-
-  assert(
-    Number(inventoryAfterOrder.quantity) <= Number(inventoryBeforeOrder.quantity),
-    'inventory did not increase after order',
-  );
-
-  await verifyLegacyOrderLookupAndStatus(shippedOrder);
-
-  const inventoryAfterShip = await getInventory(variant.id);
-
-  console.log('inventoryAfterShip', inventoryAfterShip);
-
-  assert(
-    inventoryAfterShip.quantity === inventoryBeforeOrder.quantity - 3,
-    'shipping consumed inventory',
-  );
-
-  assert(
-    inventoryAfterShip.reservedQuantity === 0,
-    'shipping released reservation',
-  );
-
-  // recreate cart because the previous order consumed it
   await verifyLegacyCartRoutes(customer, variant);
 
   const returnOrder = await createLegacyOrder(store, customer);

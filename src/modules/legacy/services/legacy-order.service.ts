@@ -83,14 +83,34 @@ export class LegacyOrderService {
     return this.getById(orderId);
   }
 
+  async cancel(orderId: string, note = '') {
+    const order = await this.orderService.cancel(orderId);
+
+    await this.prisma.orderStatusHistory.create({
+      data: {
+        orderId,
+        status: order.status,
+        note,
+      },
+    });
+
+    return this.getById(orderId);
+  }
+
   async changeStatus(orderId: string, status: string, note = '') {
+    const normalizedStatus = status.toLowerCase();
+
+    if (normalizedStatus === 'cancelled' || normalizedStatus === 'canceled') {
+      return this.cancel(orderId, note);
+    }
+
     return this.prisma.order.update({
       where: { id: orderId },
       data: {
-        status,
+        status: normalizedStatus,
         statusHistory: {
           create: {
-            status,
+            status: normalizedStatus,
             note,
           },
         },

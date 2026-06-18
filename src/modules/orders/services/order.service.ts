@@ -101,6 +101,44 @@ export class OrderService {
     });
   }
 
+  async cancel(orderId: string) {
+    const order = await this.prisma.order.findUniqueOrThrow({
+      where: { id: orderId },
+    });
+
+    const aggregate = new OrderAggregate(order);
+
+    aggregate.cancel();
+
+    return this.prisma.$transaction(async (tx) => {
+      const updatedOrder = await tx.order.update({
+        where: { id: orderId },
+        data: {
+          status: aggregate.status,
+        },
+        include: {
+          items: true,
+          statusHistory: true,
+        },
+      });
+
+      for (const item of updatedOrder.items) {
+        await tx.inventoryItem.update({
+          where: {
+            variantId: item.variantId,
+          },
+          data: {
+            reservedQuantity: {
+              decrement: item.quantity,
+            },
+          },
+        });
+      }
+
+      return updatedOrder;
+    });
+  }
+
   async deliver(orderId: string) {
     const order = await this.prisma.order.findUniqueOrThrow({
       where: { id: orderId },
