@@ -3,6 +3,7 @@ import { CustomerStatus } from './customer-status.enum';
 export class CustomerAggregate {
   constructor(
     private readonly customer: {
+      id?: string;
       status?: string | null;
       email?: string | null;
     },
@@ -33,6 +34,14 @@ export class CustomerAggregate {
     if (this.customer.status === CustomerStatus.BLOCKED) {
       throw new Error('Blocked customer cannot place orders');
     }
+  }
+
+  snapshot() {
+    return {
+      id: this.customer.id,
+      status: this.status,
+      email: this.customer.email,
+    };
   }
 
   get status() {

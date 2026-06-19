@@ -3,6 +3,8 @@ import { CartStatus } from './cart-status.enum';
 export class CartAggregate {
   constructor(
     private readonly cart: {
+      id?: string;
+      customerId?: string;
       status: string;
     },
   ) {}
@@ -21,6 +23,14 @@ export class CartAggregate {
   abandon() {
     this.assertActive();
     this.cart.status = CartStatus.ABANDONED;
+  }
+
+  snapshot() {
+    return {
+      id: this.cart.id,
+      customerId: this.cart.customerId,
+      status: this.cart.status,
+    };
   }
 
   get status() {

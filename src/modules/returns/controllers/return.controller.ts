@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { ReturnService } from '../services/return.service';
 import { CreateReturnDto } from '../dto/create-return.dto';
 
@@ -19,5 +19,20 @@ export class ReturnController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.returnService.findOne(id);
+  }
+
+  @Put(':id/approve')
+  approve(@Param('id') id: string) {
+    return this.returnService.approve(id);
+  }
+
+  @Put(':id/reject')
+  reject(@Param('id') id: string) {
+    return this.returnService.reject(id);
+  }
+
+  @Put(':id/refund')
+  refund(@Param('id') id: string) {
+    return this.returnService.refund(id);
   }
 }

@@ -1,12 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { AddCartItemDto } from '../dto/add-cart-item.dto';
-import { CartAggregate } from '../domain/cart.aggregate';
 import { CartStatus } from '../domain/cart-status.enum';
+import type { CartRepository } from '../domain/cart.repository';
+import { CART_REPOSITORY } from '../cart.tokens';
 
 @Injectable()
 export class CartService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    @Inject(CART_REPOSITORY)
+    private readonly cartRepository: CartRepository,
+  ) {}
 
   async getOrCreate(customerId: string) {
     let cart = await this.prisma.cart.findFirst({
@@ -47,7 +52,12 @@ export class CartService {
   async addItem(dto: AddCartItemDto) {
     const cart = await this.getOrCreate(dto.customerId);
 
-    const aggregate = new CartAggregate(cart);
+    const aggregate = await this.cartRepository.findById(cart.id);
+
+    if (!aggregate) {
+      throw new Error('Cart not found');
+    }
+
     aggregate.assertActive();
 
     const existing = await this.prisma.cartItem.findFirst({
