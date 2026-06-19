@@ -1,19 +1,13 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { CreatePaymentDto } from '../dto/create-payment.dto';
-import type { PaymentRepository } from '../domain/payment.repository';
-import { PAYMENT_REPOSITORY } from '../payment.tokens';
-import type { OrderRepository } from '../../orders/domain/order.repository';
-import { ORDER_REPOSITORY } from '../../orders/order.tokens';
+import { CapturePaymentApplicationService } from '../application/capture-payment.application-service';
 
 @Injectable()
 export class PaymentService {
   constructor(
     private readonly prisma: PrismaService,
-    @Inject(PAYMENT_REPOSITORY)
-    private readonly paymentRepository: PaymentRepository,
-    @Inject(ORDER_REPOSITORY)
-    private readonly orderRepository: OrderRepository,
+    private readonly capturePaymentApplicationService: CapturePaymentApplicationService,
   ) {}
 
   async create(dto: CreatePaymentDto) {
@@ -37,15 +31,11 @@ export class PaymentService {
       },
     });
 
-    const paymentAggregate = await this.paymentRepository.findById(payment.id);
-
-    if (!paymentAggregate) {
-      throw new Error('Payment not found');
-    }
-
-    paymentAggregate.capture();
-
-    await this.paymentRepository.save(paymentAggregate);
+    const { payment: paymentAggregate, order } =
+      await this.capturePaymentApplicationService.execute({
+        paymentId: payment.id,
+        orderId: dto.orderId,
+      });
 
     await this.prisma.paymentAttempt.updateMany({
       where: {
@@ -56,20 +46,10 @@ export class PaymentService {
       },
     });
 
-    const orderAggregate = await this.orderRepository.findById(dto.orderId);
-
-    if (!orderAggregate) {
-      throw new Error('Order not found');
-    }
-
-    orderAggregate.pay();
-
-    await this.orderRepository.save(orderAggregate);
-
     await this.prisma.orderStatusHistory.create({
       data: {
         orderId: dto.orderId,
-        status: orderAggregate.status,
+        status: order.status,
         note: 'Payment captured',
       },
     });

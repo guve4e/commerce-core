@@ -1,6 +1,6 @@
 export enum ReturnStatus {
-  OPEN = 'OPEN',
-  APPROVED = 'APPROVED',
-  REJECTED = 'REJECTED',
-  REFUNDED = 'REFUNDED',
+  OPEN = 'requested',
+  APPROVED = 'approved',
+  REJECTED = 'rejected',
+  REFUNDED = 'refunded',
 }

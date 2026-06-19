@@ -1,15 +1,17 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { CreateReturnDto } from '../dto/create-return.dto';
-import type { ReturnRepository } from '../domain/return.repository';
-import { RETURN_REPOSITORY } from '../return.tokens';
+import { ApproveReturnApplicationService } from '../application/approve-return.application-service';
+import { RejectReturnApplicationService } from '../application/reject-return.application-service';
+import { RefundReturnApplicationService } from '../application/refund-return.application-service';
 
 @Injectable()
 export class ReturnService {
   constructor(
     private readonly prisma: PrismaService,
-    @Inject(RETURN_REPOSITORY)
-    private readonly returnRepository: ReturnRepository,
+    private readonly approveReturnApplicationService: ApproveReturnApplicationService,
+    private readonly rejectReturnApplicationService: RejectReturnApplicationService,
+    private readonly refundReturnApplicationService: RefundReturnApplicationService,
   ) {}
 
   create(dto: CreateReturnDto) {
@@ -53,43 +55,25 @@ export class ReturnService {
   }
 
   async approve(id: string) {
-    const ticket = await this.returnRepository.findById(id);
-
-    if (!ticket) {
-      throw new Error('Return not found');
-    }
-
-    ticket.approve();
-
-    await this.returnRepository.save(ticket);
+    await this.approveReturnApplicationService.execute({
+      returnId: id,
+    });
 
     return this.findOne(id);
   }
 
   async reject(id: string) {
-    const ticket = await this.returnRepository.findById(id);
-
-    if (!ticket) {
-      throw new Error('Return not found');
-    }
-
-    ticket.reject();
-
-    await this.returnRepository.save(ticket);
+    await this.rejectReturnApplicationService.execute({
+      returnId: id,
+    });
 
     return this.findOne(id);
   }
 
   async refund(id: string) {
-    const ticket = await this.returnRepository.findById(id);
-
-    if (!ticket) {
-      throw new Error('Return not found');
-    }
-
-    ticket.refund();
-
-    await this.returnRepository.save(ticket);
+    await this.refundReturnApplicationService.execute({
+      returnId: id,
+    });
 
     return this.findOne(id);
   }

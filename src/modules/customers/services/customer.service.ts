@@ -3,10 +3,16 @@ import { PrismaService } from '../../../prisma/prisma.service';
 import { CreateCustomerDto } from '../dto/create-customer.dto';
 import { CustomerAggregate } from '../domain/customer.aggregate';
 import { CustomerStatus } from '../domain/customer-status.enum';
+import { BlockCustomerApplicationService } from '../application/block-customer.application-service';
+import { ActivateCustomerApplicationService } from '../application/activate-customer.application-service';
 
 @Injectable()
 export class CustomerService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly blockCustomerApplicationService: BlockCustomerApplicationService,
+    private readonly activateCustomerApplicationService: ActivateCustomerApplicationService,
+  ) {}
 
   create(dto: CreateCustomerDto) {
     const aggregate = new CustomerAggregate({
@@ -35,34 +41,18 @@ export class CustomerService {
   }
 
   async block(id: string) {
-    const customer = await this.prisma.customer.findUniqueOrThrow({
-      where: { id },
+    await this.blockCustomerApplicationService.execute({
+      customerId: id,
     });
 
-    const aggregate = new CustomerAggregate(customer);
-    aggregate.block();
-
-    return this.prisma.customer.update({
-      where: { id },
-      data: {
-        status: aggregate.status,
-      },
-    });
+    return this.findOne(id);
   }
 
   async activate(id: string) {
-    const customer = await this.prisma.customer.findUniqueOrThrow({
-      where: { id },
+    await this.activateCustomerApplicationService.execute({
+      customerId: id,
     });
 
-    const aggregate = new CustomerAggregate(customer);
-    aggregate.activate();
-
-    return this.prisma.customer.update({
-      where: { id },
-      data: {
-        status: aggregate.status,
-      },
-    });
+    return this.findOne(id);
   }
 }

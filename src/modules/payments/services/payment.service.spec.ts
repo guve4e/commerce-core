@@ -1,9 +1,10 @@
 import { PaymentService } from './payment.service';
 import { PaymentAggregate } from '../domain/payment.aggregate';
 import { OrderAggregate } from '../../orders/domain/order.aggregate';
+import { CapturePaymentApplicationService } from '../application/capture-payment.application-service';
 
 describe('PaymentService', () => {
-  it('creates payment, captures it, marks order paid, writes history, and returns payment', async () => {
+  it('creates payment, delegates capture use case, writes history, and returns payment', async () => {
     const createdPayment = {
       id: 'payment_1',
       orderId: 'order_1',
@@ -42,30 +43,25 @@ describe('PaymentService', () => {
 
     const paymentAggregate = new PaymentAggregate({
       id: 'payment_1',
-      status: 'pending',
+      status: 'captured',
     });
 
     const orderAggregate = new OrderAggregate({
       id: 'order_1',
       orderNumber: 1001,
-      status: 'created',
+      status: 'processing',
     });
 
-    const paymentRepository = {
-      findById: jest.fn().mockResolvedValue(paymentAggregate),
-      save: jest.fn(),
-    };
-
-    const orderRepository = {
-      findById: jest.fn().mockResolvedValue(orderAggregate),
-      findByOrderNumber: jest.fn(),
-      save: jest.fn(),
-    };
+    const capturePaymentApplicationService = {
+      execute: jest.fn().mockResolvedValue({
+        payment: paymentAggregate,
+        order: orderAggregate,
+      }),
+    } as unknown as CapturePaymentApplicationService;
 
     const service = new PaymentService(
       prisma as any,
-      paymentRepository,
-      orderRepository,
+      capturePaymentApplicationService,
     );
 
     const result = await service.create({
@@ -97,9 +93,10 @@ describe('PaymentService', () => {
       },
     });
 
-    expect(paymentRepository.findById).toHaveBeenCalledWith('payment_1');
-    expect(paymentRepository.save).toHaveBeenCalledWith(paymentAggregate);
-    expect(paymentAggregate.status).toBe('captured');
+    expect(capturePaymentApplicationService.execute).toHaveBeenCalledWith({
+      paymentId: 'payment_1',
+      orderId: 'order_1',
+    });
 
     expect(prisma.paymentAttempt.updateMany).toHaveBeenCalledWith({
       where: {
@@ -109,10 +106,6 @@ describe('PaymentService', () => {
         status: 'captured',
       },
     });
-
-    expect(orderRepository.findById).toHaveBeenCalledWith('order_1');
-    expect(orderRepository.save).toHaveBeenCalledWith(orderAggregate);
-    expect(orderAggregate.status).toBe('processing');
 
     expect(prisma.orderStatusHistory.create).toHaveBeenCalledWith({
       data: {
@@ -131,77 +124,4 @@ describe('PaymentService', () => {
       },
     });
   });
-
-  it('throws when created payment cannot be loaded as aggregate', async () => {
-    const prisma = makeMinimalPrisma();
-    const service = new PaymentService(
-      prisma as any,
-      {
-        findById: jest.fn().mockResolvedValue(null),
-        save: jest.fn(),
-      },
-      {
-        findById: jest.fn(),
-        findByOrderNumber: jest.fn(),
-        save: jest.fn(),
-      },
-    );
-
-    await expect(
-      service.create({
-        orderId: 'order_1',
-        provider: 'manual',
-        amount: '100',
-        currency: 'BGN',
-      }),
-    ).rejects.toThrow('Payment not found');
-  });
-
-  it('throws when order cannot be loaded as aggregate', async () => {
-    const prisma = makeMinimalPrisma();
-
-    const service = new PaymentService(
-      prisma as any,
-      {
-        findById: jest.fn().mockResolvedValue(
-          new PaymentAggregate({
-            id: 'payment_1',
-            status: 'pending',
-          }),
-        ),
-        save: jest.fn(),
-      },
-      {
-        findById: jest.fn().mockResolvedValue(null),
-        findByOrderNumber: jest.fn(),
-        save: jest.fn(),
-      },
-    );
-
-    await expect(
-      service.create({
-        orderId: 'order_1',
-        provider: 'manual',
-        amount: '100',
-        currency: 'BGN',
-      }),
-    ).rejects.toThrow('Order not found');
-  });
 });
-
-function makeMinimalPrisma() {
-  return {
-    payment: {
-      create: jest.fn().mockResolvedValue({
-        id: 'payment_1',
-      }),
-      findUniqueOrThrow: jest.fn(),
-    },
-    paymentAttempt: {
-      updateMany: jest.fn(),
-    },
-    orderStatusHistory: {
-      create: jest.fn(),
-    },
-  };
-}

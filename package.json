@@ -19,7 +19,8 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "smoke": "tsx scripts/smoke-commerce-flow.ts",
-    "smoke:legacy": "tsx scripts/smoke-legacy-flow.ts"
+    "smoke:legacy": "tsx scripts/smoke-legacy-flow.ts",
+    "integration:commerce": "tsx scripts/integration-full-commerce-lifecycle.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

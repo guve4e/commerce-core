@@ -3,6 +3,8 @@ import { CouponStatus } from './coupon-status.enum';
 export class CouponAggregate {
   constructor(
     private readonly coupon: {
+      id?: string;
+      code?: string;
       active: boolean;
       maxUses?: number | null;
       usedCount: number;
@@ -47,6 +49,19 @@ export class CouponAggregate {
 
   disable() {
     this.coupon.status = CouponStatus.DISABLED;
+    this.coupon.active = false;
+  }
+
+  snapshot() {
+    return {
+      id: this.coupon.id,
+      code: this.coupon.code,
+      active: this.coupon.active,
+      maxUses: this.coupon.maxUses,
+      usedCount: this.coupon.usedCount,
+      expiresAt: this.coupon.expiresAt,
+      status: this.coupon.status,
+    };
   }
 
   get usedCount() {
