@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { AddCartItemDto } from '../dto/add-cart-item.dto';
+import { CartAggregate } from '../domain/cart.aggregate';
+import { CartStatus } from '../domain/cart-status.enum';
 
 @Injectable()
 export class CartService {
@@ -10,9 +12,10 @@ export class CartService {
     let cart = await this.prisma.cart.findFirst({
       where: {
         customerId,
-        status: 'active',
+        status: CartStatus.ACTIVE,
       },
       include: {
+        couponCode: true,
         items: {
           include: {
             variant: true,
@@ -25,8 +28,10 @@ export class CartService {
       cart = await this.prisma.cart.create({
         data: {
           customerId,
+          status: CartStatus.ACTIVE,
         },
         include: {
+          couponCode: true,
           items: {
             include: {
               variant: true,
@@ -41,6 +46,9 @@ export class CartService {
 
   async addItem(dto: AddCartItemDto) {
     const cart = await this.getOrCreate(dto.customerId);
+
+    const aggregate = new CartAggregate(cart);
+    aggregate.assertActive();
 
     const existing = await this.prisma.cartItem.findFirst({
       where: {

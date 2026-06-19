@@ -1,12 +1,17 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { InventoryService } from '../../inventory/services/inventory.service';
+import { OUTBOX } from '../../shared/infrastructure/outbox/outbox.module';
+import type { Outbox } from '../../shared/application/outbox';
+import { OrderCreatedEvent } from '../domain/events/order-created.event';
 
 @Injectable()
 export class OrderApplicationService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly inventoryService: InventoryService,
+    @Inject(OUTBOX)
+    private readonly outbox: Outbox,
   ) {}
 
   async createOrder(dto: any) {
@@ -58,7 +63,7 @@ export class OrderApplicationService {
     const tax = Number(dto.tax ?? '0');
     const total = subtotal + shipping + tax;
 
-    return this.prisma.$transaction(async (tx) => {
+    const order = await this.prisma.$transaction(async (tx) => {
       const order = await tx.order.create({
         data: {
           ...(dto.orderNumber ? { orderNumber: dto.orderNumber } : {}),
@@ -122,5 +127,18 @@ export class OrderApplicationService {
 
       return order;
     });
+
+    await this.outbox.store([
+      new OrderCreatedEvent({
+        orderId: order.id,
+        orderNumber: order.orderNumber,
+        storeId: order.storeId,
+        customerId: order.customerId,
+        total: Number(order.total),
+        currency: 'BGN',
+      }),
+    ]);
+
+    return order;
   }
 }

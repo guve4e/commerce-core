@@ -1,6 +1,7 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { ShipmentService } from '../services/shipment.service';
 import { CreateShipmentDto } from '../dto/create-shipment.dto';
+
 
 @Controller('shipments')
 export class ShipmentController {
@@ -19,5 +20,15 @@ export class ShipmentController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.shipmentService.findOne(id);
+  }
+
+  @Put(':id/ship')
+  ship(@Param('id') id: string) {
+    return this.shipmentService.ship(id);
+  }
+
+  @Put(':id/deliver')
+  deliver(@Param('id') id: string) {
+    return this.shipmentService.deliver(id);
   }
 }

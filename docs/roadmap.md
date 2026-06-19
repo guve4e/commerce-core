@@ -30,3 +30,33 @@ Later:
 Final goal:
 
 Delete legacy controllers and PHP storefront.
+
+## Pricing Domain
+
+```bash
+
+cat >> docs/roadmap.md <<'EOF'
+
+## Repository Layer
+
+
+
+DONE:
+
+- DomainEvent base contract
+
+- DomainEventRecorder
+
+- CheckoutCreatedEvent
+
+- CheckoutReadyEvent
+
+- CheckoutAggregate records events
+
+NEXT:
+
+- Application service pulls domain events after saving
+
+- Outbox interface
+
+- Outbox repository implementation later

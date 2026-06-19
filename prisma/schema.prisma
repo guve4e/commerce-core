@@ -95,6 +95,8 @@ model Customer {
   lastName  String?
   phone     String?
 
+  status String @default("active")
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -476,4 +478,28 @@ model AuditLog {
   metadata Json?
 
   createdAt DateTime @default(now())
+}
+
+model OutboxEvent {
+  id String @id
+
+  eventId     String @unique
+  eventName   String
+  aggregateId String
+
+  payload Json
+
+  status String @default("pending")
+
+  occurredAt DateTime
+  createdAt  DateTime @default(now())
+
+  publishedAt DateTime?
+  failedAt    DateTime?
+
+  failureReason String?
+
+  @@index([status, createdAt])
+  @@index([eventName])
+  @@index([aggregateId])
 }

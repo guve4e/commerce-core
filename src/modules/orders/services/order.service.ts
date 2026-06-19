@@ -1,14 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
-import { OrderAggregate } from '../domain/order.aggregate';
 import { CreateOrderDto } from '../dto/create-order.dto';
 import { InventoryService } from 'src/modules/inventory/services/inventory.service';
+import type { OrderRepository } from '../domain/order.repository';
+import { ORDER_REPOSITORY } from '../order.tokens';
 
 @Injectable()
 export class OrderService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly inventoryService: InventoryService,
+    @Inject(ORDER_REPOSITORY)
+    private readonly orderRepository: OrderRepository,
   ) {}
 
   async create(dto: CreateOrderDto) {
@@ -61,81 +64,74 @@ export class OrderService {
   }
 
   async ship(orderId: string) {
-    const order = await this.prisma.order.findUniqueOrThrow({
+    const order = await this.orderRepository.findById(orderId);
+
+    if (!order) {
+      throw new Error('Order not found');
+    }
+
+    order.ship();
+
+    await this.orderRepository.save(order);
+
+    const updatedOrder = await this.prisma.order.findUniqueOrThrow({
       where: { id: orderId },
+      include: {
+        items: true,
+        statusHistory: true,
+      },
     });
 
-    const aggregate = new OrderAggregate(order);
-
-    aggregate.ship();
-
-    return this.prisma.$transaction(async (tx) => {
-      const updatedOrder = await tx.order.update({
-        where: { id: orderId },
-        data: {
-          status: aggregate.status,
-        },
-        include: {
-          items: true,
-          statusHistory: true,
-        },
-      });
-
-      for (const item of updatedOrder.items) {
-        if (!item.variantId) {
-          throw new Error(`Order item ${item.id} has no variantId`);
-        }
-
-        await this.inventoryService.consume(item.variantId, item.quantity);
+    for (const item of updatedOrder.items) {
+      if (!item.variantId) {
+        throw new Error(`Order item ${item.id} has no variantId`);
       }
 
-      return updatedOrder;
-    });
+      await this.inventoryService.consume(item.variantId, item.quantity);
+    }
+
+    return updatedOrder;
   }
 
   async cancel(orderId: string) {
-    const order = await this.prisma.order.findUniqueOrThrow({
+    const order = await this.orderRepository.findById(orderId);
+
+    if (!order) {
+      throw new Error('Order not found');
+    }
+
+    order.cancel();
+
+    await this.orderRepository.save(order);
+
+    const updatedOrder = await this.prisma.order.findUniqueOrThrow({
       where: { id: orderId },
+      include: {
+        items: true,
+        statusHistory: true,
+      },
     });
 
-    const aggregate = new OrderAggregate(order);
+    for (const item of updatedOrder.items) {
+      await this.inventoryService.release(item.variantId!, item.quantity);
+    }
 
-    aggregate.cancel();
-
-    return this.prisma.$transaction(async (tx) => {
-      const updatedOrder = await tx.order.update({
-        where: { id: orderId },
-        data: {
-          status: aggregate.status,
-        },
-        include: {
-          items: true,
-          statusHistory: true,
-        },
-      });
-
-      for (const item of updatedOrder.items) {
-        await this.inventoryService.release(item.variantId!, item.quantity);
-      }
-
-      return updatedOrder;
-    });
+    return updatedOrder;
   }
 
   async deliver(orderId: string) {
-    const order = await this.prisma.order.findUniqueOrThrow({
+    const order = await this.orderRepository.findById(orderId);
+
+    if (!order) {
+      throw new Error('Order not found');
+    }
+
+    order.deliver();
+
+    await this.orderRepository.save(order);
+
+    return this.prisma.order.findUniqueOrThrow({
       where: { id: orderId },
-    });
-
-    const aggregate = new OrderAggregate(order);
-
-    aggregate.deliver();
-
-    return this.prisma.order.update({
-      where: { id: orderId },
-      data: {
-        status: aggregate.status,
-      },
     });
   }
 }

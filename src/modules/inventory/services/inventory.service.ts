@@ -1,11 +1,16 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { ReceiveStockDto } from '../dto/receive-stock.dto';
-import { InventoryAggregate } from '../domain/inventory.aggregate';
+import type { InventoryRepository } from '../domain/inventory.repository';
+import { INVENTORY_REPOSITORY } from '../inventory.tokens';
 
 @Injectable()
 export class InventoryService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    @Inject(INVENTORY_REPOSITORY)
+    private readonly inventoryRepository: InventoryRepository,
+  ) {}
 
   async receiveStock(dto: ReceiveStockDto) {
     return this.prisma.$transaction(async (tx) => {
@@ -49,70 +54,58 @@ export class InventoryService {
   }
 
   async reserve(variantId: string, qty: number) {
-    const item = await this.prisma.inventoryItem.findUniqueOrThrow({
-      where: { variantId },
-    });
+    const aggregate = await this.inventoryRepository.findByVariantId(variantId);
 
-    const aggregate = new InventoryAggregate(item);
+    if (!aggregate) {
+      throw new Error('Inventory item not found');
+    }
+
     aggregate.reserve(qty);
 
-    return this.prisma.inventoryItem.update({
-      where: { variantId },
-      data: {
-        quantity: aggregate.quantity,
-        reservedQuantity: aggregate.reservedQuantity,
-      },
-    });
+    await this.inventoryRepository.save(aggregate);
+
+    return aggregate.snapshot();
   }
 
   async release(variantId: string, qty: number) {
-    const item = await this.prisma.inventoryItem.findUniqueOrThrow({
-      where: { variantId },
-    });
+    const aggregate = await this.inventoryRepository.findByVariantId(variantId);
 
-    const aggregate = new InventoryAggregate(item);
+    if (!aggregate) {
+      throw new Error('Inventory item not found');
+    }
+
     aggregate.release(qty);
 
-    return this.prisma.inventoryItem.update({
-      where: { variantId },
-      data: {
-        quantity: aggregate.quantity,
-        reservedQuantity: aggregate.reservedQuantity,
-      },
-    });
+    await this.inventoryRepository.save(aggregate);
+
+    return aggregate.snapshot();
   }
 
   async consume(variantId: string, qty: number) {
-    const item = await this.prisma.inventoryItem.findUniqueOrThrow({
-      where: { variantId },
-    });
+    const aggregate = await this.inventoryRepository.findByVariantId(variantId);
 
-    const aggregate = new InventoryAggregate(item);
+    if (!aggregate) {
+      throw new Error('Inventory item not found');
+    }
+
     aggregate.consume(qty);
 
-    return this.prisma.inventoryItem.update({
-      where: { variantId },
-      data: {
-        quantity: aggregate.quantity,
-        reservedQuantity: aggregate.reservedQuantity,
-      },
-    });
+    await this.inventoryRepository.save(aggregate);
+
+    return aggregate.snapshot();
   }
 
   async restock(variantId: string, qty: number) {
-    const item = await this.prisma.inventoryItem.findUniqueOrThrow({
-      where: { variantId },
-    });
+    const aggregate = await this.inventoryRepository.findByVariantId(variantId);
 
-    const aggregate = new InventoryAggregate(item);
+    if (!aggregate) {
+      throw new Error('Inventory item not found');
+    }
+
     aggregate.restock(qty);
 
-    return this.prisma.inventoryItem.update({
-      where: { variantId },
-      data: {
-        quantity: aggregate.quantity,
-        reservedQuantity: aggregate.reservedQuantity,
-      },
-    });
+    await this.inventoryRepository.save(aggregate);
+
+    return aggregate.snapshot();
   }
 }

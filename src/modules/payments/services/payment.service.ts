@@ -1,69 +1,86 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { CreatePaymentDto } from '../dto/create-payment.dto';
-import { PaymentAggregate } from '../domain/payment.aggregate';
-import { OrderAggregate } from '../../orders/domain/order.aggregate';
+import type { PaymentRepository } from '../domain/payment.repository';
+import { PAYMENT_REPOSITORY } from '../payment.tokens';
+import type { OrderRepository } from '../../orders/domain/order.repository';
+import { ORDER_REPOSITORY } from '../../orders/order.tokens';
 
 @Injectable()
 export class PaymentService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    @Inject(PAYMENT_REPOSITORY)
+    private readonly paymentRepository: PaymentRepository,
+    @Inject(ORDER_REPOSITORY)
+    private readonly orderRepository: OrderRepository,
+  ) {}
 
-  create(dto: CreatePaymentDto) {
-    return this.prisma.$transaction(async (tx) => {
-      const rawPayment = {
+  async create(dto: CreatePaymentDto) {
+    const payment = await this.prisma.payment.create({
+      data: {
+        orderId: dto.orderId,
+        provider: dto.provider,
+        amount: dto.amount,
+        currency: dto.currency,
         status: 'pending',
-      };
-
-      const aggregate = new PaymentAggregate(rawPayment);
-      aggregate.capture();
-
-      const payment = await tx.payment.create({
-        data: {
-          orderId: dto.orderId,
-          provider: dto.provider,
-          amount: dto.amount,
-          currency: dto.currency,
-          status: aggregate.status,
-          attempts: {
-            create: {
-              provider: dto.provider,
-              status: aggregate.status,
-              providerReference: `manual-${Date.now()}`,
-            },
+        attempts: {
+          create: {
+            provider: dto.provider,
+            status: 'pending',
+            providerReference: `manual-${Date.now()}`,
           },
         },
-        include: {
-          attempts: true,
-        },
-      });
+      },
+      include: {
+        attempts: true,
+      },
+    });
 
-      const order = await tx.order.findUniqueOrThrow({
-        where: {
-          id: dto.orderId,
-        },
-      });
+    const paymentAggregate = await this.paymentRepository.findById(payment.id);
 
-      const orderAggregate = new OrderAggregate(order);
+    if (!paymentAggregate) {
+      throw new Error('Payment not found');
+    }
 
-      orderAggregate.pay();
+    paymentAggregate.capture();
 
+    await this.paymentRepository.save(paymentAggregate);
 
-      await tx.order.update({
-        where: {
-          id: dto.orderId,
-        },
-        data: {
-          status: orderAggregate.status,
-          statusHistory: {
-            create: {
-              status: orderAggregate.status,
-              note: 'Payment captured',
-            },
-          },
-        },
-      });
+    await this.prisma.paymentAttempt.updateMany({
+      where: {
+        paymentId: payment.id,
+      },
+      data: {
+        status: paymentAggregate.status,
+      },
+    });
 
-      return payment;
+    const orderAggregate = await this.orderRepository.findById(dto.orderId);
+
+    if (!orderAggregate) {
+      throw new Error('Order not found');
+    }
+
+    orderAggregate.pay();
+
+    await this.orderRepository.save(orderAggregate);
+
+    await this.prisma.orderStatusHistory.create({
+      data: {
+        orderId: dto.orderId,
+        status: orderAggregate.status,
+        note: 'Payment captured',
+      },
+    });
+
+    return this.prisma.payment.findUniqueOrThrow({
+      where: {
+        id: payment.id,
+      },
+      include: {
+        attempts: true,
+      },
     });
   }
 

@@ -1,10 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { CreateShipmentDto } from '../dto/create-shipment.dto';
+import { ShipmentStatus } from '../domain/shipment-status.enum';
+import type { ShipmentRepository } from '../domain/shipment.repository';
+import { SHIPMENT_REPOSITORY } from '../shipment.tokens';
 
 @Injectable()
 export class ShipmentService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    @Inject(SHIPMENT_REPOSITORY)
+    private readonly shipmentRepository: ShipmentRepository,
+  ) {}
 
   create(dto: CreateShipmentDto) {
     return this.prisma.shipment.create({
@@ -12,10 +19,10 @@ export class ShipmentService {
         orderId: dto.orderId,
         provider: dto.provider,
         trackingNumber: dto.trackingNumber,
-        status: 'pending',
+        status: ShipmentStatus.PENDING,
         events: {
           create: {
-            status: 'pending',
+            status: ShipmentStatus.PENDING,
             message: 'Shipment created',
           },
         },
@@ -37,6 +44,64 @@ export class ShipmentService {
     return this.prisma.shipment.findUnique({
       where: { id },
       include: { events: true, order: true },
+    });
+  }
+
+  async ship(id: string) {
+    const shipment = await this.shipmentRepository.findById(id);
+
+    if (!shipment) {
+      throw new Error('Shipment not found');
+    }
+
+    shipment.ship();
+
+    await this.shipmentRepository.save(shipment);
+
+    return this.prisma.shipment.update({
+      where: { id },
+      data: {
+        shippedAt: new Date(),
+        events: {
+          create: {
+            status: shipment.status,
+            message: 'Shipment shipped',
+          },
+        },
+      },
+      include: {
+        events: true,
+        order: true,
+      },
+    });
+  }
+
+  async deliver(id: string) {
+    const shipment = await this.shipmentRepository.findById(id);
+
+    if (!shipment) {
+      throw new Error('Shipment not found');
+    }
+
+    shipment.deliver();
+
+    await this.shipmentRepository.save(shipment);
+
+    return this.prisma.shipment.update({
+      where: { id },
+      data: {
+        deliveredAt: new Date(),
+        events: {
+          create: {
+            status: shipment.status,
+            message: 'Shipment delivered',
+          },
+        },
+      },
+      include: {
+        events: true,
+        order: true,
+      },
     });
   }
 }

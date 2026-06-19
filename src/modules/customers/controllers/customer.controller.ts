@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { CustomerService } from '../services/customer.service';
 import { CreateCustomerDto } from '../dto/create-customer.dto';
 
@@ -19,5 +19,15 @@ export class CustomerController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.customerService.findOne(id);
+  }
+
+  @Put(':id/block')
+  block(@Param('id') id: string) {
+    return this.customerService.block(id);
+  }
+
+  @Put(':id/activate')
+  activate(@Param('id') id: string) {
+    return this.customerService.activate(id);
   }
 }
