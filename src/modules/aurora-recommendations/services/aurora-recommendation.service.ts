@@ -30,74 +30,47 @@ export class AuroraRecommendationService {
         status: 'active',
         AND: [
           skinTypeIds.length
-            ? {
-                skinTypes: {
-                  some: {
-                    skinTypeId: { in: skinTypeIds },
-                  },
-                },
-              }
+            ? { skinTypes: { some: { skinTypeId: { in: skinTypeIds } } } }
             : {},
           concernIds.length
-            ? {
-                concerns: {
-                  some: {
-                    concernId: { in: concernIds },
-                  },
-                },
-              }
+            ? { concerns: { some: { concernId: { in: concernIds } } } }
             : {},
           sensitiveIngredientIds.length
-            ? {
-                ingredients: {
-                  none: {
-                    ingredientId: { in: sensitiveIngredientIds },
-                  },
-                },
-              }
+            ? { ingredients: { none: { ingredientId: { in: sensitiveIngredientIds } } } }
             : {},
         ],
       },
       include: {
         translations: true,
         images: true,
-        variants: {
-          include: {
-            prices: {
-              include: {
-                priceList: true,
-              },
-            },
-          },
-        },
-        concerns: {
-          include: {
-            concern: true,
-          },
-        },
-        skinTypes: {
-          include: {
-            skinType: true,
-          },
-        },
-        ingredients: {
-          include: {
-            ingredient: true,
-          },
-        },
-        benefitAssignments: {
-          include: {
-            benefit: true,
-          },
-        },
+        concerns: { include: { concern: true } },
+        skinTypes: { include: { skinType: true } },
+        benefitAssignments: { include: { benefit: true } },
       },
     });
 
-    return products.map((product) => ({
-      product,
-      score: this.scoreProduct(product, skinTypeIds, concernIds),
-      reasons: this.buildReasons(product, skinTypeIds, concernIds),
-    })).sort((a, b) => b.score - a.score);
+    return products
+      .map((product) => ({
+        id: product.id,
+        slug: product.slug,
+        name:
+          product.translations.find((t) => t.locale === 'en')?.name ??
+          product.name,
+        shortDescription:
+          product.translations.find((t) => t.locale === 'en')
+            ?.shortDescription ?? null,
+        image:
+          product.images.find((img) => img.type === 'SHOP')?.path ??
+          product.images[0]?.path ??
+          null,
+        score: this.scoreProduct(product, skinTypeIds, concernIds),
+        reasons: this.buildReasons(product, skinTypeIds, concernIds),
+        benefits: product.benefitAssignments.map((item) => ({
+          slug: item.benefit.slug,
+          name: item.benefit.name,
+        })),
+      }))
+      .sort((a, b) => b.score - a.score);
   }
 
   private scoreProduct(product: any, skinTypeIds: string[], concernIds: string[]) {
