@@ -18,15 +18,14 @@ export class CatalogService {
           create: dto.variants.map((variant) => ({
             sku: variant.sku,
             name: variant.name,
-            price: variant.price,
-            originalPrice: variant.originalPrice,
-            currency: variant.currency,
             attributes: variant.attributes,
           })),
         },
       },
       include: {
         variants: true,
+        translations: true,
+        images: true,
       },
     });
   }
@@ -34,7 +33,64 @@ export class CatalogService {
   findAll() {
     return this.prisma.product.findMany({
       include: {
-        variants: true,
+        variants: {
+          include: {
+            prices: {
+              include: {
+                priceList: true,
+              },
+            },
+            inventoryItem: true,
+            promotionVariants: {
+              include: {
+                promotion: true,
+              },
+            },
+          },
+        },
+        translations: true,
+        images: true,
+        categoryAssignments: {
+          include: {
+            category: true,
+          },
+        },
+        tagAssignments: {
+          include: {
+            tag: true,
+          },
+        },
+        concerns: {
+          include: {
+            concern: true,
+          },
+        },
+        benefits: true,
+        benefitAssignments: {
+          include: {
+            benefit: true,
+          },
+        },
+        ingredients: {
+          include: {
+            ingredient: true,
+          },
+        },
+        skinTypes: {
+          include: {
+            skinType: true,
+          },
+        },
+        routineSteps: {
+          include: {
+            routineStep: true,
+          },
+        },
+        contraindications: {
+          include: {
+            contraindication: true,
+          },
+        },
       },
     });
   }
@@ -43,7 +99,64 @@ export class CatalogService {
     return this.prisma.product.findUnique({
       where: { id },
       include: {
-        variants: true,
+        variants: {
+          include: {
+            prices: {
+              include: {
+                priceList: true,
+              },
+            },
+            inventoryItem: true,
+            promotionVariants: {
+              include: {
+                promotion: true,
+              },
+            },
+          },
+        },
+        translations: true,
+        images: true,
+        categoryAssignments: {
+          include: {
+            category: true,
+          },
+        },
+        tagAssignments: {
+          include: {
+            tag: true,
+          },
+        },
+        concerns: {
+          include: {
+            concern: true,
+          },
+        },
+        benefits: true,
+        benefitAssignments: {
+          include: {
+            benefit: true,
+          },
+        },
+        ingredients: {
+          include: {
+            ingredient: true,
+          },
+        },
+        skinTypes: {
+          include: {
+            skinType: true,
+          },
+        },
+        routineSteps: {
+          include: {
+            routineStep: true,
+          },
+        },
+        contraindications: {
+          include: {
+            contraindication: true,
+          },
+        },
       },
     });
   }

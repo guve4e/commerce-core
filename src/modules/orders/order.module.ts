@@ -4,11 +4,12 @@ import { OrderService } from './services/order.service';
 import { OrderApplicationService } from './application/order-application.service';
 import { InventoryModule } from '../inventory/inventory.module';
 import { OutboxModule } from '../shared/infrastructure/outbox/outbox.module';
+import { PricingModule } from '../pricing/pricing.module';
 import { PrismaOrderRepository } from './infrastructure/prisma-order.repository';
 import { ORDER_REPOSITORY } from './order.tokens';
 
 @Module({
-  imports: [InventoryModule, OutboxModule],
+  imports: [InventoryModule, OutboxModule, PricingModule],
   controllers: [OrderController],
   providers: [
     OrderService,

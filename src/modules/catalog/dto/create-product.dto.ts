@@ -1,9 +1,6 @@
 export class CreateProductVariantDto {
   sku: string;
   name: string;
-  price: string;
-  originalPrice?: string;
-  currency: string;
   attributes?: Record<string, string>;
 }
 

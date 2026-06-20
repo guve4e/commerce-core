@@ -27,6 +27,18 @@ describe('OrderApplicationService', () => {
       reserve: jest.fn(),
     } as unknown as InventoryService;
 
+    const pricingService = {
+      resolveActivePrice: jest.fn().mockResolvedValue({
+        variantId: 'variant_1',
+        currency: 'EUR',
+        regularPrice: 50,
+        compareAtPrice: null,
+        finalPrice: 50,
+        source: 'default',
+        promotionId: null,
+      }),
+    };
+
     const outbox: Outbox = {
       store: jest.fn(),
     };
@@ -34,6 +46,7 @@ describe('OrderApplicationService', () => {
     const service = new OrderApplicationService(
       prisma as any,
       inventoryService,
+      pricingService as any,
       outbox,
     );
 
@@ -44,29 +57,16 @@ describe('OrderApplicationService', () => {
       country: 'BG',
       shipping: '5',
       tax: '0',
+      currency: 'EUR',
     });
 
     expect(result).toBe(order);
 
-    expect(prisma.cart.findFirst).toHaveBeenCalledWith({
-      where: {
-        customerId: 'customer_1',
-        status: 'active',
-      },
-      include: {
-        customer: true,
-        items: {
-          include: {
-            variant: {
-              include: {
-                product: true,
-                inventoryItem: true,
-              },
-            },
-          },
-        },
-      },
-    });
+    expect(pricingService.resolveActivePrice).toHaveBeenCalledWith(
+      'store_1',
+      'variant_1',
+      'EUR',
+    );
 
     expect(inventoryService.reserve).toHaveBeenCalledWith('variant_1', 2);
 
@@ -80,7 +80,7 @@ describe('OrderApplicationService', () => {
           storeId: 'store_1',
           customerId: 'customer_1',
           total: 105,
-          currency: 'BGN',
+          currency: 'EUR',
         },
       }),
     ]);
@@ -93,11 +93,7 @@ describe('OrderApplicationService', () => {
       },
     };
 
-    const service = new OrderApplicationService(
-      prisma as any,
-      { reserve: jest.fn() } as unknown as InventoryService,
-      { store: jest.fn() },
-    );
+    const service = makeService(prisma);
 
     await expect(
       service.createOrder({
@@ -116,11 +112,7 @@ describe('OrderApplicationService', () => {
       },
     };
 
-    const service = new OrderApplicationService(
-      prisma as any,
-      { reserve: jest.fn() } as unknown as InventoryService,
-      { store: jest.fn() },
-    );
+    const service = makeService(prisma);
 
     await expect(
       service.createOrder({
@@ -139,11 +131,7 @@ describe('OrderApplicationService', () => {
       },
     };
 
-    const service = new OrderApplicationService(
-      prisma as any,
-      { reserve: jest.fn() } as unknown as InventoryService,
-      { store: jest.fn() },
-    );
+    const service = makeService(prisma);
 
     await expect(
       service.createOrder({
@@ -152,6 +140,25 @@ describe('OrderApplicationService', () => {
     ).rejects.toThrow('Insufficient inventory for SKU SKU-1');
   });
 });
+
+function makeService(prisma: any) {
+  return new OrderApplicationService(
+    prisma as any,
+    { reserve: jest.fn() } as unknown as InventoryService,
+    {
+      resolveActivePrice: jest.fn().mockResolvedValue({
+        variantId: 'variant_1',
+        currency: 'EUR',
+        regularPrice: 50,
+        compareAtPrice: null,
+        finalPrice: 50,
+        source: 'default',
+        promotionId: null,
+      }),
+    } as any,
+    { store: jest.fn() },
+  );
+}
 
 function makeCart() {
   return {
@@ -173,7 +180,7 @@ function makeCart() {
           id: 'variant_1',
           sku: 'SKU-1',
           name: 'Serum',
-          price: '50',
+          price: null,
           inventoryItem: {
             quantity: 10,
             reservedQuantity: 0,

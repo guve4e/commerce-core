@@ -4,12 +4,14 @@ import { InventoryService } from '../../inventory/services/inventory.service';
 import { OUTBOX } from '../../shared/infrastructure/outbox/outbox.module';
 import type { Outbox } from '../../shared/application/outbox';
 import { OrderCreatedEvent } from '../domain/events/order-created.event';
+import { PricingService } from '../../pricing/services/pricing.service';
 
 @Injectable()
 export class OrderApplicationService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly inventoryService: InventoryService,
+    private readonly pricingService: PricingService,
     @Inject(OUTBOX)
     private readonly outbox: Outbox,
   ) {}
@@ -55,8 +57,26 @@ export class OrderApplicationService {
       }
     }
 
-    const subtotal = cart.items.reduce((sum, item) => {
-      return sum + Number(item.variant.price) * item.quantity;
+    const currency = dto.currency ?? 'EUR';
+
+    const resolvedLines = await Promise.all(
+      cart.items.map(async (item) => {
+        const resolvedPrice = await this.pricingService.resolveActivePrice(
+          cart.customer.storeId,
+          item.variantId,
+          currency,
+        );
+
+        return {
+          item,
+          resolvedPrice,
+          lineSubtotal: resolvedPrice.finalPrice * item.quantity,
+        };
+      }),
+    );
+
+    const subtotal = resolvedLines.reduce((sum, line) => {
+      return sum + line.lineSubtotal;
     }, 0);
 
     const shipping = Number(dto.shipping ?? '0');
@@ -90,12 +110,12 @@ export class OrderApplicationService {
           total: total.toFixed(2),
 
           items: {
-            create: cart.items.map((item) => ({
-              variantId: item.variantId,
-              sku: item.variant.sku,
-              name: item.variant.name,
-              price: item.variant.price,
-              quantity: item.quantity,
+            create: resolvedLines.map((line) => ({
+              variantId: line.item.variantId,
+              sku: line.item.variant.sku,
+              name: line.item.variant.name,
+              price: line.resolvedPrice.finalPrice,
+              quantity: line.item.quantity,
             })),
           },
 
@@ -135,7 +155,7 @@ export class OrderApplicationService {
         storeId: order.storeId,
         customerId: order.customerId,
         total: Number(order.total),
-        currency: 'BGN',
+        currency,
       }),
     ]);
 
