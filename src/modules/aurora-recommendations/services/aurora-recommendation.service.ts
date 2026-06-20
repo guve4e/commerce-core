@@ -9,7 +9,7 @@ export class AuroraRecommendationService {
     private readonly pricingService: PricingService,
   ) {}
 
-  async recommendForCustomer(customerId: string, currency = 'EUR') {
+  async recommendForCustomer(customerId: string, currency = 'EUR', maxPrice?: number) {
     const profile = await this.prisma.customerProfile.findUnique({
       where: { customerId },
       include: {
@@ -101,7 +101,15 @@ export class AuroraRecommendationService {
       }),
     );
 
-    return scored.sort((a, b) => b.score - a.score);
+    return scored
+      .filter((item) => {
+        if (maxPrice === undefined || Number.isNaN(maxPrice)) {
+          return true;
+        }
+
+        return item.price ? item.price.finalPrice <= maxPrice : false;
+      })
+      .sort((a, b) => b.score - a.score);
   }
 
   private scoreProduct(product: any, skinTypeIds: string[], concernIds: string[]) {

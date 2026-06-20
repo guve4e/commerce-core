@@ -11,10 +11,12 @@ export class AuroraRecommendationController {
   recommendForCustomer(
     @Param('customerId') customerId: string,
     @Query('currency') currency = 'EUR',
+    @Query('maxPrice') maxPrice?: string,
   ) {
     return this.auroraRecommendationService.recommendForCustomer(
       customerId,
       currency,
+      maxPrice ? Number(maxPrice) : undefined,
     );
   }
 }
