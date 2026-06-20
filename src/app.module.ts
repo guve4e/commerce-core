@@ -20,6 +20,9 @@ import { AssistantCommerceModule } from './modules/assistant-commerce/assistant-
 import { StoreModule } from './modules/stores/store.module';
 import { PricingModule } from './modules/pricing/pricing.module';
 import { PromotionModule } from './modules/promotions/promotion.module';
+import { RecommendationModule } from './modules/recommendations/recommendation.module';
+import { AuroraProfileModule } from './modules/aurora-profile/aurora-profile.module';
+import { AuroraRecommendationModule } from './modules/aurora-recommendations/aurora-recommendation.module';
 
 @Module({
   imports: [
@@ -41,6 +44,9 @@ import { PromotionModule } from './modules/promotions/promotion.module';
     StoreModule,
     PricingModule,
     PromotionModule,
+    RecommendationModule,
+    AuroraProfileModule,
+    AuroraRecommendationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
