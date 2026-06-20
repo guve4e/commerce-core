@@ -112,6 +112,49 @@ export class AuroraRecommendationService {
       .sort((a, b) => b.score - a.score);
   }
 
+
+  async buildRoutineForCustomer(
+    customerId: string,
+    currency = 'EUR',
+    maxTotal?: number,
+  ) {
+    const recommendations = await this.recommendForCustomer(
+      customerId,
+      currency,
+    );
+
+    const routine: any[] = [];
+    let total = 0;
+
+    for (const item of recommendations) {
+      if (!item.price) {
+        continue;
+      }
+
+      const nextTotal = total + item.price.finalPrice;
+
+      if (maxTotal !== undefined && !Number.isNaN(maxTotal) && nextTotal > maxTotal) {
+        continue;
+      }
+
+      routine.push(item);
+      total = nextTotal;
+
+      if (routine.length >= 3) {
+        break;
+      }
+    }
+
+    return {
+      currency,
+      maxTotal: maxTotal ?? null,
+      total,
+      count: routine.length,
+      products: routine,
+      reasonSummary: routine.flatMap((item) => item.reasons),
+    };
+  }
+
   private scoreProduct(product: any, skinTypeIds: string[], concernIds: string[]) {
     let score = 0;
 

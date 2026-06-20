@@ -19,4 +19,17 @@ export class AuroraRecommendationController {
       maxPrice ? Number(maxPrice) : undefined,
     );
   }
+
+  @Get('customer/:customerId/routine')
+  buildRoutineForCustomer(
+    @Param('customerId') customerId: string,
+    @Query('currency') currency = 'EUR',
+    @Query('maxTotal') maxTotal?: string,
+  ) {
+    return this.auroraRecommendationService.buildRoutineForCustomer(
+      customerId,
+      currency,
+      maxTotal ? Number(maxTotal) : undefined,
+    );
+  }
 }
