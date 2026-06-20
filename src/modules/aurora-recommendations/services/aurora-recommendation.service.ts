@@ -124,10 +124,17 @@ export class AuroraRecommendationService {
     );
 
     const routine: any[] = [];
+    const usedRoles = new Set<string>();
     let total = 0;
 
     for (const item of recommendations) {
       if (!item.price) {
+        continue;
+      }
+
+      const role = this.detectRoutineRole(item);
+
+      if (usedRoles.has(role) && routine.length < 3) {
         continue;
       }
 
@@ -137,11 +144,45 @@ export class AuroraRecommendationService {
         continue;
       }
 
-      routine.push(item);
+      routine.push({
+        ...item,
+        routineRole: role,
+      });
+
+      usedRoles.add(role);
       total = nextTotal;
 
       if (routine.length >= 3) {
         break;
+      }
+    }
+
+    if (routine.length < 3) {
+      for (const item of recommendations) {
+        if (!item.price) {
+          continue;
+        }
+
+        if (routine.some((selected) => selected.id === item.id)) {
+          continue;
+        }
+
+        const nextTotal = total + item.price.finalPrice;
+
+        if (maxTotal !== undefined && !Number.isNaN(maxTotal) && nextTotal > maxTotal) {
+          continue;
+        }
+
+        routine.push({
+          ...item,
+          routineRole: this.detectRoutineRole(item),
+        });
+
+        total = nextTotal;
+
+        if (routine.length >= 3) {
+          break;
+        }
       }
     }
 
@@ -153,6 +194,33 @@ export class AuroraRecommendationService {
       products: routine,
       reasonSummary: routine.flatMap((item) => item.reasons),
     };
+  }
+
+  private detectRoutineRole(item: any) {
+    const benefitSlugs = item.benefits.map((benefit: any) => benefit.slug);
+
+    if (benefitSlugs.includes('calming')) {
+      return 'barrier-comfort';
+    }
+
+    if (benefitSlugs.includes('hydration')) {
+      return 'hydration';
+    }
+
+    if (benefitSlugs.includes('barrier-support')) {
+      return 'barrier-comfort';
+    }
+
+    if (
+      benefitSlugs.includes('anti-aging-support') ||
+      benefitSlugs.includes('firmness') ||
+      benefitSlugs.includes('brightening') ||
+      benefitSlugs.includes('radiance')
+    ) {
+      return 'treatment';
+    }
+
+    return 'support';
   }
 
   private scoreProduct(product: any, skinTypeIds: string[], concernIds: string[]) {
