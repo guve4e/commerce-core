@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { AuroraRecommendationService } from '../services/aurora-recommendation.service';
 
 @Controller('aurora/recommendations')
@@ -8,7 +8,13 @@ export class AuroraRecommendationController {
   ) {}
 
   @Get('customer/:customerId')
-  recommendForCustomer(@Param('customerId') customerId: string) {
-    return this.auroraRecommendationService.recommendForCustomer(customerId);
+  recommendForCustomer(
+    @Param('customerId') customerId: string,
+    @Query('currency') currency = 'EUR',
+  ) {
+    return this.auroraRecommendationService.recommendForCustomer(
+      customerId,
+      currency,
+    );
   }
 }

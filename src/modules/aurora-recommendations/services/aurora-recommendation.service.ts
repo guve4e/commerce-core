@@ -1,11 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
+import { PricingService } from '../../pricing/services/pricing.service';
 
 @Injectable()
 export class AuroraRecommendationService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly pricingService: PricingService,
+  ) {}
 
-  async recommendForCustomer(customerId: string) {
+  async recommendForCustomer(customerId: string, currency = 'EUR') {
     const profile = await this.prisma.customerProfile.findUnique({
       where: { customerId },
       include: {
@@ -43,34 +47,61 @@ export class AuroraRecommendationService {
       include: {
         translations: true,
         images: true,
+        variants: {
+          orderBy: {
+            createdAt: 'asc',
+          },
+        },
         concerns: { include: { concern: true } },
         skinTypes: { include: { skinType: true } },
         benefitAssignments: { include: { benefit: true } },
       },
     });
 
-    return products
-      .map((product) => ({
-        id: product.id,
-        slug: product.slug,
-        name:
-          product.translations.find((t) => t.locale === 'en')?.name ??
-          product.name,
-        shortDescription:
-          product.translations.find((t) => t.locale === 'en')
-            ?.shortDescription ?? null,
-        image:
-          product.images.find((img) => img.type === 'SHOP')?.path ??
-          product.images[0]?.path ??
-          null,
-        score: this.scoreProduct(product, skinTypeIds, concernIds),
-        reasons: this.buildReasons(product, skinTypeIds, concernIds),
-        benefits: product.benefitAssignments.map((item) => ({
-          slug: item.benefit.slug,
-          name: item.benefit.name,
-        })),
-      }))
-      .sort((a, b) => b.score - a.score);
+    const scored = await Promise.all(
+      products.map(async (product) => {
+        const primaryVariant = product.variants[0] ?? null;
+
+        const price = primaryVariant
+          ? await this.pricingService.resolveActivePrice(
+              product.storeId,
+              primaryVariant.id,
+              currency,
+            ).catch(() => null)
+          : null;
+
+        return {
+          id: product.id,
+          slug: product.slug,
+          name:
+            product.translations.find((t) => t.locale === 'en')?.name ??
+            product.name,
+          shortDescription:
+            product.translations.find((t) => t.locale === 'en')
+              ?.shortDescription ?? null,
+          image:
+            product.images.find((img) => img.type === 'SHOP')?.path ??
+            product.images[0]?.path ??
+            null,
+          primaryVariant: primaryVariant
+            ? {
+                id: primaryVariant.id,
+                sku: primaryVariant.sku,
+                name: primaryVariant.name,
+              }
+            : null,
+          price,
+          score: this.scoreProduct(product, skinTypeIds, concernIds),
+          reasons: this.buildReasons(product, skinTypeIds, concernIds),
+          benefits: product.benefitAssignments.map((item) => ({
+            slug: item.benefit.slug,
+            name: item.benefit.name,
+          })),
+        };
+      }),
+    );
+
+    return scored.sort((a, b) => b.score - a.score);
   }
 
   private scoreProduct(product: any, skinTypeIds: string[], concernIds: string[]) {
