@@ -1,0 +1,1667 @@
+[{
+  "_id": "1008",
+  "company": "CP",
+  "name": "Brightening Serum",
+  "group": "brserum",
+  "isPopular": false,
+  "themeColor": "#007297",
+  "info": "A powerful mix of skin-enhancing ingredients that brightens the skin, fades hyperpigmentation, reduces wrinkles, shrinks pores and smoothen skin texture. ",
+  "description": "",
+  "keyIngredients": "<span style=\"color: #007297\">Niacinamide</span> ,also known as Vitamin B3, has many anti-inflammatory properties that make it an attractive treatment for skin conditions marked by inflammation, like acne. Niacinamide inhibits the production of oil on the skin surface, helping skin prone to acne. It improves hyperpigmentation spots and reduces fine lines and wrinkles. It brightens the complexion and diminishes signs of aging.<br><span style=\"color: #007297\">N Acetyl Glucosamine</span> also known as NAG, is an amino acid sugar that can increase collagen and Hyaluronic Acid production in the skin, reducing wrinkles' appearance. It reduces trans-epidermal water loss and increases the skin's moisture content, improving long-term hydration. Additionally, NAG increases skin elasticity, exfoliation, and the speed of wound healing. Combining niacinamide and NAG is a powerful formulation that can reduce the appearance of hyperpigmentation.<br><span style=\"color: #007297\">Glycoproteins</span> increase the skin's energy level when the skin needs to recover. Glycoproteins have moisturizing properties that lead to rejuvenated, youthful, and healthier-looking skin.<br><span style=\"color: #007297\">Glutamic Acid</span> is a powerful peptide hydrating ingredient that diminishes the appearance of fine lines and wrinkles, aids the skin's natural exfoliation process, minimizes pigmentation, boosts elasticity, and stimulates the skin's natural moisturizing processes.<br><span style=\"color: #007297\">Valine</span> are amino acids that maintain the skin's hydration, resilience, and overall healthy appearance. They protect skin from free-radical damage and reduce signs of aging.<br><span style=\"color: #007297\">Threonine</span> is an amino acid that hydrates and moisturizes the skin. It is also essential for the formation of collagen and elastin.<br><span style=\"color: #007297\">Betaine</span> is an amino acid that functions as a humectant with the ability to retain skin moisture. It provides superior hydration to the skin. It can temporarily decrease the depth of wrinkles, giving the complexion a much smoother appearance. Betaine soothes and protects the skin.<br><span style=\"color: #007297\">Hyaluronic Acid (HA)</span> binds water and imbues the skin with replenishing and rejuvenating moisture. After infusing the top layer of the skin with moisture, it acts as a humectant and draws moisture from the surrounding environment, providing the skin with lasting hydration. By promoting proper moisture balance, hyaluronic Acid limits the over-production of oil that can clog pores and lead to breakouts. As it fills the skin with moisture, hyaluronic Acid tightens the overall complexion. It helps firm facial contours for a more vibrant, youthful appearance. It makes the skin appear tighter while smoothing the skin texture. Hyaluronic Acid helps reduce the appearance of fine lines and wrinkles by retaining moisture to the skin and creating a plumping effect. Hyaluronic Acid promotes skin cell regeneration with extra hydration and protection, leading to healthier skin cells and a more vibrant, youthful appearing complexion.<br><span style=\"color: #007297\">Vitamin E</span> nourishes the skin, seals in moisture, minimizes acne scars' appearance, and diminishes signs of aging.<br><span style=\"color: #007297\">Bio-cellulose</span> is produced by fermenting helpful natural bacteria. Bio-cellulose fibers absorb and donate moisture, making them an ideal system to deliver nourishing ingredients to the skin. Bio-cellulose masks cling to the skin, allowing them to reach a broader skin surface target area. They remain refreshingly moist during use. The mask's special features contribute to deep ingredient penetration for more effective results.<br><span style=\"color: #007297\">Methylene Blue</span> is a powerful antioxidant that reduces aging signs, promotes wound healing in dermal fibroblasts, and stimulates cell proliferation. Additionally, it increases dermis thickness, hydration and improves skin viability, resulting in overall skin improvement, including improved appearance, smoothing of fine lines, prolonged hydration, and a reduction in wrinkles.<br>",
+  "fullIngredients": "AQUA/WATER, ROSA DAMASCENA FLOWER WATER, NIACINAMIDE, N ACETYLGLUCOSAMINE, GLYCOPROTEINS, GLUTAMIC ACID, VALINE, THREONINE, GLYCERIN, BUTYLENE GLYCOL, PENTYLENE GLYCOL, CAPRYLIC/CAPRIC TRIGLYCERIDE, 1 2 HEXANEDIOL, CELLULOSE, PHENOXYETHANOL (AND) ETHYLHEXYLGLYCERIN, BETAINE, SODIUM HYALURONATE, TOCOPHERYL ACETATE, HYDROXYETHYL ACRYLATE / SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, XANTHAN GUM, METHYLENE BLUE, CITRIC ACID, FRAGRANCE",
+  "directions": " Apply 2-3 pumps of the serum on a clean face avoiding the eye area and 2-3 pumps to the neck and decollete. Smooth evenly.",
+  "warnings": "For external use only. Avoid contact with eyes. Keep out of reach of children. If signs of irritation appear, discontinue use and consult your dermatologist.",
+  "whatToExpect": "<p><span style=\"color: #007297\">Skin Feel:</span>  Hydrated, Smooth <br><span style=\"color: #007297\">Product Texture:</span>  Lightweight Serum <br><span style=\"color: #007297\">Aroma:</span>  Floral, Green, Sweet, Earthly<br><span style=\"color: #007297\">Skin Types:</span>  Normal, Oily, Dry, Combination, Sensitive<br><span class=\"uk-text-danger\"></p>",
+  "picture": {
+    "art": [
+      "brserum_main.jpg"
+    ],
+    "review": [
+      "brserum_review.jpg"
+    ],
+    "shop": [
+      "brserum_1.jpg",
+      "brserum_3.jpg"
+    ],
+    "carousel": [
+      "brserum_carousel.jpg"
+    ]
+  },
+  "productTypes": [
+    {
+      "type": "SALE",
+      "saleDiscount": 0,
+      "quantity": 19,
+      "totalPrice": 1235,
+      "sku": "850013620103",
+      "name": "Brightening Serum",
+      "group": "brserum",
+      "originalPrice": 65,
+      "price": 65,
+      "description": "Brightening Serum",
+      "imagePaths": [
+        "brserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 19
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 10,
+      "totalPrice": 2,
+      "sku": "850013620103SMPL",
+      "name": "Brightening Serum Sample",
+      "group": "brserum",
+      "originalPrice": 2,
+      "price": 2,
+      "description": "Brightening Serum",
+      "imagePaths": [
+        "brserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 10
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 4.5,
+        "yLengthInCm": 4.5,
+        "zLengthInCm": 4.5,
+        "weightInGrams": 51.69
+      }
+    }
+  ],
+  "sample": {
+    "showSampleButton": true,
+    "text": "$2.00 Sample / 0.17 FL 0Z",
+    "hover": "5ml",
+    "description": ""
+  },
+  "_class": "com.webstore.inventory.product.Product"
+},
+{
+  "_id": "2011",
+  "company": "CP:BG",
+  "name": "Серум за изграждане на колаген",
+  "group": "collagenserum:bg",
+  "isPopular": true,
+  "themeColor": "#1d4b2f",
+  "info": "Мощна формула на основните съставки, необходими за усилена продукция на колаген.",
+  "description": "",
+  "keyIngredients": "<br><span style=\"color: #1d4b2f\">3-O-Ethyl Ascorbic Acid Vitamin C</span> е много стабилна форма на Витамин C, която е антиоксидант, стимулира колагена и изсветлява кожата. Този тип Витамин C помага за постигане на по-равномерен тен на кожата и намалява появата на фини линии и бръчки.<br><span style=\"color: #1d4b2f\">Palmitoyl Tripeptide-5</span> стимулира синтеза на колаген, активно премахва бръчките и овлажнява и стяга кожата.<br><span style=\"color: #1d4b2f\">Dipalmitoyl Hydroxyproline</span> е активна съставка против стареене, която овлажнява, укрепва и подмладява кожата. Тя има коригиращо действие на бръчките, овлажняване и тройно стягащо действие (свиване на колагеновите влакна, защита на поддържащите тъкани на дермата и антиоксидантно действие).<br><span style=\"color: #1d4b2f\">L-arginine</span> помага за защита на кожата от свободните радикали, увеличава хидратацията на кожата, като действа като хумектант, и усилва производството на колаген.<br><span style=\"color: #1d4b2f\">Proline</span> е съществена за формирането на здрав колаген и помага за намаляване на отпускането и бръчките, които често се съпровождат от UV експозиция и нормалното стареене на кожата.<br><span style=\"color: #1d4b2f\">L lysine</span> помага за изграждането на колаген, осигурявайки структура на кожата и допринася за нейната еластичност и стегнатост.<br><span style=\"color: #1d4b2f\">Гликолова киселина</span> намалява фините линии и бръчките, минимализира видимостта на порите, бори се с акнето, премахва мъртвите кожни клетки и изравнява цялостния тен на кожата. <br><span style=\"color: #1d4b2f\">Млечна киселина</span> помага за поддържане на кожата хидратирана и с по-малко суха. Използването на млечна киселина може да подобри признаците на стареене, като стимулира обновяването на колагена и стяга кожата. Фините линии и бръчките се омекотяват и изглаждат. Хиперпигментацията като възрастови петна и слънчеви петна могат да избледнеят. Млечната киселина работи чрез нежно ексфолиране на външния слой на кожата, осигурявайки по-светъл и по-гладък тен. Ексфолиацията с млечна киселина намалява акнето, като поддържа порите чисти и премахва по-старите кожни клетки и излишното олио, за да предотврати пъпките, черните точки и белите точки.<br><span style=\"color: #1d4b2f\">Centella Asiatica Extract</span> е растение, което успокоява възпалението, стимулира производството на колаген, действа като антиоксидант и подобрява хидратацията на кожата.<br><span style=\"color: #1d4b2f\">Био-целулоза</span> се произвежда чрез ферментация на полезни природни бактерии. Влакната на био-целулозата абсорбират и отдават влага, което ги прави идеална система за доставка на подхранващи съставки до кожата. Маските от био-целулоза прилепват към кожата, което им позволява да достигнат до по-голяма повърхност на кожата. Те остават приятно влажни по време на употреба. Специалните характеристики на маската допринасят за дълбоко проникване на съставките за по-ефективни резултати.<br><span style=\"color: #1d4b2f\">Хлорофил</span> е отличен източник на витамини A, C, E и K и действа за възстановяване на кожата и запазване на нейната стегнатост, като увеличава производството на колаген и помага за намаляване на уврежданията от свободните радикали.<br><span style=\"color: #1d4b2f\">Витамин E</span> подхранва кожата, запечатва влагата, намалява видимостта на акнето и намалява видимостта на признаците на стареене.<br><span style=\"color: #1d4b2f\">Хиалуронова киселина (HA)</span> свързва водата и насища кожата с възстановяваща и подмладяваща влага. След като насити горния слой на кожата с влага, тя действа като хумектант и привлича влага от околната среда, осигурявайки на кожата продължителна хидратация. Като поддържа правилния баланс на влага, хиалуроновата киселина ограничава прекомерното производство на олио, което може да запуши порите и да доведе до появата на пъпки. Когато запълва кожата с влага, разширява общия тен на кожата. Помага за стягане на контурите на лицето за по-жизнена и младежка визия. Направете кожата да изглежда по-стегната, докато изглажда текстурата на кожата. Хиалуроновата киселина помага за намаляване на появата на фини линии и бръчки, като задържа влагата в кожата и създава ефект на изпълване. Хиалуроновата киселина насърчава регенерацията на кожните клетки с допълнителна хидратация и защита, което води до по-здрави кожни клетки и по-жив и младежки изглеждащ тен.<br><span style='color: #1d4b2f'>Екстракт от зелена пшеница</span> действа като антиоксидант и помага при анти-стареене. Хлорофилът в пшеницата е антибактериален и може да помогне за намаляване на пъпките и заздравяване на рани. Зеленият екстракт от пшеница може да намали видимостта на белези и петна. Витамин Е в пшеницата е фотопротективен, може да помогне в предотвратяването и обратното действие на слънчевите увреждания, а също така работи като стабилизатор на кожната бариера. Тази бариера може да защити кожата от проникване на нежелани частици, които могат да причинят инфекции. Той също така помага за поддържане на хидратацията на кожата. Витамин Е в зеления екстракт от пшеница също може да помогне при регенерация и заздравяване на кожата.<br><span style='color: #1d4b2f'>Метиленово синьо</span> е мощен антиоксидант, който намалява признаците на стареене в старите кожни клетки, насърчава заздравяването на рани в дермалните фибробласти и стимулира клетъчното размножаване. Освен това увеличава дебелината на дермиса, хидратацията и подобрява жизнеността на кожата, резултирайки в общо подобрение на кожата, включително подобрен вид, изглаждане на фините линии и бръчки и подобрена хидратация на кожата.<br>",
+  "fullIngredients": "AQUA/WATER, 3-O-ETHYL ASCORBIC ACID, PALMITOYL TRIPEPTIDE-5, GLYCERIN, BUTYLENE GLYCOL, PENTYLENE GLYCOL, CAPRYLIC/CAPRIC TRIGLYCERIDE, 1 2 HEXANEDIOL, CELLULOSE, CENTELLA ASIATICA EXTRACT, PROLINE, DIPALMITOYL HYDROXYPROLINE, ARGININE, LYSINE, BETAINE, PHENOXYETHANOL (AND) ETHYLHEXYLGLYCERIN, LACTIC ACID, GLYCOLIC ACID, SODIUM HYALURONATE, TOCOPHERYL ACETATE, HYDROXYETHYL ACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, XANTHAN GUM, CHLOROPHYLL, GREEN WHEATGRASS EXTRACT, FRAGRANCE",
+  "directions": "Нанесете 2-3 помпи от серума върху чисто лице, като избягвате зоната около очите, и 2-3 помпи върху врата и деколтето. Разнесете равномерно.<br>",
+  "warnings": "Само за външна употреба. Избягвайте контакт с очите. Дръжте далеч от деца. При поява на признаци за раздразнение прекратете употребата и се консултирайте с дерматолог.",
+  "whatToExpect": "<p><span style='color: #1d4b2f'>Усещане на кожата:</span> Хидратирана, светеща, гладка <br><span style='color: #1d4b2f'>Текстура на продукта:</span> Лек серум <br><span style='color: #1d4b2f'>Аромат:</span> Зелен, мента и билки <br><span style='color: #1d4b2f'>Типове кожа:</span> Нормална, мазна, суха, комбинирана, чувствителна<br></p>",
+  "picture": {
+    "art": [
+      "collagenserum_main.jpg"
+    ],
+    "review": [
+      "collagenserum_review.jpg"
+    ],
+    "shop": [
+      "collagenserum_1.jpg",
+      "collagenserum_3.jpg"
+    ],
+    "carousel": [
+      "collagenserum_carousel.jpg"
+    ]
+  },
+  "productTypes": [
+    {
+      "type": "SALE",
+      "saleDiscount": 0,
+      "quantity": 19,
+      "totalPrice": 1235,
+      "sku": "850013620104BG",
+      "name": "Collagen Builder Serum",
+      "group": "collagenserum",
+      "originalPrice": 65,
+      "price": 65,
+      "description": "Collagen Builder Serum",
+      "imagePaths": [
+        "collagenserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 7
+        }
+      ],
+      "properties": {
+        "volume": 614.51,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 10,
+      "totalPrice": 20,
+      "sku": "850013620104SMPL",
+      "name": "Collagen Builder Serum Sample",
+      "group": "collagenserum",
+      "originalPrice": 2,
+      "price": 2,
+      "description": "Collagen Builder Serum",
+      "imagePaths": [
+        "collagenserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 10
+        }
+      ],
+      "properties": {
+        "volume": 91.13,
+        "xLengthInCm": 4.5,
+        "yLengthInCm": 4.5,
+        "zLengthInCm": 4.5,
+        "weightInGrams": 51.69
+      }
+    }
+  ],
+  "sample": {
+    "showSampleButton": true,
+    "text": "$2.00 Sample / 0.17 FL 0Z",
+    "hover": "5ml",
+    "description": ""
+  },
+  "currencySymbol": "лв",
+  "_class": "com.webstore.inventory.product.Product"
+},
+{
+  "_id": "1006",
+  "concentrations": [
+    {
+      "sku": "850013620101",
+      "level": "Low",
+      "originalPrice": 0,
+      "price": 70,
+      "quantity": 19
+    }
+  ],
+  "company": "CP",
+  "name": "Intense Repair Serum",
+  "group": "iserum",
+  "isPopular": true,
+  "themeColor": "#763e99",
+  "info": "Intense Repair Serum formulation includes Azelaic Acid and GABA. These ingredients work together to reduce inflammation so that acne outbreaks become less visibly irritated. Intense Repair Serum also improves skin texture and reduces the appearance of fine lines and wrinkles.",
+  "description": "",
+  "keyIngredients": "<span style=\"color: #763e99\">Azelaic Acid</span> reduces inflammation, thereby reducing the appearance of acne. The antibacterial qualities of azelaic acid help prevent whitehead and blackhead formation by exfoliating the skin gently and going deep within the pores to remove old skin cells that cause dull tone and clogged pores.<br><span style=\"color: #763e99\">Aminobutyric Acid</span>, also known as GABA, quickly penetrates the skin to reduce wrinkles and small lines. Fine lines disappear, the depth of wrinkles reduces, and skin elasticity increases to reveal a younger, fresher looking complexion. GABA promotes hyaluronic acid and collagen synthesis in the dermis, improving skin moisture and elasticity, leaving the skin smooth and tight.<br><span style=\"color: #763e99\">Lactic Acid</span> helps keep the skin moisturized and feeling less dry. Using lactic acid can improve aging signs by stimulating collagen renewal and firming the skin. Fine lines and wrinkles soften and smooth out. Hyperpigmentation such as age spots and sunspots can fade. Lactic acid works by gently exfoliating the outer skin layer, making a brighter and smoother complexion. Lactic Acid exfoliation helps to reduce acne by keeping pores clear and removing older skin cells and excess oil to prevent the development of pimples, blackheads, and whiteheads.<br><span style=\"color: #763e99\">Vitamin E</span> nourishes the skin, seals in moisture, minimizes the appearance of acne scars and can reverse signs of aging.<br><span style=\"color: #763e99\">Bio-cellulose</span> is produced by fermenting helpful natural bacteria. Bio-cellulose fibers absorb and donate moisture, making them an ideal system to deliver nourishing ingredients to the skin. Bio-cellulose masks cling to the skin, allowing them to reach a broader skin surface target area. They remain refreshingly moist during use. The mask's special features contribute to deep ingredient penetration for more effective results.<br><span style=\"color: #763e99\">Anthocyanins</span> are natural sun protectants that have antioxidant and anti-inflammatory properties. Anthocyanins have the potential to protect the skin from UV damage.<br>",
+  "fullIngredients": "AQUA/WATER, AZELAIC ACID, ETHOXYDIGLYCOL, AMINOBUTYRIC ACID, GLYCERIN, BUTYLENE GLYCOL, PENTYLENE GLYCOL, CAPRYLIC/CAPRIC TRIGLYCERIDE, CELLULOSE,1 2 HEXANEDIOL, PHENOXYETHANOL (AND) ETHYLHEXYLGLYCERIN, BETAINE, LACTIC ACID, SODIUM HYALURONATE, TOCOPHERYL ACETATE, HYDROXYETHYL ACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, XANTHAN GUM, ANTHOCYANINS, FRAGRANCE",
+  "directions": " Apply 2-3 pumps of the serum on a clean face avoiding the eye area and 2-3 pumps to the neck and decollete. Smooth evenly.<br>",
+  "warnings": "For external use only. Avoid contact with eyes. Keep out of reach of children. If signs of irritation appear, discontinue use and consult your dermatologist.",
+  "whatToExpect": "<p><span style=\"color: #763e99\">Skin Feel:</span>  Hydrated, Smooth <br><span style=\"color: #763e99\">Product Texture:</span>  Lightweight Serum <br><span style=\"color: #763e99\">Aroma:</span>  Lavender<br><span style=\"color: #763e99\">Skin Types:</span>  Normal, Oily, Dry, Combination, Sensitive<br></p>",
+  "picture": {
+    "art": [
+      "iserum_main.jpg"
+    ],
+    "review": [
+      "iserum_review.jpg"
+    ],
+    "shop": [
+      "iserum_1.jpg",
+      "iserum_3.jpg"
+    ],
+    "carousel": [
+      "iserum_carousel.jpg"
+    ]
+  },
+  "productTypes": [
+    {
+      "type": "NEW",
+      "saleDiscount": 0,
+      "quantity": 19,
+      "totalPrice": 1330,
+      "sku": "850013620101",
+      "name": "Intense Repair Serum",
+      "group": "iserum",
+      "originalPrice": 65,
+      "price": 65,
+      "description": "Intense Repair Serum",
+      "concentration": "Low",
+      "imagePaths": [
+        "iserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 55
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 7,
+      "totalPrice": 2,
+      "sku": "850013620101SMPL",
+      "name": "Intense Repair Serum Sample",
+      "group": "iserum",
+      "originalPrice": 2,
+      "price": 2,
+      "description": "Intense Repair Serum",
+      "imagePaths": [
+        "iserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 7
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 4.5,
+        "yLengthInCm": 4.5,
+        "zLengthInCm": 4.5,
+        "weightInGrams": 51.69
+      }
+    }
+  ],
+  "sample": {
+    "showSampleButton": true,
+    "text": "$2.00 Sample / 0.17 FL 0Z",
+    "hover": "5ml",
+    "description": ""
+  },
+  "_class": "com.webstore.inventory.product.Product"
+},
+{
+  "_id": "1004",
+  "concentrations": [
+    {
+      "sku": "850013620009",
+      "level": "Low",
+      "originalPrice": 0,
+      "price": 120,
+      "quantity": 19
+    }
+  ],
+  "company": "AVA",
+  "name": "The Q10 Serum",
+  "group": "q10serum",
+  "isPopular": true,
+  "themeColor": "#ffa6a8",
+  "info": "Q10 is a concentrated mix of different types of ceramides, cholesterol and free fatty acids that support the production of collagen and elastin, help to reduce the emergence of fine lines and wrinkles, help to promote even skin tone and provide skin the energy it needs for natural repair and regeneration leading to a more radiant complexion.",
+  "description": "",
+  "keyIngredients": "<span style=\"color: #ffa6a8\">Ceramide, fatty acids and cholesterol</span> work in multiple ways to improve skin’s texture, suppleness, and help calm signs of sensitivity.<br><span style=\"color: #ffa6a8\">UBIQUINONE</span> ombats skin dryness and keeps your skin hydrated by retaining moisture and preventing transdermal water loss. Ubiquinone improves signs of aging by replacing lost hyaluronic acid that is naturally found in the skin. This added hydration in turn, smooths fine lines and wrinkles. Ubiquinone is very good for over-exfoliated skin that can be caused by harsh exfoliants, cleansers and post-procedure treatments. Additionally, ubiquinone can cause temporary but instantons plumpness in the skin.<br><span style=\"color: #ffa6a8\">Tocoherol</span> nourishes skin, seals in moisture, minimizes the appearance of acne scars, reverses signs of aging.<br><span style=\"color: #ffa6a8\">BISABOLOL</span> stimulates and promotes the skin's healing process, improves the appearance of damaged skin by moisturizing and helping to restore suppleness and prevents signs of aging with antioxidant benefits.<br>",
+  "fullIngredients": "AQUA/WATER, CITRUS AURANTIUM AMARA/NEROLI/WATER, CERAMIDE NP, CERAMIDE AP, CERAMIDE EOP, PHYTOSPHINGO SINE, CHOLESTEROL, SODIUM LAUROYL LACTYLATE, BUTYLENE GLYCOL,GLYCERIN, C12-15 ALKYL BENZOATE, PENTYLENE GLYCOL, 1 2 HEXANE DIOL, TOCOPHEROL, BETAINE, BISABOLOL, TOCOPHERYL ACETATE, PHENOXYETHANOL (AND) ETHYLHEXYLGLYCERIN, UBIQUINONE,SODIUM HYALURONATE, HYDROXYETHYL ACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, XANTHAN GUM, LECITHIN, FRAGRANCE",
+  "directions": " Apply 2-3 pumps of the serum on a clean face avoiding the eye area and 2-3 pumps to the neck and decollete. Smooth evenly.<br>",
+  "warnings": "For external use only. Avoid contact with eyes. Keep out of reach of children. Discontinue use if signs of irritation appear. ",
+  "whatToExpect": "<p><span style=\"color: #ffa6a8\">Skin Feel:</span>  Hydrated, Glowing, Smooth <br><span style=\"color: #ffa6a8\">Product Texture:</span>  Lightweight serum <br><span style=\"color: #ffa6a8\">Aroma:</span> Unisex scent of White Rose, Blue Lotus and Pink Lotus<br><span style=\"color: #ffa6a8\">Skin Types:</span>  Normal, oily, dry, combination, sensitive<br></p>",
+  "picture": {
+    "art": [
+      "q10serum_main.jpg"
+    ],
+    "review": [
+      "q10serum_review.jpg"
+    ],
+    "shop": [
+      "q10serum_1.jpg",
+      "q10serum_2.jpg"
+    ],
+    "carousel": [
+      "q10serum_carousel.jpg"
+    ]
+  },
+  "productTypes": [
+    {
+      "type": "NEW",
+      "saleDiscount": 0,
+      "quantity": 19,
+      "totalPrice": 2280,
+      "sku": "850013620009",
+      "name": "The Q10 Serum",
+      "group": "q10serum",
+      "originalPrice": 130,
+      "price": 130,
+      "description": "The Q10 Serum",
+      "concentration": "Low",
+      "imagePaths": [
+        "q10serum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 26
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 7,
+      "totalPrice": 0,
+      "sku": "850013620009SMPL",
+      "name": "The Q10 Serum Sample",
+      "group": "q10serum",
+      "originalPrice": 0,
+      "price": 0,
+      "description": "The Q10 Serum",
+      "imagePaths": [
+        "q10serum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 53
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 4.5,
+        "yLengthInCm": 4.5,
+        "zLengthInCm": 4.5,
+        "weightInGrams": 51.69
+      }
+    }
+  ],
+  "sample": {
+    "showSampleButton": true,
+    "text": "Complimentary Sample / 0.17 FL 0Z",
+    "hover": "5ml",
+    "description": ""
+  },
+  "_class": "com.webstore.inventory.product.Product"
+},
+{
+  "_id": "1010",
+  "company": "CP",
+  "name": "Hyaluronic Acid Serum",
+  "group": "hyserum",
+  "isPopular": false,
+  "themeColor": "#83476f",
+  "info": "A hyaluronic acid cocktail containing high and low molecular weight Hyaluronic Acid and Hyaluronic acid 4D. Both high and low molecular weight hyaluronic acid protect cell structure by hydrating the skin's inter-cellular reservoir, raising the skin's moisture level, and smoothing lines. The low molecular weight Hyaluronic acid penetrates deeper into the skin while high hydrates the surface. Hyaluronic acid 4d consists of four kinds of Hyaluronic Acid with different properties that target different layers of the skin, providing moisturizing efficacy to make the skin hydrated continuously.",
+  "description": "",
+  "keyIngredients": "<span style=\"color: #83476f\">N-Acetyl Glucosamine (NAG)</span>, considered to be a ‘skin-identical ingredient’, increases hyaluronic acid production in the skin, leading to increased moisture content and hydration of the skin. NAG can increase collagen production leading to the reduction of the appearance of wrinkles and hyperpigmentation. Additionally, it accelerates wound healing and elasticity of the skin. It repairs and treats sun damage.<br><span style=\"color: #83476f\">Hyaluronic Acid 4D (HA 4D)</span> builds up and forms a network to accurately target different layers of the skin, lock in moisture from the outside, hold onto that moisture, and improve the skin's elasticity.<br><span style=\"color: #83476f\">Hyaluronic Acid (HA)</span>  penetrates the outer skin layers and binds water deeply. It infuses those layers with replenishing and rejuvenating moisture. After infusing the top layer of the skin with moisture, it acts as a humectant and continues to draw moisture in from the surrounding environment. This provides lasting hydration for the skin. Hyaluronic Acid fortifies the skin's natural barriers to help lock moisture in for a long-lasting hydrating effect. By promoting proper moisture balance in the skin, Hyaluronic Acid prevents the overproduction of oil that clogs pores and can lead to breakouts. It's recommended for those with sensitive or acne-prone skin. As it fills the skin with moisture, Hyaluronic Acid tightens the overall complexion. It helps firm facial contours for a more vibrant, youthful appearance. Much in the same way it makes the appearance of the skin appear tighter, it also smoothes the skin texture. Hyaluronic Acid helps reduce the appearance of fine lines and wrinkles, retaining moisture to the skin and creating a plumping effect. Hyaluronic Acid promotes skin cell regeneration with extra hydration and protection for the skin. This leads naturally to healthier cells and a more vibrant complexion.<br><span style=\"color: #83476f\">Hydrolyzed Sodium Hyaluronate</span>, also known as mini ha, has a low molecular weight compared to regular Hyaluronic Acid. It penetrates the skin deeper than regular Hyaluronic Acid. The low molecular weight penetrates the skin and nourishes it deeply. It maximizes skin moisturizing, and it has a high capacity for sun repair. Hydrolyzed Sodium Hyaluronate can reduce wrinkles and improve skin elasticity. In the epidermis, it is able to stimulate the production of Hyaluronic Acid.<br><span style=\"color: #83476f\">Bio-cellulose</span>  is produced by the fermentation of helpful natural bacteria. Bio cellulose fibers have the ability to absorb and donate moisture and skin treatments, making them an ideal carrier to deliver nourishing ingredients to your skin. Bio-cellulose masks cling to the skin, meaning they get into every part of the skin surface. They remain refreshingly moist during use. All of the mask's special features contribute to deep ingredient penetration for better results.<br><span style=\"color: #83476f\">Vitamin E</span> nourishes the skin, seals in moisture, minimizes the appearance of acne scars, and reverses signs of aging.<br><span style=\"color: #83476f\">Rosa Damascena Flower Water</span> is a staple ingredient in many natural rose water products; it has antibacterial, antimicrobial, and anti-inflammatory properties, thus helping soothe skin, minimize pores, and reduce fine lines, to help you get healthy new skin.<br>",
+  "fullIngredients": "AQUA/WATER, ROSA DAMASCENA FLOWER WATER, N-ACETYL GLUCOSAMINE, GLYCERIN, BUTYLENE GLYCOL, PENTYLENE GLYCOL, SODIUM HYALURONATE CROSSPOLYMER, SODIUM HYALURONATE, SODIUM ACETYLATED HYALURONATE, HYDROLYZED SODIUM HYALURONATE, CAPRYLIC CAPRIC TRIGLYCERIDE, 1 2 HEXANEDIOL, PHENOXYETHANOL (AND) ETHYLHEXYLGLYCERIN, SODIUM HYALURONATE, TOCOPHERYL ACETATE, BETAINE, SODIUM HYALURONATE, HYDROXYETHYL ACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, XANTHAN GUM, ANTHOCYANINS, CITRIC ACID, FRAGRANCE",
+  "directions": " Apply 2-3 pumps of the serum on a clean face avoiding the eye area and 2-3 pumps to the neck and decollete. Smooth evenly.<br>",
+  "warnings": "For external use only. Avoid contact with eyes. Keep out of reach of children. If signs of irritation appear, discontinue use and consult your dermatologist.",
+  "whatToExpect": "<p><span style=\"color: #83476f\">Skin Feel:</span>  Hydrated, Smooth <br><span style=\"color: #83476f\">Product Texture:</span>  Lightweight Serum <br><span style=\"color: #83476f\">Aroma:</span> Warm Floral Aroma<br><span style=\"color: #83476f\">Skin Types:</span>  Normal, Oily, Dry, Combination, Sensitive<br></p>",
+  "picture": {
+    "art": [
+      "hyserum_main.jpg"
+    ],
+    "review": [
+      "hyserum_review.jpg"
+    ],
+    "shop": [
+      "hyserum_1.jpg",
+      "hyserum_3.jpg"
+    ],
+    "carousel": [
+      "hyserum_carousel.jpg"
+    ]
+  },
+  "productTypes": [
+    {
+      "type": "SALE",
+      "saleDiscount": 0,
+      "quantity": 19,
+      "totalPrice": 0,
+      "sku": "850013620107",
+      "name": "Hyaluronic Serum",
+      "group": "hyserum",
+      "originalPrice": 70,
+      "price": 70,
+      "description": "Hyaluronic Serum",
+      "imagePaths": [
+        "hyserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 19
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 10,
+      "totalPrice": 2,
+      "sku": "850013620107SMPL",
+      "name": "Hyaluronic Acid Serum Sample",
+      "group": "hyserum",
+      "originalPrice": 2,
+      "price": 2,
+      "description": "Hyaluronic Acid Serum Sample",
+      "imagePaths": [
+        "hyserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-10-16T03:04:45.000",
+          "quantity": 10
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 4.5,
+        "yLengthInCm": 4.5,
+        "zLengthInCm": 4.5,
+        "weightInGrams": 51.69
+      }
+    }
+  ],
+  "sample": {
+    "showSampleButton": true,
+    "text": "$2.00 Sample / 0.17 FL 0Z",
+    "hover": "5ml",
+    "description": ""
+  },
+  "_class": "com.webstore.inventory.product.Product"
+},
+{
+  "_id": "1009",
+  "company": "CP",
+  "name": "Soothing Serum",
+  "group": "soothserum",
+  "isPopular": false,
+  "themeColor": "#8e010a",
+  "info": "A concentrated cocktail of ingredients specifically designed to decrease the appearance of redness and irritation while providing comfort for skin reactions.",
+  "description": "",
+  "keyIngredients": "<span style=\"color: #8e010a\">Acetyl Tetrapeptide-40</span>  is a peptide that fights inflammatory skin redness, post-inflammatory hyperpigmentation and reduces the appearance of dilated blood vessels.<br><span style=\"color: #8e010a\">Sodium Palmitoyl Proline</span>  is an anti-inflammatory amino acid that helps calm inflamed skin and stimulates healing, flushing, and rosacea-affected areas. It promotes tissue regeneration, helps to reduce wrinkles, and increases skin firmness and elasticity.<br><span style=\"color: #8e010a\">Nymphaea alba (white water lily) flower extract</span> has many skin-healing benefits. It has soothing and anti-inflammatory properties. It can ease the heat and irritation of a skin rash, wound, or burn while reducing swelling and encouraging the skin to regenerate. Additionally, Water Lily helps eliminate toxins to rejuvenate the skin. It purifies and detoxifies, soothing the skin against irritations while providing a conditioning and moisturizing effect. Water Lily brightens and creates radiance while the hydrating effect keeps that appearance soft and glowy.<br><span style=\"color: #8e010a\">Hyaluronic acid (HA)</span> binds water and imbues the skin with replenishing and rejuvenating moisture. After infusing the top layer of the skin with moisture, it acts as a humectant and draws moisture from the surrounding environment, providing the skin with lasting hydration. By promoting proper moisture balance, hyaluronic acid limits the over-production of oil that can clog pores and lead to breakouts. As it fills the skin with moisture, hyaluronic acid tightens the overall complexion. It helps firm facial contours for a more vibrant, youthful appearance. It makes the skin appear tighter while smoothing the skin texture. Hyaluronic acid helps reduce the appearance of fine lines and wrinkles by retaining moisture to the skin, and creating a plumping effect. Hyaluronic acid promotes skin cell regeneration with extra hydration and protection, leading to healthier skin cells and a more vibrant, youthful appearing complexion.<br><span style=\"color: #8e010a\">Vitamin E</span> nourishes the skin, seals in moisture, minimizes the appearance of acne scars, and reverses signs of aging.<br><span style=\"color: #8e010a\">Bio-cellulose</span> is produced by fermenting helpful natural bacteria. Bio-cellulose fibers absorb and donate moisture, making them an ideal system to deliver nourishing ingredients to the skin. Bio-cellulose masks cling to the skin, allowing them to reach a broader skin surface target area. They remain refreshingly moist during use. The mask's special features contribute to deep ingredient penetration for more effective results.<br><span style=\"color: #8e010a\">Bisabolol</span> stimulates and promotes the skin's healing process, improves the appearance of damaged skin by moisturizing and helping to restore suppleness, and prevents signs of aging with its antioxidant benefits.<br><span style=\"color: #8e010a\">Rosa damascena rosa water</span> is a staple ingredient in many natural rose water products. It has antibacterial, antimicrobial, and anti-inflammatory properties, soothing the skin, minimizing pores, and reducing fine lines, helping achieve healthy skin.<br><span style=\"color: #8e010a\">Turmeric Hydrosol</span> is a root used for all sorts of skin issues. Turmeric has anti-inflammatory, antimicrobial, and antioxidant effects, which can benefit the skin in many ways. It helps heal and prevent dry skin. Turmeric contains the antioxidant curcumin, which is also anti-inflammatory and can lighten pigmentation. Turmeric slows the skin aging process and is used to diminish wrinkles, keep skin supple, and improve skin's elasticity.<br><span style=\"color: #8e010a\">Croton lechleri resin extract</span> is an antioxidant that promotes and protects skin health with its anti-inflammatory and skin rejuvenating effects. It has antiviral and antibacterial properties.<br>",
+  "fullIngredients": "AQUA/WATER, ROSA DAMASCENA FLOWER WATER, CURCUMA LONGA (TURMERIC) WATER, SODIUM PALMITOYL PROLINE (AND) NYMPHAEA ALBA FLOWER EXTRACT, COCO-CAPRYLATE/CAPRATE, GLYCERIN, ACETYL TETRAPEPTIDE-40, BUTYLENE GLYCOL, PENTYLENE GLYCOL, CAPRYLIC/CAPRIC TRIGLYCERIDE, 1 2 HEXANEDIOL, CELLULOSE, PHENOXYETHANOL (AND) ETHYLHEXYLGLYCERIN, TOCOPHEROL, BISABOLOL, TOCOPHERYL ACETATE, BETAINE, CAPRYLYL GLYCOL, SODIUM HYALURONATE, CROTON LECHLERI RESIN EXTRACT, HYDROXY ETHYLACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, XANTHAN GUM, FRAGRANCE",
+  "directions": " Apply 2-3 pumps of the serum on a clean face avoiding the eye area and 2-3 pumps to the neck and decollete. Smooth evenly.<br>",
+  "warnings": "For external use only. Avoid contact with eyes. Keep out of reach of children. If signs of irritation appear, discontinue use and consult your dermatologist.",
+  "whatToExpect": "<p><span style=\"color: #8e010a\">Skin Feel:</span>  Calm, Hydrated, Smooth <br><span style=\"color: #8e010a\">Product Texture:</span>  Lightweight Serum <br><span style=\"color: #8e010a\">Aroma:</span> Floral, Earthy <br><span style=\"color: #8e010a\">Skin Types:</span>  Normal, Oily, Dry, Combination, Sensitive<br><span class=\"uk-text-danger\"></p>",
+  "picture": {
+    "art": [
+      "soothserum_main.jpg"
+    ],
+    "review": [
+      "soothserum_review.jpg"
+    ],
+    "shop": [
+      "soothserum_1.jpg",
+      "soothserum_3.jpg"
+    ],
+    "carousel": [
+      "soothserum_carousel.jpg"
+    ]
+  },
+  "productTypes": [
+    {
+      "type": "NEW",
+      "saleDiscount": 0,
+      "quantity": 19,
+      "totalPrice": 1235,
+      "sku": "850013620105",
+      "name": "Soothing Serum",
+      "group": "soothserum",
+      "originalPrice": 65,
+      "price": 65,
+      "description": "Soothing Serum",
+      "imagePaths": [
+        "soothserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 19
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 10,
+      "totalPrice": 2,
+      "sku": "850013620105SMPL",
+      "name": "Soothing Serum Sample",
+      "group": "soothserum",
+      "originalPrice": 2,
+      "price": 2,
+      "description": "Soothing Serum Sample",
+      "imagePaths": [
+        "soothserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 10
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 4.5,
+        "yLengthInCm": 4.5,
+        "zLengthInCm": 4.5,
+        "weightInGrams": 51.69
+      }
+    }
+  ],
+  "sample": {
+    "showSampleButton": true,
+    "text": "$2.00 Sample / 0.17 FL 0Z",
+    "hover": "5ml",
+    "description": ""
+  },
+  "_class": "com.webstore.inventory.product.Product"
+},
+{
+  "_id": "1005",
+  "concentrations": [
+    {
+      "sku": "850013620008",
+      "level": "Low",
+      "originalPrice": 0,
+      "price": 115,
+      "quantity": 19
+    }
+  ],
+  "company": "AVA",
+  "name": "The Hyaluronic Acid Serum",
+  "group": "hserum",
+  "isPopular": true,
+  "themeColor": "#ffa6a8",
+  "info": "It is a Hyaluronic Acid concentrated cocktail, containing both high and low molecular weight hyaluronic acid. Ava’s Hyaluronic Acid helps preserve the characteristics of a youthful, healthy complexion’s suppleness, elasticity and tone.",
+  "description": "",
+  "keyIngredients": "High and low molecular weight Hyaluronic Acid. Both protect cell structure by hydrating the skin's inter-cellular reservoir, raising the skin's moisture level, and smoothing lines. The lowest molecular weight Hyaluronic acid penetrates deeper into the skin while highest hydrates the surface.<br><span style=\"color: #ffa6a8\">Tripeptide</span> helps to boost collagen and improve sagging skin.<br><span style=\"color: #ffa6a8\">Hyaluronic Acid 4D</span> builds up and forms a network to accurately target different layers of the skin, lock in moisture from the outside, hold onto that moisture, and improve the skin’s elasticity.<br>",
+  "fullIngredients": "AQUA/WATER, ROSA DAMASCENA (ROSE) DISTILLATE, BUTYLENE GLYCOL, GLYCERIN, TETRADECYL AMINOBUTYROYLVALYL AMINOBUTYRIC UREA TRIFLUOROACETATE (AND) MAGNESIUM CHLORIDE (AND) GLYCERIN, PENTYLENE GLYCOL, SODIUM HYALURO NATE CROSSPOLYMER, SODIUM HYALURONATE, SODIUM ACETYLATED HYALURONATE, HYDROLYZED SODIUM HYALURONATE, CAPRYLIC CAPRIC TRIGLYCERIDE, 1 2 HEXANEDIOL, TOCOPHERYL ACETATE, PHENOXYETHANOL (AND) ETHYLHEXYLGLYCERIN, BETAINE, SODIUM HYALURONATE, HYDROXYETHYL ACRYLATE/SODIUM ACRYLOYL DIMETHYL TAURATE COPOLYMER, XANTHAN GUM, FRAGRANCE",
+  "directions": " Apply 2-3 pumps of the serum on a clean face avoiding the eye area and 2-3 pumps to the neck and decollete. Smooth evenly.<br>",
+  "warnings": "For external use only. Avoid contact with eyes. Keep out of reach of children. Discontinue use if signs of irritation appear. ",
+  "whatToExpect": "<p><span style=\"color: #ffa6a8\">Skin Feel:</span>  Hydrated, Glowing, Smooth <br><span style=\"color: #ffa6a8\">Product Texture:</span>  Lightweight serum <br><span style=\"color: #ffa6a8\">Aroma:</span>  Unisex scent of White Rose, Blue Lotus and Pink Lotus<br><span style=\"color: #ffa6a8\">Skin Types:</span>  Normal, oily, dry, combination, sensitive<br></p>",
+  "picture": {
+    "art": [
+      "hserum_main.jpg"
+    ],
+    "review": [
+      "hserum_review.jpg"
+    ],
+    "shop": [
+      "hserum_1.jpg",
+      "hserum_2.jpg"
+    ],
+    "carousel": [
+      "hserum_carousel.jpg"
+    ]
+  },
+  "productTypes": [
+    {
+      "type": "SALE",
+      "saleDiscount": 15,
+      "quantity": 19,
+      "totalPrice": 2185,
+      "sku": "850013620008",
+      "name": "The Hyaluronic Acid Serum",
+      "group": "hserum",
+      "originalPrice": 130,
+      "price": 130,
+      "description": "Hyaluronic Acid Serum",
+      "concentration": "Low",
+      "imagePaths": [
+        "hserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 32
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 7,
+      "totalPrice": 0,
+      "sku": "850013620008SMPL",
+      "name": "The Hyaluronic Acid Serum Sample",
+      "group": "hserum",
+      "originalPrice": 0,
+      "price": 0,
+      "description": "Hyaluronic Acid Serum",
+      "imagePaths": [
+        "hserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 72
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 4.5,
+        "yLengthInCm": 4.5,
+        "zLengthInCm": 4.5,
+        "weightInGrams": 51.69
+      }
+    }
+  ],
+  "sample": {
+    "showSampleButton": true,
+    "text": "Complimentary Sample / 0.17 FL 0Z",
+    "hover": "5ml",
+    "description": ""
+  },
+  "_class": "com.webstore.inventory.product.Product"
+},
+{
+  "_id": "2001",
+  "company": "CP:BG",
+  "name": "Витамин С Серум",
+  "group": "vitcserum:bg",
+  "isPopular": true,
+  "themeColor": "#ff5e0d",
+  "info": "Концентриран коктейл, който съдържа стабилен, мощен, но в същото време нежен към кожата Витамин С. Витамин С действа върху клетката по много полезни начини. Той осветява тена ви, хидратира кожата ви, намалява възпалението и неравномерната пигментация, стимулира производството на колаген и така предотвратява обвисването на кожата, оставяйки ви със сияещо, по-гладко и по-младо изглеждащо лице.",
+  "description": "",
+  "keyIngredients": "<span style=\"color: #ff5e0d\">Тетрахексилдетил аскорбат, THD аскорбат</span>, е разтворим в масла тип Витамин С, който е много стабилен в сравнение с по-често срещания си роднина, L-аскорбиновата киселина. Той прониква в кожата по-бързо и по-дълбоко от всякаква друга форма на витамин С. THD аскорбат действа като мощен антиоксидант. Той е съвместим с повечето типове кожа, дори и с чувствителна. THD аскорбат стимулира производството на колаген и осветлява кожата, насърчавайки по-равномерен тен на кожата.<br><span style='color: #ff5e0d'>Био-целулоза</span> се произвежда чрез ферментация на полезни естествени бактерии. Влакната на био-целулозата абсорбират и отдават влага, което ги прави идеална система за доставяне на хранителни вещества на кожата. Маските от био-целулоза се прилепват към кожата, позволявайки им да достигнат по-широка целева област на кожата. Те остават освежаващо влажни по време на употреба. Специалните характеристики на маската допринасят за дълбоко проникване на съставките за по-ефективни резултати.<br><span style='color: #ff5e0d'>Витамин Е</span> подхранва кожата, запечатва влагата, минимизира видимостта на белезите от акне и може да действа срещу признаците на стареене.<br><span style='color: #ff5e0d'>Хиалуронова киселина (HA)</span> свързва водата и насища кожата с обновяваща и омладяваща влага. След като насити горния слой на кожата с влага, тя действа като хумектант и привлича влага от околната среда, осигурявайки на кожата продължителна хидратация. Като насърчава правилния баланс на влагата, хиалуроновата киселина ограничава прекомерното производство на масла, което може да запуши порите и да доведе до поява на акне. Като запълва кожата с влага, хиалуроновата киселина стяга общия тен на кожата. Тя помага да се стегнат контурите на лицето за по-жизнен и младежки вид. Тя кара кожата да изглежда по-стегната, докато изглажда текстурата на кожата. Хиалуроновата киселина помага за намаляване на видимостта на фините линии и бръчките, като задържа влага в кожата и създава плътен ефект. Хиалуроновата киселина насърчава регенерацията на кожните клетки с допълнителна хидратация и защита, водеща до по-здрави кожни клетки и по-жив и младежки изглеждащ тен.<br><span style='color: #ff5e0d'>Астаксантин</span> е мощен каротеноид със силна антиоксидантна и противовъзпалителна активност. Той помага за защита на кожата и ремонтиране на ДНК увреждания, причинени от UV лъчите. Също така намалява видимостта на фините линии, бръчките и хиперпигментационните петна.<br><span style='color: #ff5e0d'>Цвете на Роза Дамасцена</span> е основна съставка в много естествени продукти с розова вода. То притежава антибактериални, антимикробни и противовъзпалителни свойства, които помагат за успокояване на кожата, минимизиране на порите и намаляване на фините линии.<br>",
+  "fullIngredients": "AQUA/WATER, ROSA DAMASCENA FLOWER WATER, TETRAHEXYLDECYL ASCORBATE, GLYCERIN, BUTYLENE GLYCOL, PENTYLENE GLYCOL, CELLULOSE, CAPRYLIC/CAPRIC TRIGLYCERIDE, 1 2 HEXANEDIOL, PHENOXYETHANOL, BETAINE, TOCOPHEROL, TOCOPHERYL ACETATE, ETHYLHEXYLGLYCERIN, SODIUM HYALURONATE, HYDROXYETHYL ACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, LECITHIN, XANTHAN GUM, ASTAXANTHIN",
+  "directions": "Нанесете 2-3 помпи от серума върху чисто лице, като избягвате зоната около очите, и 2-3 помпи върху врата и деколтето. Разнесете равномерно.<br> Витамин С може да се използва самостоятелно, без хидратиращ крем.",
+  "warnings": "Само за външна употреба. Избягвайте контакт с очите. Дръжте далеч от деца. При поява на признаци за раздразнение прекратете употребата и се консултирайте с дерматолог.",
+  "whatToExpect": "<p><span style='color: #ff5e0d'>Усещане за Кожата:</span> Хидратирана, Сияеща, Гладка <br><span style='color: #ff5e0d'>Текстура на Продукта:</span>  Лек Серум <br><span style='color: #ff5e0d'>Типове Кожа:</span>  Нормална, Мазна, Суха, Комбинирана, Чувствителна<br></p>",
+  "picture": {
+    "art": [
+      "vitcserum_main.jpg"
+    ],
+    "review": [
+      "vitcserum_review.jpg"
+    ],
+    "shop": [
+      "vitcserum_1.jpg",
+      "vitcserum_3.jpg"
+    ],
+    "carousel": [
+      "vitcserum_carousel.jpg"
+    ]
+  },
+  "productTypes": [
+    {
+      "type": "FREE_SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 27,
+      "totalPrice": 2160,
+      "sku": "850013620100:BG",
+      "name": "Vitamin C Serum",
+      "group": "vitcserum:bg",
+      "originalPrice": 70,
+      "price": 70,
+      "description": "Vitamin C Serum",
+      "ingredients": [
+        {
+          "_id": "e8a435d1",
+          "type": "aroma",
+          "name": "Aroma",
+          "keyIngredientText": "<span style=\"color: #ff5e0d\">Essential Oil</span> White Lily Absolute Oil.<br>",
+          "fullIngredientText": ", MADONNA LILY FLOWER ABSOLUTE",
+          "description": "<h3>Добавете Абсолютно Масло от Бяла Лилия</h3><p> Насърчава общото здраве и сияние на кожата, като същевременно намалява възпалението на кожата.</p><br>",
+          "directions": "",
+          "warnings": "",
+          "whatToExpect": "<span style=\"color: #ff5e0d\">Aroma:</span> Sweet, Floral<br>",
+          "pictures": []
+        }
+      ],
+      "imagePaths": [
+        "vitcserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 16
+        },
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 8
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "FREE_SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 27,
+      "totalPrice": 2160,
+      "sku": "8500136201001:BG",
+      "name": "Vitamin C Serum - no fragrance",
+      "group": "vitcserum:bg",
+      "originalPrice": 65,
+      "price": 65,
+      "description": "Vitamin C Serum - no fragrance",
+      "imagePaths": [
+        "vitcserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 2
+        },
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 3
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 32,
+      "totalPrice": 0,
+      "sku": "850013620100:BGSMPL",
+      "name": "Vitamin C Serum Sample",
+      "group": "vitvitcserum:bgserum",
+      "originalPrice": 0,
+      "price": 0,
+      "description": "Vitamin C Serum Sample",
+      "imagePaths": [
+        "vitcserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 20
+        },
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 30
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 4.5,
+        "yLengthInCm": 4.5,
+        "zLengthInCm": 4.5,
+        "weightInGrams": 51.69
+      }
+    }
+  ],
+  "sample": {
+    "showSampleButton": true,
+    "text": "Complimentary Sample / 0.17 FL 0Z",
+    "hover": "5ml",
+    "description": ""
+  },
+  "currencySymbol": "лв",
+  "_class": "com.webstore.inventory.product.Product"
+},
+{
+  "_id": "1003",
+  "concentrations": [
+    {
+      "sku": "850013620102",
+      "level": "Low",
+      "originalPrice": 0,
+      "price": 75,
+      "quantity": 19
+    }
+  ],
+  "company": "CP",
+  "name": "Anti-Aging Serum",
+  "group": "antiageserum",
+  "isPopular": true,
+  "themeColor": "#ded726",
+  "info": "A concentrated cocktail of anti-aging ingredients that clear up skin irritation and acne, decrease fine line and wrinkles, and even out overall skin tone.",
+  "description": "",
+  "keyIngredients": "<span style=\"color: #ded726\">Encapsulated Retinol</span> is a version of retinol that increases its stability, enabling deeper penetration into the skin. Encapsulated retinol is more stable and productive, having the ease of migrating and targeting skin cells where it is most beneficial. Encapsulated retinol limits the ingredients' exposure to air and light, protecting the formula and allowing it to remain stable and potent for longer while reducing the skin's sensitivity to the product. It prevents wrinkles due to its minimizing effect and smoothes out existing fine lines and wrinkles. Additionally, encapsulated retinol brightens dull skin by exfoliating at a cellular level, which results in a brighter and smoother new skin. It regulates oily skin and minimizes breakouts. Retinol is also known to fade dark age spots, sunspots, hyperpigmentation, and even the overall complexion.<br><span style=\"color: #ded726\">Retynyl palmitate</span> is the least irritating of all four retinoids. It acts both on the surface and within deeper layers of the skin. It speeds cell turnover, causing the cells on the skin's outermost layer to rapidly turn over, making way for new cell growth underneath, resulting in smoother, more radiant skin with less discoloration and more even tone overall. Retinyl palpitates acts as an exfoliant and unclogs pores, keeping them clear. Retinyl palmitate hinders collagen's breakdown, stimulates new collagen, and thickens the skin's deeper layer, resisting the formation of wrinkles.<br><span style=\"color: #ded726\">Ceramides</span> hold the skin together and form a protective layer to help prevent moisture loss and visible damage from environmental stressors. Ceramides have anti-aging properties and also generally support skin suppleness.<br><span style=\"color: #ded726\">Elastin protein</span> significantly increases skin elasticity and reduces wrinkles' appearance: Elastin protein firms and plumps the skin's complexion.<br><span style=\"color: #ded726\">Keratin proteins</span> provide moisturizing properties and enhanced skin elasticity, keeping skin looking young while feeling firm and supple.<br><span style=\"color: #ded726\">Vitamin E</span> nourishes the skin, seals in moisture, minimizes the appearance of acne scars, and reverses signs of aging.<br><span style=\"color: #ded726\">Hyaluronic acid (HA)</span> binds water and imbues the skin with replenishing and rejuvenating moisture. After infusing the top layer of the skin with moisture, it acts as a humectant and draws moisture from the surrounding environment, providing the skin with lasting hydration. By promoting proper moisture balance, hyaluronic acid limits the over-production of oil that can clog pores and lead to breakouts. As it fills the skin with moisture, hyaluronic acid tightens the overall complexion. It helps firm facial contours for a more vibrant, youthful appearance. It makes the skin appear tighter while smoothing the skin texture. Hyaluronic acid helps reduce the appearance of fine lines and wrinkles by retaining moisture to the skin, and creating a plumping effect. Hyaluronic acid promotes skin cell regeneration with extra hydration and protection, leading to healthier skin cells and a more vibrant, youthful appearing complexion.<br><span style=\"color: #ded726\">Folic acid</span> facilitates the development of healthy skin cells. Folic acid helps fight premature aging by reducing wrinkles and fine lines. It also increases collagen production to give a firmer and more toned appearing complexion.<br>",
+  "fullIngredients": "AQUA/WATER, ROSA DAMASCENA FLOWER WATER, N-ACETYL GLUCOSAMINE, GLYCERIN, BUTYLENE GLYCOL, PENTYLENE GLYCOL, SODIUM HYALURONATE CROSSPOLYMER, SODIUM HYALURONATE, SODIUM ACETYLATED HYALURONATE, HYDROLYZED SODIUM HYALURONATE, CAPRYLIC CAPRIC TRIGLYCERIDE, 1 2 HEXANEDIOL, PHENOXYETHANOL (AND) ETHYLHEXYLGLYCERIN, SODIUM HYALURONATE, TOCOPHERYL ACETATE, BETAINE, SODIUM HYALURONATE, HYDROXYETHYL ACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, XANTHAN GUM, ANTHOCYANINS, CITRIC ACID, FRAGRANCE",
+  "directions": " Apply 2-3 pumps of the serum on a clean face avoiding the eye area and 2-3 pumps to the neck and decollete. Smooth evenly.",
+  "warnings": "For external use only. Avoid contact with eyes. Keep out of reach of children. If signs of irritation appear, discontinue use and consult your dermatologist.",
+  "whatToExpect": "<p><span style=\"color: #ded726\">Skin Feel:</span>  Hydrated, Glowing, Smooth <br><span style=\"color: #ded726\">Product Texture:</span>  Lightweight Serum <br><span style=\"color: #ded726\">Aroma:</span> No Aroma<br><span style=\"color: #ded726\">Skin Types:</span>  Normal, Oily, Dry, Combination, Sensitive<br></p>",
+  "picture": {
+    "art": [
+      "antiageserum_main.jpg"
+    ],
+    "review": [
+      "antiageserum_review.jpg"
+    ],
+    "shop": [
+      "antiageserum_1.jpg",
+      "antiageserum_3.jpg"
+    ],
+    "carousel": [
+      "antiageserum_carousel.jpg"
+    ]
+  },
+  "productTypes": [
+    {
+      "type": "SALE",
+      "saleDiscount": 0,
+      "quantity": 19,
+      "totalPrice": 1425,
+      "sku": "850013620102",
+      "name": "Anti-Aging Serum",
+      "group": "antiageserum",
+      "originalPrice": 70,
+      "price": 70,
+      "description": "Anti-Aging Serum",
+      "concentration": "Low",
+      "imagePaths": [
+        "antiageserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 20
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 7,
+      "totalPrice": 2,
+      "sku": "850013620102SMPL",
+      "name": "Anti-Aging Serum Sample",
+      "group": "antiageserum",
+      "originalPrice": 2,
+      "price": 2,
+      "description": "Anti-Aging Serum",
+      "imagePaths": [
+        "antiageserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 20
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 4.5,
+        "yLengthInCm": 4.5,
+        "zLengthInCm": 4.5,
+        "weightInGrams": 51.69
+      }
+    }
+  ],
+  "sample": {
+    "showSampleButton": true,
+    "text": "$2.00 Sample / 0.17 FL 0Z",
+    "hover": "5ml",
+    "description": ""
+  },
+  "_class": "com.webstore.inventory.product.Product"
+},
+{
+  "_id": "1007",
+  "company": "CP",
+  "name": "Hydrating Serum",
+  "group": "hydserum",
+  "isPopular": false,
+  "themeColor": "#5fb078",
+  "info": "A concentrated combination of hydrating ingredients formulated to provide enhanced skin moisturization and protection. ",
+  "description": "",
+  "keyIngredients": "<span style=\"color: #5fb078\">Panthenol</span>, also known as Vitamin B5, moisturizes the skin. By acting as a humectant, panthenol attracts moisture from the skin's environment to achieve a fresh and dewy appearance. Maintaining optimal moisture levels is essential to preserve a youthful and healthy glow. Panthenol has an anti-inflammatory role, relieving systemic irritation and itching while helping to refresh dry skin. Panthenol has anti-aging properties and can even out skin tone and lighten dark spots. Panthenol promotes wound healing and new tissue formation. By speeding up the skin's natural restorative processes, panthenol reduces the chances of scar formation and serves to preserve the skin's integrity. <br><span style=\"color: #5fb078\">Palmitoyl Tripeptide-5</span> is a skin penetrating peptide that stimulates collagen synthesis and improves wrinkles' appearance significantly. It has very positive skin moisturizing and firming properties.<br><span style=\"color: #5fb078\">Sorbitol</span> is included as a moisturizer in skin care formulations and keeps the skin hydrated while reducing evident signs of aging.<br><span style=\"color: #5fb078\">Allantoin</span> keeps the skin moisturized and prevents dryness and irritation, and protects the skin. It helps soothe injured skin and promotes wound healing. It helps exfoliate old skin cells and helps to keep the skin smooth and soft. It fights damage of transepidermal water loss in the dermis, keeping the skin's appearance looking plump and youthful. Allantoin is beneficial in collagen synthesis by stimulating cells involved in collagen production.<br><span style=\"color: #5fb078\">Vitamin E</span> nourishes the skin, seals in moisture, minimizes the appearance of skin damage and can reverse the signs of aging.<br><span style=\"color: #5fb078\">Hyaluronic Acid (HA)</span> binds water and imbues the skin with replenishing and rejuvenating moisture. After infusing the top layer of the skin with moisture, it acts as a humectant and draws moisture from the surrounding environment, providing the skin with lasting hydration. Hyaluronic Acid limits the over-production of oil that can clog pores by promoting proper moisture balance and lead to breakouts. As it fills the skin with moisture, Hyaluronic Acid tightens the overall complexion. It helps firm facial contours for a more vibrant, youthful appearance. It makes the skin appear tighter while smoothing the skin texture. Hyaluronic Acid helps reduce the appearance of fine lines and wrinkles by retaining moisture to the skin and creating a plumping effect. Hyaluronic Acid promotes skin cell regeneration with extra hydration and protection, leading to healthier skin cells and a more vibrant, youthful appearing complexion.<br><span style=\"color: #5fb078\">Bio-cellulose</span> is produced by fermenting helpful natural bacteria. Bio-cellulose fibers absorb and donate moisture, making them an ideal system to deliver nourishing ingredients to the skin. Bio-cellulose masks cling to the skin, allowing them to reach a broader skin surface target area. They remain refreshingly moist during use. The mask's special features contribute to deep ingredient penetration for more effective results.<br><span style=\"color: #5fb078\">Methylene Blue</span> is a powerful antioxidant that reduces signs of aging in old skin cells, promotes wound healing in dermal fibroblasts, and stimulates cell proliferation. Additionally, it increases dermis thickness, hydration and improves skin viability, resulting in overall skin improvement, including improved appearance, smoothing of fine lines and wrinkles, and improved skin hydration.<br><span style=\"color: #5fb078\">Chlorophyll</span>  is an excellent source of antioxidants that can replenish the skin and keep it firm while increasing collagen production. In helping maintain healthy skin tissue, chlorophyll stimulates anti-aging enzymes and encourages nourished youthful skin. It can help repair sun damage and fight free radical damage. Chlorophyll can reduce inflammation and promote wound healing in the skin.<br><span style=\"color: #5fb078\">Green Wheatgrass Extract</span> works as an antioxidant and helps with anti-aging. The chlorophyll in wheatgrass is anti-bacterial and can help to reduce pimples and heal wounds. The green wheatgrass extract can diminish the appearance of scars and blemishes. The Vitamin E in wheatgrass is photoprotective, it can help in the prevention and reversal of sun damage, and it also works as a skin barrier stabilizer. This barrier can protect the skin from the penetration of unwanted particles that can cause infections. It also helps to maintain skin hydration. The Vitamin E in green wheatgrass extract can also aid in skin regeneration and healing.<br><span style=\"color: #5fb078\">Silk Amino acids</span> help reduce the appearance of fine lines and wrinkles and other signs of aging, such as hyperpigmentation. The amino acids found in these specific protein molecules can also rejuvenate skin tone and hydrate skin tissues.<br>",
+  "fullIngredients": "AQUA/WATER, ROSA DAMASCENA FLOWER WATER, PANTHENOL, PALMITOYL TRIPEPTIDE-5, GLYCERIN, BUTYLENE GLYCOL, PENTYLENE GLYCOL, CAPRYLIC/CAPRIC TRIGLYCERIDE, 1 2 HEXANEDIOL, CELLULOSE, PHENOXYETHANOL (AND) ETHYLHEXYLGLYCERIN, SORBITOL, BETAINE, SILK AMINO ACIDS, ALLANTOIN, SODIUM HYALURONATE, TOCOPHERYL ACETATE, HYDROXYETHYL ACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, XANTHAN GUM, METHYLENE BLUE, CHLOROPHYLL, WHEATGRASS EXTRACT, CITRIC ACID",
+  "directions": " Apply 2-3 pumps of the serum on a clean face avoiding the eye area and 2-3 pumps to the neck and decollete. Smooth evenly.<br>",
+  "warnings": "For external use only. Avoid contact with eyes. Keep out of reach of children. If signs of irritation appear, discontinue use and consult your dermatologist.",
+  "whatToExpect": "<p><span style=\"color: #5fb078\">Skin Feel:</span>  Hydrated, Smooth <br><span style=\"color: #5fb078\">Product Texture:</span>  Lightweight Serum <br><span style=\"color: #5fb078\">Skin Types:</span>  Normal, Oily, Dry, Combination, Sensitive<br><span class=\"uk-text-danger\"></p>",
+  "picture": {
+    "art": [
+      "hydserum_main.jpg"
+    ],
+    "review": [
+      "hydserum_review.jpg"
+    ],
+    "shop": [
+      "hydserum_1.jpg",
+      "hydserum_3.jpg"
+    ],
+    "carousel": [
+      "hydserum_carousel.jpg"
+    ]
+  },
+  "productTypes": [
+    {
+      "type": "SALE",
+      "saleDiscount": 0,
+      "quantity": 19,
+      "totalPrice": 1235,
+      "sku": "850013620106",
+      "name": "Hydrating Serum",
+      "group": "hydserum",
+      "originalPrice": 65,
+      "price": 65,
+      "description": "Hydrating Serum",
+      "ingredients": [
+        {
+          "_id": "e8a435d1",
+          "type": "aroma",
+          "name": "Aroma",
+          "keyIngredientText": "<span style=\"color: #5fb078\">Rosa Damascena Flower Water</span> is rich in antioxidants, vitamins, and minerals that play a vital role in the synthesis of collagen and elastin. Rose Flower water refreshes the skin while maintaining its natural oils. It eliminates dullness and instantly refreshes the complexion.<br>",
+          "fullIngredientText": ", FRAGRANCE",
+          "description": "<h3>Add Rosa Damascena Flower</h3><p>Rosa Damascena Flower is a staple ingredient in many natural rose water products. It has antibacterial, antimicrobial, and anti-inflammatory properties, helping soothe skin, minimize pores, and reduce fine lines.</p><br>",
+          "directions": "",
+          "warnings": "",
+          "whatToExpect": "<span style=\"color: #5fb078\">Aroma:</span> Floral, Sweet, Green<br>",
+          "pictures": []
+        }
+      ],
+      "imagePaths": [
+        "hydserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 19
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SALE",
+      "saleDiscount": 0,
+      "quantity": 19,
+      "totalPrice": 1235,
+      "sku": "8500136201061",
+      "name": "Hydrating Serum - no fragrance",
+      "group": "hydserum",
+      "originalPrice": 60,
+      "price": 60,
+      "description": "Hydrating Serum",
+      "imagePaths": [
+        "hydserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 7
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 10,
+      "totalPrice": 2,
+      "sku": "850013620106SMPL",
+      "name": "Hydrating Serum Sample",
+      "group": "hydserum",
+      "originalPrice": 2,
+      "price": 2,
+      "description": "Hydrating Serum",
+      "imagePaths": [
+        "hydserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 10
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 4.5,
+        "yLengthInCm": 4.5,
+        "zLengthInCm": 4.5,
+        "weightInGrams": 51.69
+      }
+    }
+  ],
+  "sample": {
+    "showSampleButton": true,
+    "text": "$2.00 Sample / 0.17 FL 0Z",
+    "hover": "5ml",
+    "description": ""
+  },
+  "_class": "com.webstore.inventory.product.Product"
+},
+{
+  "_id": "2010",
+  "company": "CP:BG",
+  "name": "Серум с Хиалуронова Киселина",
+  "group": "hyserum:bg",
+  "isPopular": false,
+  "themeColor": "#83476f",
+  "info": "Коктейл от хиалуронова киселина, съдържащ хиалуронова киселина с високо и ниско молекулно тегло и хиалуронова киселина 4D. Хиалуроновата киселина с високо и ниско молекулно тегло защитава клетъчната структура, като хидратира междуклетъчния резервоар на кожата, повишава нивото на влага в кожата и изглажда линиите. Хиалуроновата киселина с ниско молекулно тегло прониква по-дълбоко в кожата, докато тази с високо молекулно тегло хидратира повърхността. Хиалуронова киселина 4D се състои от четири вида хиалуронова киселина с различни свойства, които целенасочено действат върху различни слоеве на кожата и осигуряват хидратираща ефикасност за непрекъснато хидратиране на кожата.<br>Серумът с хиалуронова киселина може да се използва денем и нощем.",
+  "description": "",
+  "keyIngredients": "<span style='color: #83476f'>N-Ацетил Глюкозамин (NAG)</span>, считан за 'кожно-идентичен състав', увеличава производството на хиалуронова киселина в кожата, което води до увеличаване на съдържанието на влага и хидратация на кожата. NAG може да увеличи производството на колаген, което води до намаляване на бръчките и хиперпигментацията. Освен това, ускорява заздравяването на рани и еластичността на кожата. Той ремонтира и третира уврежданията от слънцето.<br><span style='color: #83476f'>Хиалуронова Киселина 4D (HA 4D)</span> се натрупва и образува мрежа за точно целенасочване на различни слоеве на кожата, заключва влагата отвън, задържа тази влага и подобрява еластичността на кожата.<br><span style='color: #83476f'>Хиалуронова Киселина (HA)</span> прониква във външните слоеве на кожата и свързва водата дълбоко. Тя насища тези слоеве с възстановяваща и подмладяваща влага. След като насити горния слой на кожата с влага, действа като хумектант и продължава да привлича влага от околната среда. Това осигурява трайна хидратация на кожата. Хиалуроновата киселина укрепва естествените бариери на кожата, за да помогне за запазване на влагата за дълготраен хидратиращ ефект.Като подпомага поддържането на правилния баланс на влагата в кожата, хиалуроновата киселина предотвратява прекомерното производство на мазнини, които запушват порите и могат да доведат до акне. Препоръчва се за хора с чувствителна или склонна към акне кожа. Като изпълва кожата с влага, хиалуроновата киселина стяга общия тонус на кожата. Тя помага за затвърдяване на контурите на лицето за по-свеж и младежки вид. По същия начин, по който кожата изглежда по-стегната, тя също изглажда текстурата на кожата. Хиалуроновата киселина помага за намаляване на видимостта на фините линии и бръчки, задържайки влагата в кожата и създавайки ефект на пълнене. Хиалуроновата киселина насърчава регенерацията на кожните клетки с допълнителна хидратация и защита за кожата. Това води естествено до по-здрави клетки и по-сияен тен.<br><span style='color: #83476f'>Хидролизиран натриев хиалуронат</span>, известен още като мини HA, има ниско молекулно тегло в сравнение с обикновената хиалуронова киселина. Той прониква в кожата по-дълбоко от обикновената хиалуронова киселина. Ниското молекулно тегло прониква в кожата и я храни дълбоко. Максимизира хидратацията на кожата и има висок капацитет за възстановяване от слънцето. Хидролизираният натриев хиалуронат може да намали бръчките и да подобри еластичността на кожата. В епидермиса той е в състояние да стимулира производството на хиалуронова киселина.<br><span style='color: #83476f'>Био-целулоза</span> се произвежда чрез ферментация на полезни естествени бактерии. Влакната от био-целулоза имат способността да абсорбират и предават влага и кожни терапии, което ги прави идеален носител за доставяне на подхранващи съставки на кожата. Маските от био-целулоза се прилепват към кожата, което означава, че достигат до всяка част от повърхността на кожата. Те остават освежаващо влажни по време на употреба. Всички специални характеристики на маската допринасят за дълбокото проникване на съставките за по-добри резултати.<br><span style='color: #83476f'>Витамин Е</span> подхранва кожата, запечатва влагата, минимизира видимостта на акнето, и обръща признаците на стареене.<br><span style='color: #83476f'>Цветна вода от Роза Дамасцена</span> е основна съставка в много натурални продукти с розова вода; тя има антибактериални, антимикробни и противовъзпалителни свойства, които помагат да се успокои кожата, да се минимизират порите и да се намалят фините линии, за да се постигне здрава нова кожа.<br>",
+  "fullIngredients": "AQUA/WATER, ROSA DAMASCENA FLOWER WATER, N-ACETYL GLUCOSAMINE, GLYCERIN, BUTYLENE GLYCOL, PENTYLENE GLYCOL, SODIUM HYALURONATE CROSSPOLYMER, SODIUM HYALURONATE, SODIUM ACETYLATED HYALURONATE, HYDROLYZED SODIUM HYALURONATE, CAPRYLIC CAPRIC TRIGLYCERIDE, 1 2 HEXANEDIOL, PHENOXYETHANOL (AND) ETHYLHEXYLGLYCERIN, SODIUM HYALURONATE, TOCOPHERYL ACETATE, BETAINE, SODIUM HYALURONATE, HYDROXYETHYL ACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, XANTHAN GUM, ANTHOCYANINS, CITRIC ACID",
+  "directions": "Нанесете 2-3 помпи от серума върху чисто лице, като избягвате зоната около очите, и 2-3 помпи върху шията и деколтето. Разнесете равномерно.<br>",
+  "warnings": "Само за външна употреба. Избягвайте контакт с очите. Дръжте далеч от деца. При поява на признаци на раздразнение, преустановете употребата и се консултирайте с дерматолог.",
+  "whatToExpect": "<p><span style='color: #83476f'>Усещане за Кожата:</span>  Хидратирана, Гладка <br><span style='color: #83476f'>Текстура на Продукта:</span>  Лек Серум <br><span style='color: #83476f'>Типове Кожа:</span>  Нормална, Мазна, Суха, Комбинирана, Чувствителна<br></p>",
+  "picture": {
+    "art": [
+      "hyserum_main.jpg"
+    ],
+    "review": [
+      "hyserum_review.jpg"
+    ],
+    "shop": [
+      "hyserum_1.jpg",
+      "hyserum_3.jpg"
+    ],
+    "carousel": [
+      "hyserum_carousel.jpg"
+    ]
+  },
+  "productTypes": [
+    {
+      "type": "SALE",
+      "saleDiscount": 0,
+      "quantity": 32,
+      "totalPrice": 0,
+      "sku": "850013620107:BG",
+      "name": "Hyaluronic Serum",
+      "group": "hyserum:bg",
+      "originalPrice": 70,
+      "price": 50,
+      "description": "Hyaluronic Serum",
+      "ingredients": [
+        {
+          "_id": "e24gy1j8",
+          "type": "aroma",
+          "name": "Aroma",
+          "keyIngredientText": "<span style=\"color: #83476f\">Essential Oil</span> Moroccan Neroli Essential Oil.<br>",
+          "fullIngredientText": ", BLUE WATER LILY ABSOLUTE OIL , MADONNA LILY FLOWER ABSOLUTE, CISTUS LADANIFERUS ESSENTIAL OIL",
+          "description": "<h3>Add Moroccan Neroli Essential Oil</h3><p> Moroccan Neroli Essential Oil helps with skin nourishing and rejuvenating. Its anti-bacterial, anti-inflammatory, and its antiseptic properties have a toning, cleaning, and tightening effect that helps skin look more radiant.</p><br>",
+          "directions": "",
+          "warnings": "",
+          "whatToExpect": "<span style=\"color: #83476f\">Aroma:</span> Sweet Floral, Honeyed Floral.<br>",
+          "pictures": []
+        }
+      ],
+      "imagePaths": [
+        "hyserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 32
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SALE",
+      "saleDiscount": 0,
+      "quantity": 43,
+      "totalPrice": 0,
+      "sku": "8500136201071:BG",
+      "name": "Hyaluronic Serum / No Fragrance",
+      "group": "hyserum",
+      "originalPrice": 65,
+      "price": 55,
+      "description": "Hyaluronic Serum",
+      "imagePaths": [
+        "hyserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 43
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 10,
+      "totalPrice": 2,
+      "sku": "850013620107:BGSMPL",
+      "name": "Hyaluronic Acid Serum Sample",
+      "group": "hyserum",
+      "originalPrice": 2,
+      "price": 2,
+      "description": "Hyaluronic Acid Serum Sample",
+      "imagePaths": [
+        "hyserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-10-16T03:04:45.000",
+          "quantity": 10
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 4.5,
+        "yLengthInCm": 4.5,
+        "zLengthInCm": 4.5,
+        "weightInGrams": 51.69
+      }
+    }
+  ],
+  "sample": {
+    "showSampleButton": true,
+    "text": "$2.00 Sample / 0.17 FL 0Z",
+    "hover": "5ml",
+    "description": ""
+  },
+  "_class": "com.webstore.inventory.product.Product",
+  "currencySymbol": "лв"
+},
+{
+  "_id": "1002",
+  "company": "CP",
+  "name": "Vitamin C Serum",
+  "group": "vitcserum",
+  "isPopular": true,
+  "themeColor": "#ff5e0d",
+  "info": "A concentrated cocktail that contains a stable, powerful, yet gentle to the skin Vitamin C. Vitamin C targets the cell in many beneficial ways. It brightens your complexion, hydrates your skin, decreases inflammation and irregular pigmentation, produces collagen, and thus prevents skin from sagging while leaving you with a glowing, smoother, younger-looking face.",
+  "description": "",
+  "keyIngredients": "<span style=\"color: #ff5e0d\">Tetrahexyldecyl ascorbate, THD ascorbate</span>, is an oil-soluble type of Vitamin C that is very stable compared to its more common vitamin C relative, L-Ascorbic Acid. It penetrates the skin faster and deeper than any other form of vitamin C. THD ascorbate works as a powerful antioxidant. It is compatible with most skin types, even sensitive. THD ascorbate stimulates collagen production and brightens the skin, promoting a more even skin tone.<br><span style=\"color: #ff5e0d\">Bio-cellulose</span> is produced by fermenting helpful natural bacteria. Bio-cellulose fibers absorb and donate moisture, making them an ideal system to deliver nourishing ingredients to the skin. Bio-cellulose masks cling to the skin, allowing them to reach a broader skin surface target area. They remain refreshingly moist during use. The mask's special features contribute to deep ingredient penetration for more effective results.<br><span style=\"color: #ff5e0d\">Vitamin E</span> nourishes the skin, seals in moisture, minimizes acne scars' appearance and can act to reverse signs of aging.<br><span style=\"color: #ff5e0d\">Hyaluronic Acid (HA)</span>  binds water and imbues the skin with replenishing and rejuvenating moisture. After infusing the top layer of the skin with moisture, it acts as a humectant and draws moisture from the surrounding environment, providing the skin with lasting hydration. By promoting proper moisture balance, hyaluronic acid limits the over-production of oil that can clog pores and lead to breakouts. As it fills the skin with moisture, hyaluronic acid tightens the overall complexion. It helps firm facial contours for a more vibrant, youthful appearance. It makes the skin appear tighter while smoothing the skin texture. Hyaluronic acid helps reduce the appearance of fine lines and wrinkles by retaining moisture to the skin, and creating a plumping effect. Hyaluronic acid promotes skin cell regeneration with extra hydration and protection, leading to healthier skin cells and a more vibrant, youthful appearing complexion.<br><span style=\"color: #ff5e0d\">Astaxanthin</span> is a powerful carotenoid with potent antioxidant and anti-inflammatory activity. It helps protect the skin and repair DNA damage due to UV rays. It also reduces the appearance of fine lines, wrinkles, and hyperpigmentation spots.<br>",
+  "fullIngredients": "AQUA/WATER, ROSA DAMASCENA FLOWER WATER, TETRAHEXYLDECYL ASCORBATE, GLYCERIN, BUTYLENE GLYCOL, PENTYLENE GLYCOL, CELLULOSE, CAPRYLIC/CAPRIC TRIGLYCERIDE, 1 2 HEXANEDIOL, PHENOXYETHANOL, BETAINE, TOCOPHEROL, TOCOPHERYL ACETATE, ETHYLHEXYLGLYCERIN, SODIUM HYALURONATE, HYDROXYETHYL ACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, LECITHIN, XANTHAN GUM, ASTAXANTHIN",
+  "directions": "Apply 2-3 pumps of the serum on a clean face avoiding the eye area and 2-3 pumps to the neck and decollete. Smooth evenly.<br>The Vitamin C Serum can be used on itself without moisturizer.",
+  "warnings": "For external use only. Avoid contact with eyes. Keep out of reach of children. If signs of irritation appear, discontinue use and consult your dermatologist.",
+  "whatToExpect": "<p><span style=\"color: #ff5e0d\">Skin Feel:</span> Hydrated, Glowing, Smooth <br><span style=\"color: #ff5e0d\">Product Texture:</span>  Lightweight Serum <br><span style=\"color: #ff5e0d\">Skin Types:</span>  Normal, Oily, Dry, Combination, Sensitive<br></p>",
+  "picture": {
+    "art": [
+      "vitcserum_main.jpg"
+    ],
+    "review": [
+      "vitcserum_review.jpg"
+    ],
+    "shop": [
+      "vitcserum_1.jpg",
+      "vitcserum_3.jpg"
+    ],
+    "carousel": [
+      "vitcserum_carousel.jpg"
+    ]
+  },
+  "productTypes": [
+    {
+      "type": "FREE_SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 27,
+      "totalPrice": 2160,
+      "sku": "850013620100",
+      "name": "Vitamin C Serum",
+      "group": "vitcserum",
+      "originalPrice": 70,
+      "price": 70,
+      "description": "Vitamin C Serum",
+      "ingredients": [
+        {
+          "_id": "e8a435d1",
+          "type": "aroma",
+          "name": "Aroma",
+          "keyIngredientText": "<span style=\"color: #ff5e0d\">Rosa Damascena Flower</span> is a staple ingredient in many natural rose water products. It has antibacterial, antimicrobial, and anti-inflammatory properties, helping soothe skin, minimize pores, and reduce fine lines.<br>",
+          "fullIngredientText": ", FRAGRANCE",
+          "description": "<h3>Add Rosa Damascena Flower</h3><p>Rosa Damascena Flower is a staple ingredient in many natural rose water products. It has antibacterial, antimicrobial, and anti-inflammatory properties, helping soothe skin, minimize pores, and reduce fine lines.</p><br>",
+          "directions": "",
+          "warnings": "",
+          "whatToExpect": "<span style=\"color: #ff5e0d\">Aroma:</span> Fresh Floral Aroma<br>",
+          "pictures": []
+        }
+      ],
+      "imagePaths": [
+        "vitcserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 19
+        },
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 8
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "FREE_SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 27,
+      "totalPrice": 2160,
+      "sku": "8500136201001",
+      "name": "Vitamin C Serum - no fragrance",
+      "group": "vitcserum",
+      "originalPrice": 65,
+      "price": 65,
+      "description": "Vitamin C Serum - no fragrance",
+      "imagePaths": [
+        "vitcserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 2
+        },
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 3
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 32,
+      "totalPrice": 0,
+      "sku": "850013620100SMPL",
+      "name": "Vitamin C Serum Sample",
+      "group": "vitcserum",
+      "originalPrice": 0,
+      "price": 0,
+      "description": "Vitamin C Serum Sample",
+      "imagePaths": [
+        "vitcserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 20
+        },
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 30
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 4.5,
+        "yLengthInCm": 4.5,
+        "zLengthInCm": 4.5,
+        "weightInGrams": 51.69
+      }
+    }
+  ],
+  "sample": {
+    "showSampleButton": true,
+    "text": "Complimentary Sample / 0.17 FL 0Z",
+    "hover": "5ml",
+    "description": ""
+  },
+  "_class": "com.webstore.inventory.product.Product"
+},
+{
+  "_id": "1001",
+  "concentrations": [
+    {
+      "sku": "850013620005",
+      "level": "Low",
+      "originalPrice": 150,
+      "price": 120,
+      "quantity": 27
+    },
+    {
+      "sku": "850013620006",
+      "level": "Medium",
+      "originalPrice": 170,
+      "price": 130,
+      "quantity": 37
+    },
+    {
+      "sku": "850013620007",
+      "level": "High",
+      "originalPrice": 190,
+      "price": 140,
+      "quantity": 39
+    }
+  ],
+  "company": "AVA",
+  "name": "The Vitamin C Serum",
+  "group": "cserum",
+  "isPopular": true,
+  "themeColor": "#ffa6a8",
+  "info": "Experience an instant youthful glow with the Vitamin C Serum. It is a Vitamin C concentrated cocktail that contains 5 types of powerful yet gentle to the skin Vitamin C. The Vitamin C have been found to target the cell in beneficial ways. Vitamin C brightens your complexion, hydrates your skin, decreases inflammation and irregular pigmentation, produces collagen and thus prevents skin from sagging while leaving you with a glowing, smoother, younger-looking face.",
+  "description": "",
+  "keyIngredients": "Five types of water and oil soluble Vitamin C and :<br><span style=\"color: #ffa6a8\">Glutathione</span> is a powerful antioxidant that helps neutralize pigmentation spots and evens out the skin’s complexion.<br><span style=\"color: #ffa6a8\">Alpha Arbutin</span> is an antioxidant, which evens out skin imperfections. It is effective for treating acne scars and helps treat skin redness.<br><span style=\"color: #ffa6a8\">White Rose Essential Oil</span>, is a rare and the most precious oil extracted from one of Bulgaria’s finest roses. It is the most efficient anti-wrinkle essential oil. It hydrates dry skin, clears up acne, and has anti-inflammatory properties which help treat irritation and inflammation.<br><span style=\"color: #ffa6a8\">Frankincense Frereana Essential Oil</span>, repairs dead skin cells and reduces the appearance of aging.<br><span style=\"color: #ffa6a8\">Blue Lotus Essential Oil</span> has one of the most powerful anti-inflammatory benefits. It contributes to helping expedite wound healing and eliminates scars.<br><span style=\"color: #ffa6a8\">Madonna lily flower Essential Oil</span> is a natural gem for revitalizing the skin. It helps reduce pain and has many anti-bacterial and anti-inflammatory properties.<br><span style=\"color: #ffa6a8\">Jasmine Sambac Essential Oil</span>, increases elasticity of the skin by rejuvenating and nourishing it.<br>",
+  "fullIngredients": "AQUA/WATER, BUTYLENE GLYCOL, PENTYLENE GLYCOL, GLYCERIN, TETRAISOPALMITATE ASCORBATE, 3-O-ETHYLASCORBIC ACID, MAGNESIUM  ASCORBYL PHOSPHATE, SODIUM ASCORBYL PHOSPHATE, 1 2 HEXANEDIOL, GLUTATHIONE,  ALPHA-ARBUTIN, L-ASCORBYL PALMITATE, HYDROXYETHYL  ACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLIMER, XANTHAN GUM, BETAINE, LECITHIN, BHA, PHENOXYETANOL, ALCOHOL, CAPRYLYL GLYCOL, ROSE WHITE OTTO/ BULGARIAN WHITE ROSE ESSENTIAL OIL, BLUE LOTUS/BLUEWATER LILY/ ABSOLUTE OIL, JASMINE SAMBAC ABSOLUTE OIL, MADONNA LILY FLOWER  ABSOLUTE OIL, FRANKINCENSE FREREANA ESSENTIAL OIL, SODIUM BENZOATE, POTASSIUM SORBATE",
+  "directions": " Apply 2-3 pumps of the serum on a clean face avoiding the eye area and 2-3 pumps to the neck and decollete. Smooth evenly.<br>The Vitamin C Serum can be used on itself without moisturizer.",
+  "warnings": "For external use only. Avoid contact with eyes. Keep out of reach of children. If signs of irritation appear, discontinue use and consult your dermatologist.",
+  "whatToExpect": "<p><span style=\"color: #ffa6a8\">Skin Feel:</span>  Hydrated, Glowing, Smooth <br><span style=\"color: #ffa6a8\">Product Texture:</span>  Lightweight serum <br><span style=\"color: #ffa6a8\">Aroma:</span>  Unisex scent of White Rose, White Lily Jasmine, Frankincense and Blue Lotus   <br><span style=\"color: #ffa6a8\">Skin Types:</span>  Normal, oily, dry, combination, sensitive<br><span class=\"uk-text-danger\">Note:</span>  Get Low Concentration Vitamin C Serum if your skin is sensitive or you never used concentrated vitamin serums or acids (irritation may occur) and slowly build up to medium concentration.<br></p>",
+  "picture": {
+    "art": [
+      "cserum_main.jpg"
+    ],
+    "review": [
+      "cserum_review.jpg"
+    ],
+    "shop": [
+      "cserum_1.jpg",
+      "cserum_2.jpg"
+    ],
+    "carousel": [
+      "cserum_carousel.jpg"
+    ]
+  },
+  "productTypes": [
+    {
+      "type": "FREE_SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 27,
+      "totalPrice": 4050,
+      "sku": "850013620005",
+      "name": "The Vitamin C Serum Low Concentration",
+      "group": "cserum",
+      "originalPrice": 150,
+      "price": 150,
+      "description": "Vitamin C Serum Low Concentration",
+      "concentration": "Low",
+      "imagePaths": [
+        "cserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 19
+        },
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 8
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "NONE",
+      "saleDiscount": 0,
+      "quantity": 37,
+      "totalPrice": 6290,
+      "sku": "850013620006",
+      "name": "The Vitamin C Serum Midium Concentration",
+      "group": "cserum",
+      "originalPrice": 170,
+      "price": 170,
+      "description": " Vitamin C Serum Midium Concentration",
+      "concentration": "Medium",
+      "imagePaths": [
+        "cserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 3
+        },
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 8
+        },
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 26
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "NONE",
+      "saleDiscount": 0,
+      "quantity": 39,
+      "totalPrice": 7410,
+      "sku": "850013620007",
+      "name": "The Vitamin C Serum High Concentration",
+      "group": "cserum",
+      "originalPrice": 190,
+      "price": 190,
+      "description": "Vitamin C Serum High Concentration",
+      "concentration": "High",
+      "imagePaths": [
+        "cserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 31
+        },
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 8
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 32,
+      "totalPrice": 0,
+      "sku": "850013620005SMPL",
+      "name": "The Vitamin C Serum Sample",
+      "group": "cserum",
+      "originalPrice": 0,
+      "price": 0,
+      "description": "Vitamin C Serum Sample",
+      "imagePaths": [
+        "cserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 24
+        },
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 8
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 4.5,
+        "yLengthInCm": 4.5,
+        "zLengthInCm": 4.5,
+        "weightInGrams": 51.69
+      }
+    }
+  ],
+  "sample": {
+    "showSampleButton": true,
+    "text": "Complimentary Sample / 0.17 FL 0Z",
+    "hover": "5ml",
+    "description": ""
+  },
+  "_class": "com.webstore.inventory.product.Product"
+},
+{
+  "_id": "1011",
+  "company": "CP",
+  "name": "Collagen Builder Serum",
+  "group": "collagenserum",
+  "isPopular": true,
+  "themeColor": "#1d4b2f",
+  "info": "A powerful formulation of the building blocks needed for enhanced collagen production.",
+  "description": "",
+  "keyIngredients": "<br><span style=\"color: #1d4b2f\">3-O-Ethyl Ascorbic Acid Vitamin C</span> is a very stable form of Vitamin C that is an antioxidant, collagen booster, and skin brightener. This type of Vitamin C helps attain a more even skin tone and diminishes the appearance of fine lines and wrinkles.<br><span style=\"color: #1d4b2f\">Palmitoyl Tripeptide-5</span> stimulates collagen synthesis, actively removing wrinkles and moisturizing and firming the skin.<br><span style=\"color: #1d4b2f\">Dipalmitoyl Hydroxyproline</span> is an active anti-aging ingredient that moisturizes, strengthens, and rejuvenates the skin. It has a wrinkle correction, moisturization, and a triple-firming action (collagen fiber contraction, protection of dermal-supporting tissue, and anti-radical action).<br><span style=\"color: #1d4b2f\">L-arginine</span> helps protect the skin from free radicals, increases skin hydration by acting as a humectant, and boosts collagen production.<br><span style=\"color: #1d4b2f\">Proline</span> is essential for the formation of healthy collagen and helps reduce sagging and wrinkling that often accompanies UV exposure and the normal aging of the skin.<br><span style=\"color: #1d4b2f\">L lysine</span> helps build collagen, providing structure to the skin and contributing to its elasticity and firmness.<br><span style=\"color: #1d4b2f\">Glycolic acid</span> reduces fine lines and wrinkles, minimizes pores' appearance, fights acne, removes dead skin cells, and evens overall skin tone. <br><span style=\"color: #1d4b2f\">Lactic acid</span> helps keep the skin moisturized and feeling less dry. Using lactic acid can improve aging signs by stimulating collagen renewal and firming the skin. Fine lines and wrinkles soften and smooth out. Hyperpigmentation such as age spots and sun-spots can fade. Lactic acid works by gently exfoliating the outer skin layer, making a brighter and smoother complexion. Lactic acid exfoliation reduces acne by keeping pores clear and removing older skin cells and excess oil to prevent pimples, blackheads, and whiteheads.<br><span style=\"color: #1d4b2f\">Centella Asiatica Extract</span> is a plant that calms inflammation, encourages collagen production, acts as an antioxidant, and improves skin hydration.<br><span style=\"color: #1d4b2f\">Bio-cellulose</span> is produced by fermenting helpful natural bacteria. Bio-cellulose fibers absorb and donate moisture, making them an ideal system to deliver nourishing ingredients to the skin. Bio-cellulose masks cling to the skin, allowing them to reach a broader skin surface target area. They remain refreshingly moist during use. The mask's special features contribute to deep ingredient penetration for more effective results.<br><span style=\"color: #1d4b2f\">Chlorophyll</span> is an excellent source of vitamins A,C, E, and K, and acts to replenish the skin and keep it firm while increasing collagen production, and helping <u>reduce free-radical damage</u>.<br><span style=\"color: #1d4b2f\">Vitamin E</span> nourishes the skin, seals in moisture, minimizes the appearance of acne scars and diminishes the appearance of the signs of aging.<br><span style=\"color: #1d4b2f\">Hyaluronic Acid (HA)</span> binds water and imbues the skin with replenishing and rejuvenating moisture. After infusing the top layer of the skin with moisture, it acts as a humectant and draws moisture from the surrounding environment, providing the skin with lasting hydration. By promoting proper moisture balance, hyaluronic acid limits the over-production of oil that can clog pores and lead to breakouts. As it fills the skin with moisture, hyaluronic acid tightens the overall complexion. It helps firm facial contours for a more vibrant, youthful appearance. It makes the skin appear tighter while smoothing the skin texture. Hyaluronic acid helps reduce the appearance of fine lines and wrinkles by retaining moisture to the skin and creating a plumping effect. Hyaluronic acid promotes skin cell regeneration with extra hydration and protection, leading to healthier skin cells and a more vibrant, youthful appearing complexion.<br><span style=\"color: #1d4b2f\">Green Wheatgrass Extract</span> works as an antioxidant and helps with anti-aging. The chlorophyll in wheatgrass is anti-bacterial and can help reduce pimples and heal wounds. The green wheatgrass extract can diminish the appearance of scars and blemishes. The Vitamin E in wheatgrass is photoprotective, it can help in the prevention and reversal of sun damage, and it also works as a skin barrier stabilizer. This barrier can protect the skin from the penetration of unwanted particles that can cause infections. It also helps to maintain skin hydration. The Vitamin E in green wheatgrass extract can also aid in skin regeneration and healing.<br><span style=\"color: #1d4b2f\">Methylene Blue</span> is a powerful antioxidant that reduces signs of aging in old skin cells, promotes wound healing in dermal fibroblasts, and stimulates cell proliferation. Additionally, it increases dermis thickness, hydration and improves skin viability, resulting in overall skin improvement, including improved appearance, smoothing of fine lines and wrinkles, and improved skin hydration.<br>",
+  "fullIngredients": "AQUA/WATER, 3-O-ETHYL ASCORBIC ACID, PALMITOYL TRIPEPTIDE-5, GLYCERIN, BUTYLENE GLYCOL, PENTYLENE GLYCOL, CAPRYLIC/CAPRIC TRIGLYCERIDE, 1 2 HEXANEDIOL, CELLULOSE, CENTELLA ASIATICA EXTRACT, PROLINE, DIPALMITOYL HYDROXYPROLINE, ARGININE, LYSINE, BETAINE, PHENOXYETHANOL (AND) ETHYLHEXYLGLYCERIN, LACTIC ACID, GLYCOLIC ACID, SODIUM HYALURONATE, TOCOPHERYL ACETATE, HYDROXYETHYL ACRYLATE/SODIUM ACRYLOYLDIMETHYL TAURATE COPOLYMER, XANTHAN GUM, CHLOROPHYLL, GREEN WHEATGRASS EXTRACT, FRAGRANCE",
+  "directions": " Apply 2-3 pumps of the serum on a clean face avoiding the eye area and 2-3 pumps to the neck and decollete. Smooth evenly.<br>",
+  "warnings": "For external use only. Avoid contact with eyes. Keep out of reach of children. If signs of irritation appear, discontinue use and consult your dermatologist.",
+  "whatToExpect": "<p><span style=\"color: #1d4b2f\">Skin Feel:</span>  Hydrated, Glowing, Smooth <br><span style=\"color: #1d4b2f\">Product Texture:</span>  Lightweight Serum <br><span style=\"color: #1d4b2f\">Aroma:</span>  Green, Minty and Herbal<br><span style=\"color: #1d4b2f\">Skin Types:</span>  Normal, Oily, Dry, Combination, Sensitive<br></p>",
+  "picture": {
+    "art": [
+      "collagenserum_main.jpg"
+    ],
+    "review": [
+      "collagenserum_review.jpg"
+    ],
+    "shop": [
+      "collagenserum_1.jpg",
+      "collagenserum_3.jpg"
+    ],
+    "carousel": [
+      "collagenserum_carousel.jpg"
+    ]
+  },
+  "productTypes": [
+    {
+      "type": "SALE",
+      "saleDiscount": 0,
+      "quantity": 19,
+      "totalPrice": 1330,
+      "sku": "850013620104",
+      "name": "Collagen Builder Serum",
+      "group": "collagenserum",
+      "originalPrice": 65,
+      "price": 65,
+      "description": "Collagen Builder Serum",
+      "imagePaths": [
+        "collagenserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 19
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 7.62,
+        "yLengthInCm": 12.7,
+        "zLengthInCm": 6.35,
+        "weightInGrams": 173
+      }
+    },
+    {
+      "type": "SAMPLE",
+      "saleDiscount": 0,
+      "quantity": 10,
+      "totalPrice": 2,
+      "sku": "850013620104SMPL",
+      "name": "Collagen Builder Serum Sample",
+      "group": "collagenserum",
+      "originalPrice": 2,
+      "price": 2,
+      "description": "Collagen Builder Serum",
+      "imagePaths": [
+        "collagenserum_shop.jpg"
+      ],
+      "products": [
+        {
+          "createdOn": "2020-05-16T03:04:45.000",
+          "quantity": 10
+        }
+      ],
+      "properties": {
+        "volume": 0,
+        "xLengthInCm": 4.5,
+        "yLengthInCm": 4.5,
+        "zLengthInCm": 4.5,
+        "weightInGrams": 51.69
+      }
+    }
+  ],
+  "sample": {
+    "showSampleButton": true,
+    "text": "$2.00 Sample / 0.17 FL 0Z",
+    "hover": "5ml",
+    "description": ""
+  },
+  "_class": "com.webstore.inventory.product.Product"
+}]

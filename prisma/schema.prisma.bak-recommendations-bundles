@@ -27,7 +27,6 @@ model Store {
   ingredientInteractions IngredientInteraction[]
   productInteractions    ProductInteraction[]
   contraindications      Contraindication[]
-  productBundles         ProductBundle[]
   customers              Customer[]
   campaigns              Campaign[]
   visitors               Visitor[]
@@ -64,8 +63,6 @@ model Product {
   sourceInteractions  ProductInteraction[]        @relation("ProductInteractionSource")
   targetInteractions  ProductInteraction[]        @relation("ProductInteractionTarget")
   contraindications   ProductContraindication[]
-  recommendationsFrom ProductRecommendation[]     @relation("ProductRecommendationSource")
-  recommendationsTo   ProductRecommendation[]     @relation("ProductRecommendationTarget")
 
   @@unique([storeId, slug])
 }
@@ -85,7 +82,6 @@ model ProductVariant {
   inventoryItem     InventoryItem?
   prices            VariantPrice[]
   promotionVariants PromotionVariant[]
-  bundleItems       ProductBundleItem[]
   cartItems         CartItem[]
   orderItems        OrderItem[]
 
@@ -134,7 +130,6 @@ model Customer {
   addresses CustomerAddress[]
   carts     Cart[]
   orders    Order[]
-  profile   CustomerProfile?
 
   @@unique([storeId, email])
 }
@@ -726,8 +721,7 @@ model SkinConcern {
   slug String
   name String
 
-  products         ProductConcern[]
-  customerProfiles CustomerProfileConcern[]
+  products ProductConcern[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -777,9 +771,8 @@ model Ingredient {
 
   products ProductIngredient[]
 
-  interactionsAsA       IngredientInteraction[]      @relation("IngredientInteractionA")
-  interactionsAsB       IngredientInteraction[]      @relation("IngredientInteractionB")
-  customerSensitivities CustomerProfileSensitivity[]
+  interactionsAsA IngredientInteraction[] @relation("IngredientInteractionA")
+  interactionsAsB IngredientInteraction[] @relation("IngredientInteractionB")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -875,8 +868,7 @@ model SkinType {
   slug String
   name String
 
-  products         ProductSkinType[]
-  customerProfiles CustomerProfileSkinType[]
+  products ProductSkinType[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -975,117 +967,4 @@ model ProductContraindication {
   explanation String?
 
   @@unique([productId, contraindicationId])
-}
-
-model ProductRecommendation {
-  id String @id @default(uuid())
-
-  sourceProductId String
-  sourceProduct   Product @relation("ProductRecommendationSource", fields: [sourceProductId], references: [id])
-
-  targetProductId String
-  targetProduct   Product @relation("ProductRecommendationTarget", fields: [targetProductId], references: [id])
-
-  reason String?
-  weight Int     @default(100)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@unique([sourceProductId, targetProductId])
-  @@index([sourceProductId])
-  @@index([targetProductId])
-}
-
-model ProductBundle {
-  id      String @id @default(uuid())
-  storeId String
-  store   Store  @relation(fields: [storeId], references: [id])
-
-  slug        String
-  name        String
-  description String?
-  active      Boolean @default(true)
-
-  items ProductBundleItem[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@unique([storeId, slug])
-}
-
-model ProductBundleItem {
-  id String @id @default(uuid())
-
-  bundleId String
-  bundle   ProductBundle @relation(fields: [bundleId], references: [id])
-
-  variantId String
-  variant   ProductVariant @relation(fields: [variantId], references: [id])
-
-  quantity  Int @default(1)
-  sortOrder Int @default(0)
-
-  @@unique([bundleId, variantId])
-}
-
-model CustomerProfile {
-  id String @id @default(uuid())
-
-  customerId String   @unique
-  customer   Customer @relation(fields: [customerId], references: [id])
-
-  ageRange String?
-  notes    String?
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  skinTypes     CustomerProfileSkinType[]
-  skinConcerns  CustomerProfileConcern[]
-  sensitivities CustomerProfileSensitivity[]
-}
-
-model CustomerProfileSkinType {
-  id String @id @default(uuid())
-
-  profileId String
-  profile   CustomerProfile @relation(fields: [profileId], references: [id])
-
-  skinTypeId String
-  skinType   SkinType @relation(fields: [skinTypeId], references: [id])
-
-  strength Int @default(1)
-
-  @@unique([profileId, skinTypeId])
-}
-
-model CustomerProfileConcern {
-  id String @id @default(uuid())
-
-  profileId String
-  profile   CustomerProfile @relation(fields: [profileId], references: [id])
-
-  concernId String
-  concern   SkinConcern @relation(fields: [concernId], references: [id])
-
-  severity Int @default(1)
-
-  @@unique([profileId, concernId])
-}
-
-model CustomerProfileSensitivity {
-  id String @id @default(uuid())
-
-  profileId String
-  profile   CustomerProfile @relation(fields: [profileId], references: [id])
-
-  ingredientId String
-  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
-
-  severity String  @default("medium")
-  note     String?
-
-  @@unique([profileId, ingredientId])
 }

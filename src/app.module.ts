@@ -18,6 +18,8 @@ import { CheckoutModule } from './modules/checkout/checkout.module';
 import { LegacyModule } from './modules/legacy/legacy.module';
 import { AssistantCommerceModule } from './modules/assistant-commerce/assistant-commerce.module';
 import { StoreModule } from './modules/stores/store.module';
+import { PricingModule } from './modules/pricing/pricing.module';
+import { PromotionModule } from './modules/promotions/promotion.module';
 
 @Module({
   imports: [
@@ -37,6 +39,8 @@ import { StoreModule } from './modules/stores/store.module';
     LegacyModule,
     AssistantCommerceModule,
     StoreModule,
+    PricingModule,
+    PromotionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
