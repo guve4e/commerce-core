@@ -117,6 +117,7 @@ export class AuroraRecommendationService {
     customerId: string,
     currency = 'EUR',
     maxTotal?: number,
+    limit = 3,
   ) {
     const recommendations = await this.recommendForCustomer(
       customerId,
@@ -152,12 +153,12 @@ export class AuroraRecommendationService {
       usedRoles.add(role);
       total = nextTotal;
 
-      if (routine.length >= 3) {
+      if (routine.length >= limit) {
         break;
       }
     }
 
-    if (routine.length < 3) {
+    if (routine.length < limit) {
       for (const item of recommendations) {
         if (!item.price) {
           continue;
@@ -180,7 +181,7 @@ export class AuroraRecommendationService {
 
         total = nextTotal;
 
-        if (routine.length >= 3) {
+        if (routine.length >= limit) {
           break;
         }
       }
