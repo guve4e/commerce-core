@@ -93,6 +93,7 @@ export class AuroraRecommendationService {
           price,
           score: this.scoreProduct(product, skinTypeIds, concernIds),
           reasons: this.buildReasons(product, skinTypeIds, concernIds),
+          reasonCode: this.reasonCode(product),
           benefits: product.benefitAssignments.map((item) => ({
             slug: item.benefit.slug,
             name: item.benefit.name,
@@ -222,6 +223,19 @@ export class AuroraRecommendationService {
     }
 
     return 'support';
+  }
+
+  private reasonCode(product: any) {
+    switch (product.slug) {
+      case 'soothing':
+        return 'dry_sensitive_redness';
+
+      case 'hyaluronic':
+        return 'hydration_support';
+
+      default:
+        return 'profile_match';
+    }
   }
 
   private scoreProduct(product: any, skinTypeIds: string[], concernIds: string[]) {
